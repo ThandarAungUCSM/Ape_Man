@@ -97,13 +97,9 @@
     <img id="carobgId" class="carouselbg-css" src="@/assets/images/carousel-bg1.png" />
     <div class="overlap-info">
       <div class="title-info">
-        <!-- <img id="sectarget-r" class="rightarrowimg" src="@/assets/images/left-arrow.png" /> -->
-        <img id="sectarget-r" class="rightarrowimg" :src="tempimages1" />
-        
-        <img id="sectarget-r" class="rightarrowimg" :src="'@/assets/images/' + tempimages2" />
-        <img id="sectarget-r" class="rightarrowimg" :src="'/src/assets/images/' + tempimages2" />
-        <img id="sectarget-r" class="rightarrowimg" :src="tempimages3" />
-        <span class="latest-infotext ssssssssss">sss-最新情報-sss</span>
+        <img id="sectarget-r" class="rightarrowimg" src="@/assets/images/left-arrow.png" />
+        <!-- <img id="sectarget-r" class="rightarrowimg" :src="tempimages3" /> -->
+        <span class="latest-infotext">最新情報</span>
         <img id="sectarget-l" class="leftarrowimg" src="@/assets/images/right-arrow.png" />
       </div>
       <div class="title-info">
@@ -344,6 +340,7 @@
 
 <script>
 import { defineComponent, toRefs } from "vue";
+import ttt from '@/assets/images/left-arrow.png'
 import { Carousel, Pagination, Navigation, Slide } from "vue3-carousel";
 
 import "vue3-carousel/dist/carousel.css";
@@ -365,9 +362,7 @@ export default defineComponent({
         { id: 5, title: 'Vue3', content: 'Know the components' , src: '/src/assets/images/carousel/caro-sec.png'},
         { id: 6, title: '.', content: 'Know the components' , src: '/src/assets/images/carousel/caro-sec.png'}
       ],
-      tempimages1: '@/assets/images/carousel-bg1.png',
-      tempimages2: 'carousel-bg1.png',
-      tempimages3: '/src/assets/images/carousel-bg1.png',
+      tempimages3: ttt,
 
       firstBlockId: null,
 
@@ -934,11 +929,11 @@ export default defineComponent({
     }
   },
   setup(props, { emit }) {
-    const { images } = toRefs(props);
-
-    const deleteImage = (index) => emit("delete-image", index);
-
-    return { images, deleteImage };
+    // const useImage = ((url) => {
+    //   return new URL(`/src/assets/images/carousel-bg1.png`, import.meta.url).href;
+    // });
+    const useImage = new URL(`/src/assets/images/carousel-bg1.png`, import.meta.url).href
+    return useImage;
   },
 });
 </script>
