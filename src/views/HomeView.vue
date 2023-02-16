@@ -113,8 +113,8 @@
       <template #slides="{ slidesCount }" >
         <Slide v-for="(image, index) in slides" :key="image.id">
           <!-- <img :src="image.src" class="caro-img" id="slideimgId" /> -->
-          <!-- <img :src="image.src" class="caro-img" :id="'slideimgId'+index" /> -->
-          <img :src="'/src/assets/images/' + image.src" class="caro-img" :id="'slideimgId'+index" />
+          <!-- <img :src="'/src/assets/images/' + image.src" class="caro-img" :id="'slideimgId'+index" /> -->
+          <img :src="image.src" class="caro-img" :id="'slideimgId'+index" />
           <!-- <button v-if="slidesCount > 1" @click="deleteImage(index)">x</button> -->
         </Slide>
       </template>
@@ -348,6 +348,11 @@ import { defineComponent, toRefs } from "vue";
 import ttt from '@/assets/images/left-arrow.png'
 import bgsecd from '@/assets/images/firstbg1.png'
 
+import fsix1 from '@/assets/images/carousel/c1.png'
+import fsix2 from '@/assets/images/carousel/c1.png'
+import fsix3 from '@/assets/images/carousel/c1.png'
+import fsix4 from '@/assets/images/carousel/c1.png'
+
 import ssix1 from '@/assets/images/carousel/caro-sec.png'
 import ssix2 from '@/assets/images/carousel/caro-sec.png'
 import ssix3 from '@/assets/images/carousel/caro-sec.png'
@@ -363,10 +368,10 @@ export default defineComponent({
   data() {
     return {
       slides: [
-        { id: 1, title: 'Current', content: 'VueJS is a library' , src: 'carousel/c1.png'},
-        { id: 2, title: 'Project', content: 'Know the components' , src: 'carousel/c1.png'},
-        { id: 3, title: 'is', content: 'Know the components' , src: 'carousel/c1.png'},
-        { id: 4, title: 'Vue 3', content: 'Know the components' , src: 'carousel/c1.png'}
+        { id: 1, title: 'Current', content: 'VueJS is a library' , src: fsix1},
+        { id: 2, title: 'Project', content: 'Know the components' , src: fsix2},
+        { id: 3, title: 'is', content: 'Know the components' , src: fsix3},
+        { id: 4, title: 'Vue 3', content: 'Know the components' , src: fsix4}
       ],
       // '/src/assets/images/carousel/caro-sec.png'
       slidessec: [
