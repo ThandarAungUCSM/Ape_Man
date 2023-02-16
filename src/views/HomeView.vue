@@ -26,7 +26,7 @@
     <!-- <img alt="" class="firstbgimg-css" src="@/assets/images/firstbg1.png" /> -->
     <video-player class="firstbgimg-css"
       src="../../videos/lostark_intro.mp4"
-      poster="/src/assets/images/firstbg1.png"
+      :poster="bgsecn"
       :loop="true"
       :autoplay="true"
       :muted="true"
@@ -112,7 +112,9 @@
     <Carousel >
       <template #slides="{ slidesCount }" >
         <Slide v-for="(image, index) in slides" :key="image.id">
-          <img :src="image.src" class="caro-img" id="slideimgId" />
+          <!-- <img :src="image.src" class="caro-img" id="slideimgId" /> -->
+          <!-- <img :src="image.src" class="caro-img" :id="'slideimgId'+index" /> -->
+          <img :src="'/src/assets/images/' + image.src" class="caro-img" :id="'slideimgId'+index" />
           <!-- <button v-if="slidesCount > 1" @click="deleteImage(index)">x</button> -->
         </Slide>
       </template>
@@ -231,7 +233,9 @@
     <Carousel >
       <template #slides="{ slidesCount }" >
         <Slide v-for="(image, index) in slidessec" :key="image.id">
-          <img :src="image.src" class="caro-img" id="slideId6" />
+          <!-- <img :src="image.src" class="caro-img" id="slideId6" /> -->
+          <img :src="image.src" class="caro-img" :id="'slideId6'+index" />
+          <!-- <img :src="getImageUrl(image.src)" class="caro-img" id="slideId6" /> -->
         </Slide>
       </template>
 
@@ -340,7 +344,17 @@
 
 <script>
 import { defineComponent, toRefs } from "vue";
+
 import ttt from '@/assets/images/left-arrow.png'
+import bgsecd from '@/assets/images/firstbg1.png'
+
+import ssix1 from '@/assets/images/carousel/caro-sec.png'
+import ssix2 from '@/assets/images/carousel/caro-sec.png'
+import ssix3 from '@/assets/images/carousel/caro-sec.png'
+import ssix4 from '@/assets/images/carousel/caro-sec.png'
+import ssix5 from '@/assets/images/carousel/caro-sec.png'
+import ssix6 from '@/assets/images/carousel/caro-sec.png'
+
 import { Carousel, Pagination, Navigation, Slide } from "vue3-carousel";
 
 import "vue3-carousel/dist/carousel.css";
@@ -349,20 +363,22 @@ export default defineComponent({
   data() {
     return {
       slides: [
-        { id: 1, title: 'Current', content: 'VueJS is a library' , src: '/src/assets/images/carousel/c1.png'},
-        { id: 2, title: 'Project', content: 'Know the components' , src: '/src/assets/images/carousel/c1.png'},
-        { id: 3, title: 'is', content: 'Know the components' , src: '/src/assets/images/carousel/c1.png'},
-        { id: 4, title: 'Vue 3', content: 'Know the components' , src: '/src/assets/images/carousel/c1.png'}
+        { id: 1, title: 'Current', content: 'VueJS is a library' , src: 'carousel/c1.png'},
+        { id: 2, title: 'Project', content: 'Know the components' , src: 'carousel/c1.png'},
+        { id: 3, title: 'is', content: 'Know the components' , src: 'carousel/c1.png'},
+        { id: 4, title: 'Vue 3', content: 'Know the components' , src: 'carousel/c1.png'}
       ],
+      // '/src/assets/images/carousel/caro-sec.png'
       slidessec: [
-        { id: 1, title: 'My', content: 'VueJS is a library' , src: '/src/assets/images/carousel/caro-sec.png'},
-        { id: 2, title: 'Current', content: 'Know the components' , src: '/src/assets/images/carousel/caro-sec.png'},
-        { id: 3, title: 'Project', content: 'Know the components' , src: '/src/assets/images/carousel/caro-sec.png'},
-        { id: 4, title: 'is', content: 'Know the components' , src: '/src/assets/images/carousel/caro-sec.png'},
-        { id: 5, title: 'Vue3', content: 'Know the components' , src: '/src/assets/images/carousel/caro-sec.png'},
-        { id: 6, title: '.', content: 'Know the components' , src: '/src/assets/images/carousel/caro-sec.png'}
+        { id: 1, title: 'My', content: 'VueJS is a library' , src: ssix1},
+        { id: 2, title: 'Current', content: 'Know the components' , src: ssix2},
+        { id: 3, title: 'Project', content: 'Know the components' , src: ssix3},
+        { id: 4, title: 'is', content: 'Know the components' , src: ssix4},
+        { id: 5, title: 'Vue3', content: 'Know the components' , src: ssix5},
+        { id: 6, title: '.', content: 'Know the components' , src: ssix6}
       ],
       tempimages3: ttt,
+      bgsecn: bgsecd,
 
       firstBlockId: null,
 
@@ -374,6 +390,7 @@ export default defineComponent({
       rcaro: null,
       carobg: null,
       slickImg: null,
+      slickfirstArr: [],
       secondPagi: null,
 
       thirdBlockId: null,
@@ -411,6 +428,7 @@ export default defineComponent({
       sixRightel: null,
       sixPoly: null,
       slideData6: null,
+      slicksecArr: [],
       sixPagi: null,
 
       sevenBlockId: null,
@@ -543,7 +561,11 @@ export default defineComponent({
       this.lcaro = document.getElementById('lcaroId');
       this.rcaro = document.getElementById('rcaroId');
       this.carobg = document.getElementById('carobgId');
-      this.slickImg = document.getElementById('slideimgId');
+      this.slickfirstArr = []
+      for(let i=0; i< this.slides.length; i++) {
+        this.slickfirstArr.push(document.getElementById('slideimgId'+i));
+      }
+      // this.slickImg = document.getElementById('slideimgId');
 
       this.secondPagi = document.querySelector("#secondId .carousel__pagination");
 
@@ -586,7 +608,11 @@ export default defineComponent({
       this.sixLeftel = document.getElementById('sixtarget-l')
       this.sixRightel = document.getElementById('sixtarget-r')
       this.sixPoly = document.getElementById('polyId6');
-      this.slideData6 = document.getElementById('slideId6');
+      // this.slideData6 = document.getElementById('slideId6');
+      this.slicksecArr = []
+      for(let i=0; i< this.slidessec.length; i++) {
+        this.slicksecArr.push(document.getElementById('slideId6'+i));
+      }
 
       this.sixPagi = document.querySelector("#sixId .carousel__pagination");
       
@@ -622,7 +648,10 @@ export default defineComponent({
         this.lcaro.classList.remove('carolArrowAni');
         this.rcaro.classList.remove('carorArrowAni');
         this.carobg.classList.remove('caroAni');
-        this.slickImg.classList.remove('slickAni2');
+        for(let i=0; i< this.slides.length; i++) {
+          this.slickfirstArr[i].classList.remove('slickAni2');
+        }
+        // this.slickImg.classList.remove('slickAni2');
 
         this.secondPagi.classList.remove('pagiAni2');
 
@@ -669,7 +698,10 @@ export default defineComponent({
         this.sixLeftel.classList.remove('rshowActive');
         this.sixRightel.classList.remove('lshowActive');
         this.sixPoly.classList.remove('polyActive');
-        this.slideData6.classList.remove('slickAni6');
+        // this.slideData6.classList.remove('slickAni6');
+        for(let i=0; i< this.slidessec.length; i++) {
+          this.slicksecArr[i].classList.remove('slickAni6');
+        }
         this.sixPagi.classList.remove('pagiAni6');
 
         
@@ -727,7 +759,10 @@ export default defineComponent({
         this.lcaro.classList.add('carolArrowAni');
         this.rcaro.classList.add('carorArrowAni');
         this.carobg.classList.add('caroAni');
-        this.slickImg.classList.add('slickAni2');
+        for(let i=0; i<this.slides.length; i++) {
+          this.slickfirstArr[i].classList.add('slickAni2');
+        }
+        // this.slickImg.classList.add('slickAni2');
 
         this.secondPagi.classList.add('pagiAni2');
         
@@ -864,8 +899,11 @@ export default defineComponent({
         this.sixLeftel.classList.add('rshowActive');
         this.sixRightel.classList.add('lshowActive');
         this.sixPoly.classList.add('polyActive');
-        this.slideData6.classList.add('slickAni6');
         this.sixPagi.classList.add('pagiAni6');
+        // this.slideData6.classList.add('slickAni6');
+        for(let i=0; i<this.slidessec.length; i++) {
+          this.slicksecArr[i].classList.add('slickAni6');
+        }
       } else {
         // this.sixLeftel.classList.remove('rshowActive');
         // this.sixRightel.classList.remove('lshowActive');
@@ -928,12 +966,20 @@ export default defineComponent({
 
     }
   },
-  setup(props, { emit }) {
-    // const useImage = ((url) => {
-    //   return new URL(`/src/assets/images/carousel-bg1.png`, import.meta.url).href;
-    // });
-    const useImage = new URL(`/src/assets/images/carousel-bg1.png`, import.meta.url).href
-    return useImage;
+  setup() {
+    // const _slidessec = [
+    //   { id: 1, title: 'My', content: 'VueJS is a library' , src: '/src/assets/images/carousel/caro-sec.png'},
+    //   { id: 2, title: 'Current', content: 'Know the components' , src: '/src/assets/images/carousel/caro-sec.png'},
+    //   { id: 3, title: 'Project', content: 'Know the components' , src: '/src/assets/images/carousel/caro-sec.png'}
+    // ];
+    // const _slidessec = toRefs(_slidessec);
+    // const getImageUrl = (name) => {
+    //   return new URL(`/src/assets/images/carousel/${name}`, import.meta.url).href
+    // }
+    // return {
+    //   _slidessec,
+    //   getImageUrl
+    // }
   },
 });
 </script>
