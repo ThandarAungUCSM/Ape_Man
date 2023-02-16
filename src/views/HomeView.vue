@@ -24,7 +24,7 @@
 
   <div class="first-block" id="firstId">
     <!-- <img alt="" class="firstbgimg-css" src="@/assets/images/firstbg1.png" /> -->
-    <!-- <video-player class="firstbgimg-css"
+    <video-player class="firstbgimg-css"
       src="../../videos/lostark_intro.mp4"
       :poster="bgsecn"
       :loop="true"
@@ -32,8 +32,8 @@
       :muted="true"
       :playsinline="true"
       :fluid="true"
-    /> -->
-    <video-player class="firstbgimg-css"
+    />
+    <!-- <video-player class="firstbgimg-css"
       src="https://landing.mangot5.com/template/lostark/event/landing/test99/media/lostark_intro.mp4"
       :poster="bgsecn"
       :loop="true"
@@ -41,7 +41,7 @@
       :muted="true"
       :playsinline="true"
       :fluid="true"
-    />
+    /> -->
     
     <div class="overonbg-block ">
       <div class="header-firblock">
