@@ -357,7 +357,7 @@ import { defineComponent, toRefs } from "vue";
 
 import ttt from '@/assets/images/left-arrow.png'
 import bgsecd from '@/assets/images/firstbg1.png'
-import bgvideotemp from '@/assets/videos/lostark_intro.mp4'
+import bgvideotemp from "@/assets/videos/lostark_intro.mp4"
 
 import fsix1 from '@/assets/images/carousel/c1.png'
 import fsix2 from '@/assets/images/carousel/c1.png'
