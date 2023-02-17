@@ -24,6 +24,7 @@
 
   <div class="first-block" id="firstId">
     <!-- <img alt="" class="firstbgimg-css" src="@/assets/images/firstbg1.png" /> -->
+    <!-- src="https://landing.mangot5.com/template/lostark/event/landing/test99/media/lostark_intro.mp4" -->
     <!-- <video-player class="firstbgimg-css"
       src="../../videos/lostark_intro.mp4"
       :poster="bgsecn"
@@ -34,7 +35,7 @@
       :fluid="true"
     /> -->
     <video-player class="firstbgimg-css"
-      src="@/assets/videos/lostark_intro.mp4"
+      :src="bgvideo"
       :poster="bgsecn"
       :loop="true"
       :autoplay="true"
@@ -42,15 +43,6 @@
       :playsinline="true"
       :fluid="true"
     />
-    <!-- <video-player class="firstbgimg-css"
-      src="https://landing.mangot5.com/template/lostark/event/landing/test99/media/lostark_intro.mp4"
-      :poster="bgsecn"
-      :loop="true"
-      :autoplay="true"
-      :muted="true"
-      :playsinline="true"
-      :fluid="true"
-    /> -->
     
     <div class="overonbg-block ">
       <div class="header-firblock">
@@ -365,6 +357,7 @@ import { defineComponent, toRefs } from "vue";
 
 import ttt from '@/assets/images/left-arrow.png'
 import bgsecd from '@/assets/images/firstbg1.png'
+import bgvideotemp from '@/assets/videos/lostark_intro.mp4'
 
 import fsix1 from '@/assets/images/carousel/c1.png'
 import fsix2 from '@/assets/images/carousel/c1.png'
@@ -402,6 +395,7 @@ export default defineComponent({
       ],
       tempimages3: ttt,
       bgsecn: bgsecd,
+      bgvideo: bgvideotemp,
 
       firstBlockId: null,
 
