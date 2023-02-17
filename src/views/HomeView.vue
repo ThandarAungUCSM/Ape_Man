@@ -24,8 +24,17 @@
 
   <div class="first-block" id="firstId">
     <!-- <img alt="" class="firstbgimg-css" src="@/assets/images/firstbg1.png" /> -->
-    <video-player class="firstbgimg-css"
+    <!-- <video-player class="firstbgimg-css"
       src="../../videos/lostark_intro.mp4"
+      :poster="bgsecn"
+      :loop="true"
+      :autoplay="true"
+      :muted="true"
+      :playsinline="true"
+      :fluid="true"
+    /> -->
+    <video-player class="firstbgimg-css"
+      src="@/assets/videos/lostark_intro.mp4"
       :poster="bgsecn"
       :loop="true"
       :autoplay="true"
