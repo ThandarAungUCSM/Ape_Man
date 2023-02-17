@@ -107,16 +107,23 @@
     <img id="carobgId" class="carouselbg-css" src="@/assets/images/carousel-bg1.png" />
     <div class="overlap-info">
       <div class="title-info">
-        <img id="sectarget-r" class="rightarrowimg" src="@/assets/images/left-arrow.png" />
-        <!-- <img id="sectarget-r" class="rightarrowimg" :src="tempimages3" /> -->
+        <!-- <img id="sectarget-r" class="rightarrowimg" src="@/assets/images/left-arrow.png" /> -->
+        <div class="shawdow-wrap">
+          <div id="sectarget-r" class="larrowcss"></div>
+        </div>
         <span class="latest-infotext">最新情報</span>
-        <img id="sectarget-l" class="leftarrowimg" src="@/assets/images/right-arrow.png" />
+        <!-- <img id="sectarget-l" class="leftarrowimg" src="@/assets/images/right-arrow.png" /> -->
+        <div class="shawdow-wrap">
+          <div id="sectarget-l" class="rarrowcss"></div>
+        </div>
       </div>
+
       <div class="title-info">
         <!-- <img alt="" class="polygonimg" src="@/assets/images/polygon.png" /> -->
         <div id="polyId2" class="polygonimgcss"></div>
       </div>
     </div>
+    
     <!-- :wrap-around="true" :breakpoints="breakpoints" :autoplay="3000" -->
     <!-- :autoplay="2000" :wrap-around="true" -->
     <Carousel >
@@ -147,9 +154,15 @@
     <img alt="" class="thirdbg-css" src="@/assets/images/third-bg.png" />
     <div class="overlap-info">
       <div class="title-info">
-        <img id="thirdtarget-r" class="rightarrowimg" src="@/assets/images/left-arrow.png" />
+        <!-- <img id="thirdtarget-r" class="rightarrowimg" src="@/assets/images/left-arrow.png" /> -->
+        <div class="shawdow-wrap">
+          <div id="thirdtarget-r" class="larrowcss"></div>
+        </div>
         <span class="latest-infotext">故事劇情</span>
-        <img id="thirdtarget-l" class="leftarrowimg" src="@/assets/images/right-arrow.png" />
+        <!-- <img id="thirdtarget-l" class="leftarrowimg" src="@/assets/images/right-arrow.png" /> -->
+        <div class="shawdow-wrap">
+          <div id="thirdtarget-l" class="rarrowcss"></div>
+        </div>
       </div>
       <div class="title-info">
         <div id="polyId3" class="polygonimgcss"></div>
@@ -161,9 +174,15 @@
     <img id="fourbgId" class="thirdbg-css" src="@/assets/images/fourth-bg.png" />
     <div class="overlap-info">
       <div class="title-info">
-        <img id="fourtarget-r" class="rightarrowimg" src="@/assets/images/left-arrow.png" />
+        <!-- <img id="fourtarget-r" class="rightarrowimg" src="@/assets/images/left-arrow.png" /> -->
+        <div class="shawdow-wrap">
+          <div id="fourtarget-r" class="larrowcss"></div>
+        </div>
         <span class="latest-infotext">角色職業</span>
-        <img id="fourtarget-l" class="leftarrowimg" src="@/assets/images/right-arrow.png" />
+        <!-- <img id="fourtarget-l" class="leftarrowimg" src="@/assets/images/right-arrow.png" /> -->
+        <div class="shawdow-wrap">
+          <div id="fourtarget-l" class="rarrowcss"></div>
+        </div>
       </div>
       <div class="title-info">
         <div id="polyId4" class="polygonimgcss"></div>
@@ -199,12 +218,18 @@
     </div>
   </div>
   <div class="five-block" id="fiveId">
-    <img alt="" class="thirdbg-css" src="@/assets/images/block5-bg1.png" />
+    <img class="thirdbg-css" src="@/assets/images/block5-bg1.png" />
     <div class="overlap-info">
       <div class="title-info">
-        <img id="fivetarget-l" class="rightarrowimg" src="@/assets/images/left-arrow.png" />
+        <!-- <img id="fivetarget-l" class="rightarrowimg" src="@/assets/images/left-arrow.png" /> -->
+        <div class="shawdow-wrap">
+          <div id="fivetarget-l" class="larrowcss"></div>
+        </div>
         <span class="latest-infotext">遊戲特色</span>
-        <img id="fivetarget-r" class="leftarrowimg" src="@/assets/images/right-arrow.png" />
+        <!-- <img id="fivetarget-r" class="leftarrowimg" src="@/assets/images/right-arrow.png" /> -->
+        <div class="shawdow-wrap">
+          <div id="fivetarget-r" class="rarrowcss"></div>
+        </div>
       </div>
       <div class="title-info">
         <div id="polyId5" class="polygonimgcss"></div>
@@ -232,9 +257,15 @@
     <img alt="" class="carouselbg-css" src="@/assets/images/block6-bg1.png" />
     <div class="overlap-info">
       <div class="title-info">
-        <img id="sixtarget-l" class="rightarrowimg" src="@/assets/images/left-arrow.png" />
+        <!-- <img id="sixtarget-l" class="rightarrowimg" src="@/assets/images/left-arrow.png" /> -->
+        <div class="shawdow-wrap">
+          <div id="sixtarget-l" class="larrowcss"></div>
+        </div>
         <span class="latest-infotext">最新情報</span>
-        <img id="sixtarget-r" class="leftarrowimg" src="@/assets/images/right-arrow.png" />
+        <!-- <img id="sixtarget-r" class="leftarrowimg" src="@/assets/images/right-arrow.png" /> -->
+        <div class="shawdow-wrap">
+          <div id="sixtarget-r" class="rarrowcss"></div>
+        </div>
       </div>
       <div class="title-info">
         <div id="polyId6" class="polygonimgcss"></div>
@@ -258,9 +289,15 @@
     <img alt="" class="thirdbg-css" src="@/assets/images/block7-bg1.png" />
     <div class="overlap-info">
       <div class="title-info">
-        <img id="seventarget-l" class="rightarrowimg" src="@/assets/images/left-arrow.png" />
+        <!-- <img id="seventarget-l" class="rightarrowimg" src="@/assets/images/left-arrow.png" /> -->
+        <div class="shawdow-wrap">
+          <div id="seventarget-l" class="larrowcss"></div>
+        </div>
         <span class="latest-infotext">遊戲畫面展示</span>
-        <img id="seventarget-r" class="leftarrowimg" src="@/assets/images/right-arrow.png" />
+        <!-- <img id="seventarget-r" class="leftarrowimg" src="@/assets/images/right-arrow.png" /> -->
+        <div class="shawdow-wrap">
+          <div id="seventarget-r" class="rarrowcss"></div>
+        </div>
       </div>
       <div class="title-info">
         <div id="polyId7" class="polygonimgcss"></div>
@@ -281,9 +318,15 @@
     <img alt="" class="thirdbg-css" src="@/assets/images/block8-bg.png" />
     <div class="overlap-info">
       <div class="title-info">
-        <img id="eighttarget-l" class="rightarrowimg" src="@/assets/images/left-arrow.png" />
+        <!-- <img id="eighttarget-l" class="rightarrowimg" src="@/assets/images/left-arrow.png" /> -->
+        <div class="shawdow-wrap">
+          <div id="eighttarget-l" class="larrowcss"></div>
+        </div>
         <span class="latest-infotext">加入社群</span>
-        <img id="eighttarget-r" class="leftarrowimg" src="@/assets/images/right-arrow.png" />
+        <!-- <img id="eighttarget-r" class="leftarrowimg" src="@/assets/images/right-arrow.png" /> -->
+        <div class="shawdow-wrap">
+          <div id="eighttarget-r" class="rarrowcss"></div>
+        </div>
       </div>
       <div class="title-info">
         <div id="polyId8" class="polygonimgcss"></div>
@@ -355,7 +398,6 @@
 <script>
 import { defineComponent, toRefs } from "vue";
 
-import ttt from '@/assets/images/left-arrow.png'
 import bgsecd from '@/assets/images/firstbg1.png'
 import bgvideotemp from "@/assets/videos/lostark_intro.mp4"
 
@@ -393,7 +435,6 @@ export default defineComponent({
         { id: 5, title: 'Vue3', content: 'Know the components' , src: ssix5},
         { id: 6, title: '.', content: 'Know the components' , src: ssix6}
       ],
-      tempimages3: ttt,
       bgsecn: bgsecd,
       bgvideo: bgvideotemp,
 
@@ -1619,7 +1660,23 @@ export default defineComponent({
     display: flex;
     align-items: center;
     justify-content: center;
+    .shawdow-wrap {
+      filter: drop-shadow(0px 0px 10px rgb(235, 243, 235));
+      .larrowcss {
+        width: 35px;
+        height: 20px;
+        clip-path: polygon(0 50%, 78% 0, 100% 50%, 78% 99%);
+        background: #FFF;
+      }
+      .rarrowcss {
+        width: 35px;
+        height: 20px;
+        clip-path: polygon(0 50%, 22% 0, 100% 50%, 22% 99%);
+        background: #FFF;
+      }
+    }
   }
+  
   .card-row {
     padding: 0 2rem;
     margin-top: 5rem;
@@ -1818,6 +1875,12 @@ export default defineComponent({
   width: 35px;
   box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.85);
   transform: rotate(180deg);
+}
+.larrowcss {
+  width: 35px;
+  height: 20px;
+  clip-path: polygon(0 50%, 78% 0, 100% 50%, 78% 99%);
+  background: #FFF;
 }
 .rshowActive {
   visibility: hidden;
