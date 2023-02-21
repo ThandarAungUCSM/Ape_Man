@@ -234,7 +234,7 @@
       <div class="title-info">
         <div id="polyId5" class="polygonimgcss"></div>
       </div>
-      <p class="third-block-content cssanimation sequence1 leRotateYZoomIn" id="fiveContentId">
+      <p class="third-block-content cssanimation sequence5 leRotateYZoomIn" id="fiveContentId">
         死人告稱小現對報可怎十教男出時收音氣回魚取了中前變個；的太著進不。的我會華值職道陸，兒人新過，防土主素的野全道由式學象成力如。
       </p>
       <div class="five-videoblock" id="video5Id">
@@ -350,6 +350,7 @@
       </div>
     </div>
   </div>
+  
   <div class="footer-block">
     <div class="foot-left">
       <div class="foot-left-row1">
@@ -544,7 +545,7 @@ export default defineComponent({
       }
     },
     animateSequence5() {
-      var a = document.getElementsByClassName('sequence1');
+      var a = document.getElementsByClassName('sequence5');
       for (var i = 0; i < a.length; i++) {
         var $this = a[i];
         var letter = $this.innerHTML;
@@ -745,10 +746,10 @@ export default defineComponent({
         this.videoData.classList.remove('videoBlock');
         this.videoData1.classList.remove('videoBlock1');
 
-        var x = document.getElementsByClassName("sequence1");
+        var x = document.getElementsByClassName("sequence5");
         for(var i = 0; i < x.length; i++) {
           var $this = x[i];
-          var str = '有比地。隨早小個懷當是許被角就部人美人專；結禮不生斯，法起年不說面位動：題了得教人落情美病力信國覺，許動為部高地觀燈學層起人開意、者商之達期，情種處，自了面的於人何後畫還務只發沒施影三，整精來！死人告稱小現對報可怎十教男出時收音氣回魚取了中前變個；的太著進不。的我會華值職道陸，兒人新過，防土主素的野全道由式學象成力如。';
+          var str = '死人告稱小現對報可怎十教男出時收音氣回魚取了中前變個；的太著進不。的我會華值職道陸，兒人新過，防土主素的野全道由式學象成力如。';
           $this.innerHTML = str;
         }
 
@@ -784,6 +785,17 @@ export default defineComponent({
           $this.innerHTML = str;
         }
         ////
+
+        // this.secondBlockId.scrollIntoView();
+        // block: "start", 
+        // behavior: "smooth",
+        // inline: "start"
+        // this.secondBlockId.scrollIntoView({
+        //   behavior: "smooth"
+        // });
+        // setTimeout(this.gotoNextBlock, 10000)
+      } else {
+        this.gotoNextBlock();
       }
 
       /* if scrolled into view */
@@ -806,38 +818,6 @@ export default defineComponent({
       //   }
       // } 
 
-
-      
-
-      if(this.isScrolledIntoView(this.secondBlockId)) {
-        this.secLeftel.classList.add('lshowActive');
-        this.secRightel.classList.add('rshowActive');
-        this.secPoly.classList.add('polyActive');
-        
-        this.lcaro.classList.add('carolArrowAni');
-        this.rcaro.classList.add('carorArrowAni');
-        this.carobg.classList.add('caroAni');
-        for(let i=0; i<this.slides.length; i++) {
-          this.slickfirstArr[i].classList.add('slickAni2');
-        }
-        // this.slickImg.classList.add('slickAni2');
-
-        this.secondPagi.classList.add('pagiAni2');
-        
-      } else {
-        // this.secLeftel.classList.remove('lshowActive');
-        // this.secRightel.classList.remove('rshowActive');
-        // this.secPoly.classList.remove('polyActive');
-
-        // this.lcaro.classList.remove('carolArrowAni');
-        // this.rcaro.classList.remove('carorArrowAni');
-        // this.carobg.classList.remove('caroAni');
-        // this.slickImg.classList.remove('slickAni2');
-
-        // this.secondPagi.classList.remove('pagiAni2');
-      }
-
-      
       // if(this.isScrolledIntoView(this.secondBlockId)) {
       //   this.secLeftel.classList.add('lshowActive');
       //   this.secRightel.classList.add('rshowActive');
@@ -929,10 +909,10 @@ export default defineComponent({
 
         if(this.sequ2 == 0) {
           this.sequ2++;
-          var x = document.getElementsByClassName("sequence1");
+          var x = document.getElementsByClassName("sequence5");
           for(var i = 0; i < x.length; i++) {
             var $this = x[i];
-            var str = '有比地。隨早小個懷當是許被角就部人美人專；結禮不生斯，法起年不說面位動：題了得教人落情美病力信國覺，許動為部高地觀燈學層起人開意、者商之達期，情種處，自了面的於人何後畫還務只發沒施影三，整精來！死人告稱小現對報可怎十教男出時收音氣回魚取了中前變個；的太著進不。的我會華值職道陸，兒人新過，防土主素的野全道由式學象成力如。';
+            var str = '死人告稱小現對報可怎十教男出時收音氣回魚取了中前變個；的太著進不。的我會華值職道陸，兒人新過，防土主素的野全道由式學象成力如。';
             $this.innerHTML = str;
           }
           this.animateSequence5();
@@ -944,7 +924,7 @@ export default defineComponent({
         // this.videoData.classList.remove('videoBlock');
         // this.videoData1.classList.remove('videoBlock1');
 
-        // var x = document.getElementsByClassName("sequence1");
+        // var x = document.getElementsByClassName("sequence5");
         // for(var i = 0; i < x.length; i++) {
         //   var $this = x[i];
         //   var str = '有比地。隨早小個懷當是許被角就部人美人專；結禮不生斯，法起年不說面位動：題了得教人落情美病力信國覺，許動為部高地觀燈學層起人開意、者商之達期，情種處，自了面的於人何後畫還務只發沒施影三，整精來！死人告稱小現對報可怎十教男出時收音氣回魚取了中前變個；的太著進不。的我會華值職道陸，兒人新過，防土主素的野全道由式學象成力如。';
@@ -1022,6 +1002,45 @@ export default defineComponent({
         // }
       }
 
+    },
+    gotoNextBlock() {
+      // this.secondBlockId.scrollIntoView({
+      //   block: "center", 
+      //   behavior: "smooth",
+      //   inline: "center"
+      // });
+      // const el = document.getElementById(targetId.value);
+      // if (this.secondBlockId) {
+      //   this.secondBlockId.scrollIntoView();
+      // }
+
+      if(this.isScrolledIntoView(this.secondBlockId)) {
+        this.secLeftel.classList.add('lshowActive');
+        this.secRightel.classList.add('rshowActive');
+        this.secPoly.classList.add('polyActive');
+        
+        this.lcaro.classList.add('carolArrowAni');
+        this.rcaro.classList.add('carorArrowAni');
+        this.carobg.classList.add('caroAni');
+        for(let i=0; i<this.slides.length; i++) {
+          this.slickfirstArr[i].classList.add('slickAni2');
+        }
+        // this.slickImg.classList.add('slickAni2');
+
+        this.secondPagi.classList.add('pagiAni2');
+        
+      } else {
+        // this.secLeftel.classList.remove('lshowActive');
+        // this.secRightel.classList.remove('rshowActive');
+        // this.secPoly.classList.remove('polyActive');
+
+        // this.lcaro.classList.remove('carolArrowAni');
+        // this.rcaro.classList.remove('carorArrowAni');
+        // this.carobg.classList.remove('caroAni');
+        // this.slickImg.classList.remove('slickAni2');
+
+        // this.secondPagi.classList.remove('pagiAni2');
+      }
     }
   },
   setup() {
@@ -1048,9 +1067,10 @@ export default defineComponent({
 }
 .first-block {
   position: relative;
+  max-height: 100vh;
   .firstbgimg-css {
     width: 100%;
-    margin-bottom: -7px;
+    // margin-bottom: -7px;
   }
   .overonbg-block {
     position: absolute;
@@ -1063,7 +1083,7 @@ export default defineComponent({
   
   .overonbg-block1 {
     position: absolute;
-    bottom: 2rem;
+    bottom: 3rem;
     width: 100%;
     display: flex;
     align-items: flex-end;
@@ -1152,8 +1172,20 @@ export default defineComponent({
     line-height: 1.3;
   }
 }
+.first-block:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0%, rgba(70, 70, 70, 0) 100%);
+  transform: rotate(-180deg);
+}
 .second-block {
   position: relative;
+  max-height: 100vh;
   padding: 0;
 
   // https://codepen.io/gillytech/pen/AGYYyK
@@ -1191,6 +1223,7 @@ export default defineComponent({
 }
 .third-block {
   position: relative;
+  max-height: 100vh;
   .overlap-info {
     top: 150px;
   }
@@ -1211,12 +1244,15 @@ export default defineComponent({
 
 .fourth-block {
   position: relative;
+  max-height: 100vh;
   background: #000;
   .thirdbg-css {
     width: 100%;
-    margin-bottom: -7px;
+    max-height: 100vh;
+    // margin-bottom: -7px;
   }
   .fourAni {
+    max-height: 100vh;
     // width:0;
     // top:50%;
     // left:50%;
@@ -1255,10 +1291,11 @@ export default defineComponent({
 }
 .five-block {
   position: relative;
+  max-height: 175vh;
   background: #000;
   .thirdbg-css {
     width: 100%;
-    margin-bottom: -7px;
+    // margin-bottom: -7px;
     
     animation-name: smallToOrigin; // same with bgzerotofull
     animation-duration: 0.75s;
@@ -1340,10 +1377,11 @@ export default defineComponent({
   }
   .video-overlap {
     position: relative;
-    width: 65%;
+    width: 55%;
     margin: 0 auto;
     .block5Video {
       width: 100%;
+      max-height: 45vh
     }
     .play-css {
       position: absolute;
@@ -1354,8 +1392,19 @@ export default defineComponent({
     }
   }
 }
+.five-block:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.95) 0%, rgba(70, 70, 70, 0) 100%);
+  transform: rotate(-180deg);
+}
 .six-block {
   position: relative;
+  max-height: 100vh;
   padding: 0;
 
   // https://codepen.io/gillytech/pen/AGYYyK
@@ -1403,6 +1452,7 @@ export default defineComponent({
     width: 100%;
 
     width:0;
+    max-height: 100vh;
     top:50%;
     left:50%;
     transform: translate(-50%, -50%);
@@ -1433,6 +1483,7 @@ export default defineComponent({
 }
 .seven-block {
   position: relative;
+  max-height: 100vh;
   .seven-img-block {
     margin: 2rem auto 0;
     width: 50%;
@@ -1470,11 +1521,13 @@ export default defineComponent({
   }
   .thirdbg-css {
     width: 100%;
-    margin-bottom: -7px;
+    max-height: 100vh;
+    // margin-bottom: -7px;
   }
 }
 .eight-block {
   position: relative;
+  max-height: 55vh;
   .eight-block-content {
     font-weight: 400;
     font-size: 24px;
@@ -1591,7 +1644,8 @@ export default defineComponent({
   }
   .thirdbg-css {
     width: 100%;
-    margin-bottom: -7px;
+    // margin-bottom: -7px;
+    display: block;
   }
 }
 .footer-block {
@@ -1753,6 +1807,7 @@ export default defineComponent({
     // width: 336.88px;
     // height: 689.58px; 
     width: 100%;
+    max-height: 65vh;
   }
   .topLdiamon {
     top: -25px;
@@ -2222,7 +2277,7 @@ export default defineComponent({
   }
   
   li.carousel__slide> img {
-    width: 50% !important;
+    width: 60% !important;
   }
   
   .carousel__viewport {
