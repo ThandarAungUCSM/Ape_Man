@@ -506,7 +506,9 @@ export default defineComponent({
 
       sequ1: 0,
       sequ2: 0,
-      sequ3: 0
+      sequ3: 0,
+
+      oldScroll: 0
     }
   },
   props: {
@@ -692,6 +694,34 @@ export default defineComponent({
       this.id8Data1 = document.getElementById('eightId1');
       this.id8Data2 = document.getElementById('eightId2');
       this.id8Data3 = document.getElementById('eightId3');
+
+      //////////////////////////////
+      const pixel1 = window.pageYOffset
+      
+      if(this.oldScroll > pixel1){
+        // console.log('Scrolling up');
+      }
+      else{
+        // console.log('Scrolling down');
+      }
+      if(this.secondBlockId.offsetTop > pixel1) {
+        console.log('1')
+      } else if(this.thirdBlockId.offsetTop > pixel1 && this.secondBlockId.offsetTop < pixel1) {
+        console.log('2')
+      } else if(this.fourBlockId.offsetTop > pixel1 && this.thirdBlockId.offsetTop < pixel1) {
+        console.log('3')
+      } else if(this.fiveBlockId.offsetTop > pixel1 && this.fourBlockId.offsetTop < pixel1) {
+        console.log('4')
+      } else if(this.sixBlockId.offsetTop > pixel1 && this.fiveBlockId.offsetTop < pixel1) {
+        console.log('5')
+      } else if(this.sevenBlockId.offsetTop > pixel1 && this.sixBlockId.offsetTop < pixel1) {
+        console.log('6')
+      } else if(this.eightBlockId.offsetTop > pixel1 && this.sevenBlockId.offsetTop < pixel1) {
+        console.log('7')
+      }
+      
+      this.oldScroll = pixel1;
+      /////////////////////////////
 
 
       const pixels = window.pageYOffset
