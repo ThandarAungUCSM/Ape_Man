@@ -94,11 +94,11 @@
         </p>
       </div>
       <div class="overlap2">
-        <img class="playstore-css" src="@/assets/images/playstore.png" />
-        <img class="appstore-css" src="@/assets/images/appstore.png" />
+        <img alt="" @click="hihello()" class="playstore-css" src="@/assets/images/playstore.png" />
+        <img alt="" class="appstore-css" src="@/assets/images/appstore.png" />
       </div>
       <div class="overlap3">
-        <img class="messenger-css" src="@/assets/images/messenger.png" />
+        <img alt="" class="messenger-css" src="@/assets/images/messenger.png" />
       </div>
     </div>
   </div>
@@ -350,7 +350,6 @@
       </div>
     </div>
   </div>
-
   <div class="footer-block">
     <div class="foot-left">
       <div class="foot-left-row1">
@@ -516,9 +515,6 @@ export default defineComponent({
       temp6: 0,
       temp7: 0,
       temp8: 0,
-
-      downwardCount: 0,
-      upwardCount: 0
     }
   },
   props: {
@@ -532,14 +528,11 @@ export default defineComponent({
   },
   created() {
     // window.addEventListener('scroll', this.handleScroll);
-    window.addEventListener('scroll', this.queryScroll);
-    // this.queryScroll();
   },
   mounted() {
     console.log('mounted');
     // this.animateSequence8();
     this.temphi();
-    this.dataCollect();
   },
   methods: {
     temphi() {
@@ -938,25 +931,59 @@ export default defineComponent({
         $this.innerHTML = str;
       }
     },
+    hihello() {
+      console.log('hello')
+      this.secondBlockId = document.getElementById('secondId') //
+      // this.secondBlockId.scrollIntoView();
+      // this.secondBlockId.scrollIntoView({behavior: "smooth", block: "end"});
+
+      // this.secondBlockId.offsetTop // 889
+      let sss = (this.secondBlockId.offsetTop - 100);
+
+      // this.secondBlockId.scrollIntoView({
+      //   behavior: 'smooth',
+      //   block: 'start'
+      // });
+
+      $('html, body').animate({
+        scrollTop: sss
+      }, 1000, function() {
+        
+      });
+
+    },
     viewPort2() {
       // let temp = this.secondBlockId.offsetTop;
+      // this.secondBlockId.scrollIntoView({
+      //   behavior: "smooth",
+      //   block: 'start'
+      // });
+
+      // this.secondBlockId.scrollIntoView();
+      // this.secondBlockId.scrollIntoView({behavior: "smooth", block: "end"});
+      // return;
+      // this.secondBlockId.scrollIntoView({
+      //   behavior: "smooth",
+      //   block: "start"
+      // });
+
       // setTimeout(() => {
       //   window.scrollBy(0, temp);
       // }, 1000);
 
-      // this.secondBlockId.scrollIntoView();
-      // this.secondBlockId.scrollIntoView({behavior: "smooth", block: "end"});
+
+      let sss = (this.secondBlockId.offsetTop - 50);
 
       // this.secondBlockId.scrollIntoView({
         //   behavior: 'smooth',
-        //   block: 'start'
+      //   block: 'start'
       // });
 
-      let sss = (this.secondBlockId.offsetTop - 50);
       $('html, body').animate({
         scrollTop: sss
       }, 1000, function() {
       });
+      // return;
     },
     viewPort3() {
       let sss = (this.thirdBlockId.offsetTop - 0);
@@ -964,6 +991,7 @@ export default defineComponent({
         scrollTop: sss
       }, 1000, function() {
       });
+      // return;
     },
     viewPort4() {
       let sss = (this.fourBlockId.offsetTop - 50);
@@ -971,6 +999,7 @@ export default defineComponent({
         scrollTop: sss
       }, 1000, function() {
       });
+      // return;
     },
     viewPort5() {
       let sss = (this.fiveBlockId.offsetTop - 50);
@@ -1005,7 +1034,45 @@ export default defineComponent({
       // return;
     },
 
-    dataCollect() {
+    // https://stackoverflow.com/questions/54576990/add-animate-effects-or-classes-when-arriving-in-div-on-vue
+    isScrolledIntoView(el) {
+      var rect = el.getBoundingClientRect();
+      var elemTop = rect.top;
+      var elemBottom = rect.bottom;
+      // var isVisible = elemTop < window.innerHeight && elemBottom >= 0;
+      // return isVisible;
+
+      // current page reach position = window.pageYOffset // 
+      // y position for alway position of block = this.secondBlockId.offsetTop // 889
+      // height of block = this.secondBlockId.offsetHeight // 798
+      const pixels = window.pageYOffset
+      // const offsetBottom = this.secondBlockId.offsetTop + this.secondBlockId.offsetHeight
+      const offsetBottom1 = this.secondBlockId.offsetTop + this.secondBlockId.offsetHeight;
+      // console.log(elemBottom + ' hello ' + pixels + " " + this.secondBlockId.offsetTop + " " + this.secondBlockId.offsetHeight + " " + offsetBottom);
+      // var isVisible = this.secondBlockId.offsetTop >= pixels && offsetBottom > pixels;
+        
+        
+      // https://stackoverflow.com/questions/69577889/add-remove-class-to-div-if-section-is-in-viewport-vanilla-js
+      if(el.id == 'eightId') {
+        var isVisible = elemTop <= window.innerHeight
+      } else if(el.id !== 'secondId') {
+        // var isVisible = elemTop <= window.innerHeight && elemBottom > window.innerHeight;
+      } else {
+        // var isVisible = (this.secondBlockId.offsetTop + (this.secondBlockId.offsetHeight/2))  >= pixels && offsetBottom1 > pixels;
+      }
+
+      // if(el.id == 'sevenId') {
+      //   console.log(elemTop + " <= " + window.innerHeight)
+      //   console.log(elemBottom + " > " + window.innerHeight)
+      //   var isVisible = elemTop < window.innerHeight && elemBottom > window.innerHeight;
+      //   console.log(isVisible)
+      // }
+      // var isVisible = elemTop <= window.innerHeight && elemBottom > window.innerHeight;
+      var isVisible = elemTop < window.innerHeight && elemBottom > window.innerHeight;
+
+      return isVisible;
+    },
+    handleScroll() {
       this.secondBlockId = document.getElementById('secondId')
       this.secLeftel = document.getElementById('sectarget-l')
       this.secRightel = document.getElementById('sectarget-r')
@@ -1014,7 +1081,6 @@ export default defineComponent({
       this.lcaro = document.getElementById('lcaroId');
       this.rcaro = document.getElementById('rcaroId');
       this.carobg = document.getElementById('carobgId');
-
       this.slickfirstArr = []
       for(let i=0; i< this.slides.length; i++) {
         this.slickfirstArr.push(document.getElementById('slideimgId'+i));
@@ -1025,19 +1091,20 @@ export default defineComponent({
 
 
       this.thirdBlockId = document.getElementById('thirdId')
+
       this.thirdLeftel = document.getElementById('thirdtarget-l')
       this.thirdRightel = document.getElementById('thirdtarget-r')
       this.thirdPoly = document.getElementById('polyId3');
-
       this.thirdAniTxt = document.getElementById('thirdContentId');
 
       
       this.fourBlockId = document.getElementById('fourId')
+      this.fourbgData = document.getElementById('fourbgId')
+
       this.fourLeftel = document.getElementById('fourtarget-l')
       this.fourRightel = document.getElementById('fourtarget-r')
       this.fourPoly = document.getElementById('polyId4');
 
-      this.fourbgData = document.getElementById('fourbgId')
       this.fourcardData = document.getElementById('cardId');
       this.toplData = document.getElementById('toplId');
       this.toprData = document.getElementById('toprId');
@@ -1047,20 +1114,20 @@ export default defineComponent({
 
 
       this.fiveBlockId = document.getElementById('fiveId')
+      
       this.fiveLeftel = document.getElementById('fivetarget-l')
       this.fiveRightel = document.getElementById('fivetarget-r')
       this.fivePoly = document.getElementById('polyId5');
-
       this.fiveAniTxt = document.getElementById('fiveContentId');
       this.videoData = document.getElementById('video5Id');
       this.videoData1 = document.getElementById('video5Id1');
 
       
       this.sixBlockId = document.getElementById('sixId')
+
       this.sixLeftel = document.getElementById('sixtarget-l')
       this.sixRightel = document.getElementById('sixtarget-r')
       this.sixPoly = document.getElementById('polyId6');
-
       // this.slideData6 = document.getElementById('slideId6');
       this.slicksecArr = []
       for(let i=0; i< this.slidessec.length; i++) {
@@ -1071,320 +1138,21 @@ export default defineComponent({
       
       
       this.sevenBlockId = document.getElementById('sevenId')
+
       this.sevenLeftel = document.getElementById('seventarget-l')
       this.sevenRightel = document.getElementById('seventarget-r')
       this.sevenPoly = document.getElementById('polyId7');
-
       this.inner7Data = document.getElementById('inner7Id');
 
       
       this.eightBlockId = document.getElementById('eightId')
+
       this.eightLeftel = document.getElementById('eighttarget-l')
       this.eightRightel = document.getElementById('eighttarget-r')
       this.eightPoly = document.getElementById('polyId8');
-
       this.id8Data1 = document.getElementById('eightId1');
       this.id8Data2 = document.getElementById('eightId2');
       this.id8Data3 = document.getElementById('eightId3');
-    },
-    queryScroll() {
-      var scroll = $(window).scrollTop();
-      console.log(this.secondBlockId.offsetTop + " " + scroll);
-      
-      if((this.secondBlockId.offsetTop) > scroll) {
-        // console.log(this.oldScroll + " < " + scroll);
-        if (scroll > this.oldScroll) {
-          if(this.temp2 == 0) {
-            console.log("scrolling downwards");
-
-            this.temp2 += 1;
-            this.downwardCount = 0
-            this.upwardCount = 1
-            
-            // this.viewPort2();
-            let sss = this.secondBlockId.offsetTop;
-            // console.log(sss)
-
-            $('html, body').animate({
-              scrollTop: sss
-              }, 1000, function() {
-            });
-            
-          }
-        } else if (scroll < this.oldScroll) {
-          // if(this.temp2 !== 0) {
-          //   console.log("scrolling upwards " + scroll + " > " + this.oldScroll);
-
-          //   this.temp2 = 0;
-          //   this.downwardCount = 1
-          //   this.upwardCount = 0
-          //   $('html, body').animate({
-          //     scrollTop: 0
-          //     }, 1000, function() {
-          //   });
-
-          // }
-        }
-      } else if(this.thirdBlockId.offsetTop > scroll && this.secondBlockId.offsetTop < scroll) {
-        if (scroll > this.oldScroll) {
-          if(this.temp3 == 0) {
-            console.log("scrolling downwards");
-            
-            this.temp3 += 1;
-            this.downwardCount = 0
-            this.upwardCount = 1
-
-            let sss = this.thirdBlockId.offsetTop;
-            $('html, body').animate({
-              scrollTop: sss
-            }, 1000, function() {
-            });
-          }
-        } else if (scroll < this.oldScroll) {
-          // if(this.temp3 !== 0) {
-          //   console.log("scrolling upwards");
-
-          //   this.temp3 = 0;
-          //   this.downwardCount = 1
-          //   this.upwardCount = 0
-
-          //   let sss = this.secondBlockId.offsetTop;
-          //   $('html, body').animate({
-          //     scrollTop: sss
-          //     }, 1000, function() {
-          //   });
-
-          // }
-        }
-      } else if(this.fourBlockId.offsetTop > scroll && this.thirdBlockId.offsetTop < scroll) {
-        if (scroll > this.oldScroll) {
-          if(this.temp4 == 0) {
-            // console.log("scrolling downwards");
-            
-            this.temp4 += 1;
-            this.downwardCount = 0
-            this.upwardCount = 1
-
-            let sss = this.fourBlockId.offsetTop;
-            $('html, body').animate({
-              scrollTop: sss
-            }, 1000, function() {
-            });
-          }
-        } else if (scroll < this.oldScroll) {
-          // if(this.temp4 !== 0) {
-          //   // console.log("scrolling upwards");
-
-          //   this.temp4 = 0;
-          //   this.downwardCount = 1
-          //   this.upwardCount = 0
-
-          //   let sss = this.thirdBlockId.offsetTop;
-          //   $('html, body').animate({
-          //     scrollTop: sss
-          //     }, 1000, function() {
-          //   });
-
-          // }
-        }
-      } else if(this.fiveBlockId.offsetTop > scroll && this.fourBlockId.offsetTop < scroll) {
-        if (scroll > this.oldScroll) {
-          if(this.temp5 == 0) {
-            // console.log("scrolling downwards");
-            
-            this.temp5 += 1;
-            this.downwardCount = 0
-            this.upwardCount = 1
-
-            let sss = this.fiveBlockId.offsetTop;
-            $('html, body').animate({
-              scrollTop: sss
-            }, 1000, function() {
-            });
-          }
-        } else if (scroll < this.oldScroll) {
-          // if(this.temp5 !== 0) {
-          //   // console.log("scrolling upwards");
-
-          //   this.temp5 = 0;
-          //   this.downwardCount = 1
-          //   this.upwardCount = 0
-
-          //   let sss = this.fourBlockId.offsetTop;
-          //   $('html, body').animate({
-          //     scrollTop: sss
-          //     }, 1000, function() {
-          //   });
-
-          // }
-        }
-      } else if(this.sixBlockId.offsetTop > scroll && this.fiveBlockId.offsetTop < scroll) {
-        if (scroll > this.oldScroll) {
-          if(this.temp6 == 0) {
-            // console.log("scrolling downwards");
-            
-            this.temp6 += 1;
-            this.downwardCount = 0
-            this.upwardCount = 1
-
-            let sss = this.sixBlockId.offsetTop;
-            $('html, body').animate({
-              scrollTop: sss
-            }, 1000, function() {
-            });
-          }
-        } else if (scroll < this.oldScroll) {
-          // if(this.temp6 !== 0) {
-          //   // console.log("scrolling upwards");
-
-          //   this.temp6 = 0;
-          //   this.downwardCount = 1
-          //   this.upwardCount = 0
-
-          //   let sss = this.fiveBlockId.offsetTop;
-          //   $('html, body').animate({
-          //     scrollTop: sss
-          //     }, 1000, function() {
-          //   });
-
-          // }
-        }
-      } else if(this.sevenBlockId.offsetTop > scroll && this.sixBlockId.offsetTop < scroll) {
-        if (scroll > this.oldScroll) {
-          if(this.temp7 == 0) {
-            // console.log("scrolling downwards");
-            
-            this.temp7 += 1;
-            this.downwardCount = 0
-            this.upwardCount = 1
-
-            let sss = this.sevenBlockId.offsetTop;
-            $('html, body').animate({
-              scrollTop: sss
-            }, 1000, function() {
-            });
-          }
-        } else if (scroll < this.oldScroll) {
-          // if(this.temp7 !== 0) {
-          //   // console.log("scrolling upwards");
-
-          //   this.temp7 = 0;
-          //   this.downwardCount = 1
-          //   this.upwardCount = 0
-
-          //   let sss = this.sixBlockId.offsetTop;
-          //   $('html, body').animate({
-          //     scrollTop: sss
-          //     }, 1000, function() {
-          //   });
-
-          // }
-        }
-      } else if(this.sevenBlockId.offsetTop < scroll) {
-        if (scroll > this.oldScroll) {
-          if(this.temp8 == 0) {
-            // console.log("scrolling downwards");
-            
-            this.temp8 += 1;
-            this.downwardCount = 0
-            this.upwardCount = 1
-
-            let sss = this.eightBlockId.offsetTop;
-            $('html, body').animate({
-              scrollTop: sss
-            }, 1000, function() {
-            });
-          }
-        } else if (scroll < this.oldScroll) {
-          // if(this.temp8 !== 0) {
-          //   // console.log("scrolling upwards");
-
-          //   this.temp8 = 0;
-          //   this.downwardCount = 1
-          //   this.upwardCount = 0
-
-          //   let sss = this.sevenBlockId.offsetTop;
-          //   $('html, body').animate({
-          //     scrollTop: sss
-          //     }, 1000, function() {
-          //   });
-
-          // }
-        }
-      }
-      // console.log(scroll)
-
-      if(this.downwardCount == 0) {
-        this.downwardCount = 1;
-        var self = this;
-        setTimeout(function() {
-          console.log('good luck to me')
-          // this.oldScroll = scroll;
-          self.oldScroll = $(window).scrollTop();
-        }, 1000);
-      } else if(this.upwardCount == 0) {
-        this.upwardCount = 1;
-        var self = this;
-        setTimeout(function() {
-          console.log('thank you so much')
-          self.oldScroll = $(window).scrollTop();
-        }, 1000);
-      }
-      
-    },
-
-
-    handleScroll() {
-      let pixel1 = window.pageYOffset
-      
-      if((this.secondBlockId.offsetTop) > pixel1) {
-        console.log('1')
-        if(this.oldScroll > pixel1){
-          console.log('Scrolling up ' + this.oldScroll + " " + pixel1);
-          if(pixel1 == 0) { 
-            this.temp2 = 0;
-          }
-        } else{
-          console.log('Scrolling down');
-          if(this.temp2 == 0) {
-            this.viewPort2();
-            this.temp2 += 1;
-          }
-        }
-      } else if(this.thirdBlockId.offsetTop > pixel1 && this.secondBlockId.offsetTop < pixel1) {
-        console.log('2')
-        if(this.oldScroll > pixel1){
-          console.log('Scrolling up ' + this.oldScroll + " " + pixel1);
-          const pixels = window.pageYOffset
-          if(pixels < this.thirdBlockId.offsetTop ) {
-            this.temp3 = 0;
-          }
-        }
-        else{
-          console.log('Scrolling down');
-          if(this.temp3 == 0) {
-            this.viewPort3();
-            this.temp3 += 1;
-          }
-        }
-      } else if(this.fourBlockId.offsetTop > pixel1 && this.thirdBlockId.offsetTop < pixel1) {
-        console.log('3')
-        if(this.oldScroll > pixel1){
-          console.log('Scrolling up ' + this.oldScroll + " " + pixel1);
-          const pixels = window.pageYOffset
-          if(pixels < this.fourBlockId.offsetTop ) {
-            this.temp4 = 0;
-          }
-        }
-        else{
-          console.log('Scrolling down');
-          if(this.temp4 == 0) {
-            this.viewPort4();
-            this.temp4 += 1;
-          }
-        }
-      } 
-      this.oldScroll = pixel1;
 
     }
   },
@@ -1652,6 +1420,7 @@ export default defineComponent({
     animation-duration: 0.75s;
     animation-fill-mode: forwards; 
     background: #000;
+
   }
   @keyframes smallToOrigin {
     0% {
@@ -2843,4 +2612,5 @@ export default defineComponent({
       transform: perspective(600px) translate3d(10px, 0, 50px) rotateY(5deg); }
   }
 }
+
 </style>

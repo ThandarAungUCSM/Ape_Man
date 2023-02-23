@@ -350,7 +350,6 @@
       </div>
     </div>
   </div>
-
   <div class="footer-block">
     <div class="foot-left">
       <div class="foot-left-row1">
@@ -1112,18 +1111,18 @@ export default defineComponent({
             
           }
         } else if (scroll < this.oldScroll) {
-          // if(this.temp2 !== 0) {
-          //   console.log("scrolling upwards " + scroll + " > " + this.oldScroll);
+          if(this.temp2 !== 0) {
+            console.log("scrolling upwards " + scroll + " > " + this.oldScroll);
 
-          //   this.temp2 = 0;
-          //   this.downwardCount = 1
-          //   this.upwardCount = 0
-          //   $('html, body').animate({
-          //     scrollTop: 0
-          //     }, 1000, function() {
-          //   });
+            this.temp2 = 0;
+            this.downwardCount = 1
+            this.upwardCount = 0
+            $('html, body').animate({
+              scrollTop: 0
+              }, 1000, function() {
+            });
 
-          // }
+          }
         }
       } else if(this.thirdBlockId.offsetTop > scroll && this.secondBlockId.offsetTop < scroll) {
         if (scroll > this.oldScroll) {
@@ -1141,25 +1140,25 @@ export default defineComponent({
             });
           }
         } else if (scroll < this.oldScroll) {
-          // if(this.temp3 !== 0) {
-          //   console.log("scrolling upwards");
+          if(this.temp3 !== 0) {
+            console.log("scrolling upwards");
 
-          //   this.temp3 = 0;
-          //   this.downwardCount = 1
-          //   this.upwardCount = 0
+            this.temp3 = 0;
+            this.downwardCount = 1
+            this.upwardCount = 0
 
-          //   let sss = this.secondBlockId.offsetTop;
-          //   $('html, body').animate({
-          //     scrollTop: sss
-          //     }, 1000, function() {
-          //   });
+            let sss = this.secondBlockId.offsetTop;
+            $('html, body').animate({
+              scrollTop: sss
+              }, 1000, function() {
+            });
 
-          // }
+          }
         }
       } else if(this.fourBlockId.offsetTop > scroll && this.thirdBlockId.offsetTop < scroll) {
         if (scroll > this.oldScroll) {
           if(this.temp4 == 0) {
-            // console.log("scrolling downwards");
+            console.log("scrolling downwards");
             
             this.temp4 += 1;
             this.downwardCount = 0
@@ -1172,25 +1171,25 @@ export default defineComponent({
             });
           }
         } else if (scroll < this.oldScroll) {
-          // if(this.temp4 !== 0) {
-          //   // console.log("scrolling upwards");
+          if(this.temp4 !== 0) {
+            console.log("scrolling upwards");
 
-          //   this.temp4 = 0;
-          //   this.downwardCount = 1
-          //   this.upwardCount = 0
+            this.temp4 = 0;
+            this.downwardCount = 1
+            this.upwardCount = 0
 
-          //   let sss = this.thirdBlockId.offsetTop;
-          //   $('html, body').animate({
-          //     scrollTop: sss
-          //     }, 1000, function() {
-          //   });
+            let sss = this.thirdBlockId.offsetTop;
+            $('html, body').animate({
+              scrollTop: sss
+              }, 1000, function() {
+            });
 
-          // }
+          }
         }
       } else if(this.fiveBlockId.offsetTop > scroll && this.fourBlockId.offsetTop < scroll) {
         if (scroll > this.oldScroll) {
           if(this.temp5 == 0) {
-            // console.log("scrolling downwards");
+            console.log("scrolling downwards");
             
             this.temp5 += 1;
             this.downwardCount = 0
@@ -1203,25 +1202,25 @@ export default defineComponent({
             });
           }
         } else if (scroll < this.oldScroll) {
-          // if(this.temp5 !== 0) {
-          //   // console.log("scrolling upwards");
+          if(this.temp5 !== 0) {
+            console.log("scrolling upwards");
 
-          //   this.temp5 = 0;
-          //   this.downwardCount = 1
-          //   this.upwardCount = 0
+            this.temp5 = 0;
+            this.downwardCount = 1
+            this.upwardCount = 0
 
-          //   let sss = this.fourBlockId.offsetTop;
-          //   $('html, body').animate({
-          //     scrollTop: sss
-          //     }, 1000, function() {
-          //   });
+            let sss = this.fourBlockId.offsetTop;
+            $('html, body').animate({
+              scrollTop: sss
+              }, 1000, function() {
+            });
 
-          // }
+          }
         }
       } else if(this.sixBlockId.offsetTop > scroll && this.fiveBlockId.offsetTop < scroll) {
         if (scroll > this.oldScroll) {
           if(this.temp6 == 0) {
-            // console.log("scrolling downwards");
+            console.log("scrolling downwards");
             
             this.temp6 += 1;
             this.downwardCount = 0
@@ -1234,25 +1233,25 @@ export default defineComponent({
             });
           }
         } else if (scroll < this.oldScroll) {
-          // if(this.temp6 !== 0) {
-          //   // console.log("scrolling upwards");
+          if(this.temp6 !== 0) {
+            console.log("scrolling upwards");
 
-          //   this.temp6 = 0;
-          //   this.downwardCount = 1
-          //   this.upwardCount = 0
+            this.temp6 = 0;
+            this.downwardCount = 1
+            this.upwardCount = 0
 
-          //   let sss = this.fiveBlockId.offsetTop;
-          //   $('html, body').animate({
-          //     scrollTop: sss
-          //     }, 1000, function() {
-          //   });
+            let sss = this.fiveBlockId.offsetTop;
+            $('html, body').animate({
+              scrollTop: sss
+              }, 1000, function() {
+            });
 
-          // }
+          }
         }
       } else if(this.sevenBlockId.offsetTop > scroll && this.sixBlockId.offsetTop < scroll) {
         if (scroll > this.oldScroll) {
           if(this.temp7 == 0) {
-            // console.log("scrolling downwards");
+            console.log("scrolling downwards");
             
             this.temp7 += 1;
             this.downwardCount = 0
@@ -1265,25 +1264,25 @@ export default defineComponent({
             });
           }
         } else if (scroll < this.oldScroll) {
-          // if(this.temp7 !== 0) {
-          //   // console.log("scrolling upwards");
+          if(this.temp7 !== 0) {
+            console.log("scrolling upwards");
 
-          //   this.temp7 = 0;
-          //   this.downwardCount = 1
-          //   this.upwardCount = 0
+            this.temp7 = 0;
+            this.downwardCount = 1
+            this.upwardCount = 0
 
-          //   let sss = this.sixBlockId.offsetTop;
-          //   $('html, body').animate({
-          //     scrollTop: sss
-          //     }, 1000, function() {
-          //   });
+            let sss = this.sixBlockId.offsetTop;
+            $('html, body').animate({
+              scrollTop: sss
+              }, 1000, function() {
+            });
 
-          // }
+          }
         }
       } else if(this.sevenBlockId.offsetTop < scroll) {
         if (scroll > this.oldScroll) {
           if(this.temp8 == 0) {
-            // console.log("scrolling downwards");
+            console.log("scrolling downwards");
             
             this.temp8 += 1;
             this.downwardCount = 0
@@ -1296,20 +1295,20 @@ export default defineComponent({
             });
           }
         } else if (scroll < this.oldScroll) {
-          // if(this.temp8 !== 0) {
-          //   // console.log("scrolling upwards");
+          if(this.temp8 !== 0) {
+            console.log("scrolling upwards");
 
-          //   this.temp8 = 0;
-          //   this.downwardCount = 1
-          //   this.upwardCount = 0
+            this.temp8 = 0;
+            this.downwardCount = 1
+            this.upwardCount = 0
 
-          //   let sss = this.sevenBlockId.offsetTop;
-          //   $('html, body').animate({
-          //     scrollTop: sss
-          //     }, 1000, function() {
-          //   });
+            let sss = this.sevenBlockId.offsetTop;
+            $('html, body').animate({
+              scrollTop: sss
+              }, 1000, function() {
+            });
 
-          // }
+          }
         }
       }
       // console.log(scroll)
@@ -1652,6 +1651,7 @@ export default defineComponent({
     animation-duration: 0.75s;
     animation-fill-mode: forwards; 
     background: #000;
+
   }
   @keyframes smallToOrigin {
     0% {
@@ -2358,8 +2358,7 @@ export default defineComponent({
   background: rgba(23, 30, 44, 0.55);
   backdrop-filter: blur(8.5px);
   -webkit-animation: top 2s;
-  .menu-child-block {
-    display: flex;
+   .menu-child-block {    display: flex;
     width: 80%;
     max-width: 1920px;
     height: 79px;
@@ -2843,4 +2842,5 @@ export default defineComponent({
       transform: perspective(600px) translate3d(10px, 0, 50px) rotateY(5deg); }
   }
 }
+
 </style>

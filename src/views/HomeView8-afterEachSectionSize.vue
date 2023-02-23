@@ -94,11 +94,11 @@
         </p>
       </div>
       <div class="overlap2">
-        <img class="playstore-css" src="@/assets/images/playstore.png" />
-        <img class="appstore-css" src="@/assets/images/appstore.png" />
+        <img alt="" class="playstore-css" src="@/assets/images/playstore.png" />
+        <img alt="" class="appstore-css" src="@/assets/images/appstore.png" />
       </div>
       <div class="overlap3">
-        <img class="messenger-css" src="@/assets/images/messenger.png" />
+        <img alt="" class="messenger-css" src="@/assets/images/messenger.png" />
       </div>
     </div>
   </div>
@@ -167,7 +167,7 @@
       <div class="title-info">
         <div id="polyId3" class="polygonimgcss"></div>
       </div>
-      <p class="third-block-content cssanimation mysequence3 leRotateYZoomIn" id="thirdContentId">有比地。隨早小個懷當是許被角就部人美人專；結禮不生斯，法起年不說面位動：題了得教人落情美病力信國覺，許動為部高地觀燈學層起人開意、者商之達期，情種處，自了面的於人何後畫還務只發沒施影三，整精來！死人告稱小現對報可怎十教男出時收音氣回魚取了中前變個；的太著進不。的我會華值職道陸，兒人新過，防土主素的野全道由式學象成力如。</p>
+      <p class="third-block-content cssanimation mysequence leRotateYZoomIn" id="thirdContentId">有比地。隨早小個懷當是許被角就部人美人專；結禮不生斯，法起年不說面位動：題了得教人落情美病力信國覺，許動為部高地觀燈學層起人開意、者商之達期，情種處，自了面的於人何後畫還務只發沒施影三，整精來！死人告稱小現對報可怎十教男出時收音氣回魚取了中前變個；的太著進不。的我會華值職道陸，兒人新過，防土主素的野全道由式學象成力如。</p>
     </div>
   </div>
   <div class="fourth-block" id="fourId">
@@ -350,7 +350,7 @@
       </div>
     </div>
   </div>
-
+  
   <div class="footer-block">
     <div class="foot-left">
       <div class="foot-left-row1">
@@ -508,17 +508,7 @@ export default defineComponent({
       sequ2: 0,
       sequ3: 0,
 
-      oldScroll: 0,
-      temp2: 0,
-      temp3: 0,
-      temp4: 0,
-      temp5: 0,
-      temp6: 0,
-      temp7: 0,
-      temp8: 0,
-
-      downwardCount: 0,
-      upwardCount: 0
+      oldScroll: 0
     }
   },
   props: {
@@ -531,361 +521,15 @@ export default defineComponent({
     Navigation,
   },
   created() {
-    // window.addEventListener('scroll', this.handleScroll);
-    window.addEventListener('scroll', this.queryScroll);
-    // this.queryScroll();
+    window.addEventListener('scroll', this.handleScroll);
   },
   mounted() {
     console.log('mounted');
     // this.animateSequence8();
-    this.temphi();
-    this.dataCollect();
   },
   methods: {
-    temphi() {
-      // your instersectionobserver code here
-      const observer2 = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          const square1 = entry.target.querySelector('.carouselbg-css');
-          const square2 = entry.target.querySelector('.larrowcss');
-          const square3 = entry.target.querySelector('.rarrowcss');
-          const square4 = entry.target.querySelector('.polygonimgcss');
-
-          const square5 = entry.target.querySelector('.left-carocss');
-          const square6 = entry.target.querySelector('.right-carocss');
-
-          const square8 = entry.target.querySelector("#secondId .carousel__pagination");
-            
-          this.slickfirstArr = []
-          for(let i=0; i< this.slides.length; i++) {
-            this.slickfirstArr.push(document.getElementById('slideimgId'+i));
-          }
-
-          // console.log(square1);
-          // console.log(square2);
-          // console.log(square3);
-          // console.log(square4);
-          if (entry.isIntersecting) {
-            square1.classList.add('caroAni1');
-            square2.classList.add('rshowActive');
-            square3.classList.add('lshowActive');
-            square4.classList.add('polyActive');
-
-            square5.classList.add('carolArrowAni');
-            square6.classList.add('carorArrowAni');
-
-            // square7.classList.add('slickAni2');
-            for(let i=0; i<this.slides.length; i++) {
-              this.slickfirstArr[i].classList.add('slickAni2');
-            }
-
-            square8.classList.add('pagiAni2');
-            
-            return; // if we added the class, exit the function
-          }
-
-          // We're not intersecting, so remove the class!
-          square1.classList.remove('caroAni1');
-          square2.classList.remove('rshowActive');
-          square3.classList.remove('lshowActive');
-          square4.classList.remove('polyActive');
-
-          square5.classList.remove('carolArrowAni');
-          square6.classList.remove('carorArrowAni');
-
-          // square7.classList.remove('slickAni2');
-          for(let i=0; i < this.slides.length; i++) {
-            this.slickfirstArr[i].classList.remove('slickAni2');
-          }
-          square8.classList.remove('pagiAni2');
-        });
-      });
-      observer2.observe(document.querySelector('.second-block'));
-
-      const observer3 = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          const square2 = entry.target.querySelector('.larrowcss');
-          const square3 = entry.target.querySelector('.rarrowcss');
-          const square4 = entry.target.querySelector('.polygonimgcss');
-
-          if (entry.isIntersecting) {
-            square2.classList.add('rshowActive');
-            square3.classList.add('lshowActive');
-            square4.classList.add('polyActive');
-
-            if(this.sequ1 == 0) {
-              this.sequ1++;
-              var x = document.getElementsByClassName("mysequence3");
-              for(var i = 0; i < x.length; i++) {
-                var $this = x[i];
-                var str = '有比地。隨早小個懷當是許被角就部人美人專；結禮不生斯，法起年不說面位動：題了得教人落情美病力信國覺，許動為部高地觀燈學層起人開意、者商之達期，情種處，自了面的於人何後畫還務只發沒施影三，整精來！死人告稱小現對報可怎十教男出時收音氣回魚取了中前變個；的太著進不。的我會華值職道陸，兒人新過，防土主素的野全道由式學象成力如。';
-                $this.innerHTML = str;
-              }
-              this.animateSequence3();
-            }
-
-          return; // if we added the class, exit the function
-          }
-
-          // We're not intersecting, so remove the class!
-          square2.classList.remove('rshowActive');
-          square3.classList.remove('lshowActive');
-          square4.classList.remove('polyActive');
-
-          this.sequ1 = 0
-          var x = document.getElementsByClassName("mysequence3");
-          for(var i = 0; i < x.length; i++) {
-            var $this = x[i];
-            var str = '有比地。隨早小個懷當是許被角就部人美人專；結禮不生斯，法起年不說面位動：題了得教人落情美病力信國覺，許動為部高地觀燈學層起人開意、者商之達期，情種處，自了面的於人何後畫還務只發沒施影三，整精來！死人告稱小現對報可怎十教男出時收音氣回魚取了中前變個；的太著進不。的我會華值職道陸，兒人新過，防土主素的野全道由式學象成力如。';
-            $this.innerHTML = str;
-          }
-
-        });
-      });
-      observer3.observe(document.querySelector('.third-block'));
-
-      const observer4 = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          const square2 = entry.target.querySelector('.larrowcss');
-          const square3 = entry.target.querySelector('.rarrowcss');
-          const square4 = entry.target.querySelector('.polygonimgcss');
-
-          const square5 = entry.target.querySelector('.card-row');
-          const square6 = entry.target.querySelector('.topLdiamon');
-
-          const square7 = entry.target.querySelector('.topRdiamon');
-          const square8 = entry.target.querySelector('.bottomLdiamon');
-          const square9 = entry.target.querySelector('.bottomRdiamon');
-          const square10 = entry.target.querySelector('.child-act');
-
-          const square11 = entry.target.querySelector('.thirdbg-css');
-          // const square8 = entry.target.querySelector("#secondId .carousel__pagination");
-            
-          // console.log(square2);
-          // console.log(square3);
-          // console.log(square4);
-          if (entry.isIntersecting) {
-            square2.classList.add('rshowActive');
-            square3.classList.add('lshowActive');
-            square4.classList.add('polyActive');
-
-            square5.classList.add('cardAni');
-            square6.classList.add('toplAni');
-            square7.classList.add('toprAni');
-            square8.classList.add('bottomlAni');
-            square9.classList.add('bottomrAni');
-            square10.classList.add('childActAni');
-
-            square11.classList.add('fourAni');
-          return; // if we added the class, exit the function
-          }
-
-          // We're not intersecting, so remove the class!
-          square2.classList.remove('rshowActive');
-          square3.classList.remove('lshowActive');
-          square4.classList.remove('polyActive');
-
-          square5.classList.remove('cardAni');
-          square6.classList.remove('toplAni');
-          square7.classList.remove('toprAni');
-          square8.classList.remove('bottomlAni');
-          square9.classList.remove('bottomrAni');
-          square10.classList.remove('childActAni');
-
-          square11.classList.remove('fourAni');
-        });
-      });
-      observer4.observe(document.querySelector('.fourth-block'));
-
-      const observer5 = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          const square2 = entry.target.querySelector('.larrowcss');
-          const square3 = entry.target.querySelector('.rarrowcss');
-          const square4 = entry.target.querySelector('.polygonimgcss');
-
-          const square5 = entry.target.querySelector('.five-videoblock');
-          const square6 = entry.target.querySelector('.five-videoblock1');
-          const square7 = entry.target.querySelector('.thirdbg-css');
-
-          if (entry.isIntersecting) {
-            square2.classList.add('rshowActive');
-            square3.classList.add('lshowActive');
-            square4.classList.add('polyActive');
-
-            square5.classList.add('videoBlock');
-            square6.classList.add('videoBlock1');
-            square7.classList.add('fiveAni');
-
-            if(this.sequ2 == 0) {
-              this.sequ2++;
-              var x = document.getElementsByClassName("sequence5");
-              for(var i = 0; i < x.length; i++) {
-                var $this = x[i];
-                var str = '死人告稱小現對報可怎十教男出時收音氣回魚取了中前變個；的太著進不。的我會華值職道陸，兒人新過，防土主素的野全道由式學象成力如。';
-                $this.innerHTML = str;
-              }
-              this.animateSequence5();
-            }
-
-          return; // if we added the class, exit the function
-          }
-
-          // We're not intersecting, so remove the class!
-          square2.classList.remove('rshowActive');
-          square3.classList.remove('lshowActive');
-          square4.classList.remove('polyActive');
-
-          square5.classList.remove('videoBlock');
-          square6.classList.remove('videoBlock1');
-          square7.classList.remove('fiveAni');
-
-          this.sequ2 = 0
-          var x = document.getElementsByClassName("sequence5");
-          for(var i = 0; i < x.length; i++) {
-            var $this = x[i];
-            var str = '死人告稱小現對報可怎十教男出時收音氣回魚取了中前變個；的太著進不。的我會華值職道陸，兒人新過，防土主素的野全道由式學象成力如。';
-            $this.innerHTML = str;
-          }
-
-        });
-      });
-      observer5.observe(document.querySelector('.five-block'));
-
-
-      const observer6 = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          const square2 = entry.target.querySelector('.larrowcss');
-          const square3 = entry.target.querySelector('.rarrowcss');
-          const square4 = entry.target.querySelector('.polygonimgcss');
-
-          const square5 = entry.target.querySelector("#sixId .carousel__pagination");
-
-          this.slicksecArr = []
-          for(let i=0; i< this.slidessec.length; i++) {
-            this.slicksecArr.push(document.getElementById('slideId6'+i));
-          }
-
-
-          if (entry.isIntersecting) {
-            square2.classList.add('rshowActive');
-            square3.classList.add('lshowActive');
-            square4.classList.add('polyActive');
-
-            square5.classList.add('pagiAni6');
-
-            for(let i=0; i<this.slides.length; i++) {
-              this.slicksecArr[i].classList.add('slickAni6');
-            }
-
-
-          return; // if we added the class, exit the function
-          }
-
-          // We're not intersecting, so remove the class!
-          square2.classList.remove('rshowActive');
-          square3.classList.remove('lshowActive');
-          square4.classList.remove('polyActive');
-
-          square5.classList.remove('pagiAni6');
-
-          for(let i=0; i < this.slidessec.length; i++) {
-            this.slicksecArr[i].classList.remove('slickAni6');
-          }
-
-        });
-      });
-      observer6.observe(document.querySelector('.six-block'));
-
-
-      const observer7 = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          const square2 = entry.target.querySelector('.larrowcss');
-          const square3 = entry.target.querySelector('.rarrowcss');
-          const square4 = entry.target.querySelector('.polygonimgcss');
-
-          const square5 = entry.target.querySelector('.imgs-inner7');
-          if (entry.isIntersecting) {
-            square2.classList.add('rshowActive');
-            square3.classList.add('lshowActive');
-            square4.classList.add('polyActive');
-
-            square5.classList.add('inner7css');
-            
-
-          return; // if we added the class, exit the function
-          }
-
-          // We're not intersecting, so remove the class!
-          square2.classList.remove('rshowActive');
-          square3.classList.remove('lshowActive');
-          square4.classList.remove('polyActive');
-
-          square5.classList.remove('inner7css');
-          
-
-        });
-      });
-      observer7.observe(document.querySelector('.seven-block'));
-
-
-      const observer8 = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-          const square2 = entry.target.querySelector('.larrowcss');
-          const square3 = entry.target.querySelector('.rarrowcss');
-          const square4 = entry.target.querySelector('.polygonimgcss');
-
-          const square5 = entry.target.querySelector('.first8');
-          const square6 = entry.target.querySelector('.second8');
-          const square7 = entry.target.querySelector('.third8');
-
-          if (entry.isIntersecting) {
-            square2.classList.add('rshowActive');
-            square3.classList.add('lshowActive');
-            square4.classList.add('polyActive');
-
-            square5.classList.add('Ani8');
-            square6.classList.add('Ani8');
-            square7.classList.add('Ani8');
-
-            if(this.sequ3 == 0) {
-              this.sequ3++;
-              var x = document.getElementsByClassName("sequence8");
-              for(var i = 0; i < x.length; i++) {
-                var $this = x[i];
-                var str = '防土主素的野全道由式學象成力如。';
-                $this.innerHTML = str;
-              }
-              this.animateSequence8();
-            }
-
-          return; // if we added the class, exit the function
-          }
-
-          // We're not intersecting, so remove the class!
-          square2.classList.remove('rshowActive');
-          square3.classList.remove('lshowActive');
-          square4.classList.remove('polyActive');
-
-          square5.classList.remove('Ani8');
-          square6.classList.remove('Ani8');
-          square7.classList.remove('Ani8');
-
-          this.sequ3 = 0
-          var x = document.getElementsByClassName("sequence8");
-          for(var i = 0; i < x.length; i++) {
-            var $this = x[i];
-            var str = '防土主素的野全道由式學象成力如。';
-            $this.innerHTML = str;
-          }
-
-
-        });
-      });
-      observer8.observe(document.querySelector('.eight-block'));
-
-    },
     animateSequence3() {
-      var a = document.getElementsByClassName('mysequence3');
+      var a = document.getElementsByClassName('mysequence');
       for (var i = 0; i < a.length; i++) {
         var $this = a[i];
         var letter = $this.innerHTML;
@@ -938,74 +582,38 @@ export default defineComponent({
         $this.innerHTML = str;
       }
     },
-    viewPort2() {
-      // let temp = this.secondBlockId.offsetTop;
-      // setTimeout(() => {
-      //   window.scrollBy(0, temp);
-      // }, 1000);
 
-      // this.secondBlockId.scrollIntoView();
-      // this.secondBlockId.scrollIntoView({behavior: "smooth", block: "end"});
+    // https://stackoverflow.com/questions/54576990/add-animate-effects-or-classes-when-arriving-in-div-on-vue
+    isScrolledIntoView(el) {
+      var rect = el.getBoundingClientRect();
+      var elemTop = rect.top;
+      var elemBottom = rect.bottom;
+      // var isVisible = elemTop < window.innerHeight && elemBottom >= 0;
+      // return isVisible;
 
-      // this.secondBlockId.scrollIntoView({
-        //   behavior: 'smooth',
-        //   block: 'start'
-      // });
+      // current page reach position = window.pageYOffset // 
+      // y position for alway position of block = this.secondBlockId.offsetTop // 889
+      // height of block = this.secondBlockId.offsetHeight // 798
+      const pixels = window.pageYOffset
+      // const offsetBottom = this.secondBlockId.offsetTop + this.secondBlockId.offsetHeight
+      const offsetBottom1 = this.secondBlockId.offsetTop + this.secondBlockId.offsetHeight;
+      // console.log(elemBottom + ' hello ' + pixels + " " + this.secondBlockId.offsetTop + " " + this.secondBlockId.offsetHeight + " " + offsetBottom);
+      // var isVisible = this.secondBlockId.offsetTop >= pixels && offsetBottom > pixels;
+        
+        
+      // https://stackoverflow.com/questions/69577889/add-remove-class-to-div-if-section-is-in-viewport-vanilla-js
+      if(el.id == 'eightId') {
+        var isVisible = elemTop <= window.innerHeight
+      } else if(el.id !== 'secondId') {
+        // var isVisible = elemTop <= window.innerHeight && elemBottom > window.innerHeight;
+      } else {
+        // var isVisible = (this.secondBlockId.offsetTop + (this.secondBlockId.offsetHeight/2))  >= pixels && offsetBottom1 > pixels;
+      }
+      var isVisible = elemTop <= window.innerHeight && elemBottom > window.innerHeight;
 
-      let sss = (this.secondBlockId.offsetTop - 50);
-      $('html, body').animate({
-        scrollTop: sss
-      }, 1000, function() {
-      });
+      return isVisible;
     },
-    viewPort3() {
-      let sss = (this.thirdBlockId.offsetTop - 0);
-      $('html, body').animate({
-        scrollTop: sss
-      }, 1000, function() {
-      });
-    },
-    viewPort4() {
-      let sss = (this.fourBlockId.offsetTop - 50);
-      $('html, body').animate({
-        scrollTop: sss
-      }, 1000, function() {
-      });
-    },
-    viewPort5() {
-      let sss = (this.fiveBlockId.offsetTop - 50);
-      $('html, body').animate({
-        scrollTop: sss
-      }, 1000, function() {
-      });
-      // return;
-    },
-    viewPort6() {
-      let sss = (this.sixBlockId.offsetTop - 50);
-      $('html, body').animate({
-        scrollTop: sss
-      }, 1000, function() {
-      });
-      // return;
-    },
-    viewPort7() {
-      let sss = (this.sevenBlockId.offsetTop - 50);
-      $('html, body').animate({
-        scrollTop: sss
-      }, 1000, function() {
-      });
-      // return;
-    },
-    viewPort8() {
-      let sss = (this.eightBlockId.offsetTop);
-      $('html, body').animate({
-        scrollTop: sss
-      }, 1000, function() {
-      });
-      // return;
-    },
-
-    dataCollect() {
+    handleScroll() {
       this.secondBlockId = document.getElementById('secondId')
       this.secLeftel = document.getElementById('sectarget-l')
       this.secRightel = document.getElementById('sectarget-r')
@@ -1014,7 +622,6 @@ export default defineComponent({
       this.lcaro = document.getElementById('lcaroId');
       this.rcaro = document.getElementById('rcaroId');
       this.carobg = document.getElementById('carobgId');
-
       this.slickfirstArr = []
       for(let i=0; i< this.slides.length; i++) {
         this.slickfirstArr.push(document.getElementById('slideimgId'+i));
@@ -1025,19 +632,20 @@ export default defineComponent({
 
 
       this.thirdBlockId = document.getElementById('thirdId')
+
       this.thirdLeftel = document.getElementById('thirdtarget-l')
       this.thirdRightel = document.getElementById('thirdtarget-r')
       this.thirdPoly = document.getElementById('polyId3');
-
       this.thirdAniTxt = document.getElementById('thirdContentId');
 
       
       this.fourBlockId = document.getElementById('fourId')
+      this.fourbgData = document.getElementById('fourbgId')
+
       this.fourLeftel = document.getElementById('fourtarget-l')
       this.fourRightel = document.getElementById('fourtarget-r')
       this.fourPoly = document.getElementById('polyId4');
 
-      this.fourbgData = document.getElementById('fourbgId')
       this.fourcardData = document.getElementById('cardId');
       this.toplData = document.getElementById('toplId');
       this.toprData = document.getElementById('toprId');
@@ -1047,20 +655,20 @@ export default defineComponent({
 
 
       this.fiveBlockId = document.getElementById('fiveId')
+      
       this.fiveLeftel = document.getElementById('fivetarget-l')
       this.fiveRightel = document.getElementById('fivetarget-r')
       this.fivePoly = document.getElementById('polyId5');
-
       this.fiveAniTxt = document.getElementById('fiveContentId');
       this.videoData = document.getElementById('video5Id');
       this.videoData1 = document.getElementById('video5Id1');
 
       
       this.sixBlockId = document.getElementById('sixId')
+
       this.sixLeftel = document.getElementById('sixtarget-l')
       this.sixRightel = document.getElementById('sixtarget-r')
       this.sixPoly = document.getElementById('polyId6');
-
       // this.slideData6 = document.getElementById('slideId6');
       this.slicksecArr = []
       for(let i=0; i< this.slidessec.length; i++) {
@@ -1071,321 +679,398 @@ export default defineComponent({
       
       
       this.sevenBlockId = document.getElementById('sevenId')
+
       this.sevenLeftel = document.getElementById('seventarget-l')
       this.sevenRightel = document.getElementById('seventarget-r')
       this.sevenPoly = document.getElementById('polyId7');
-
       this.inner7Data = document.getElementById('inner7Id');
 
       
       this.eightBlockId = document.getElementById('eightId')
+
       this.eightLeftel = document.getElementById('eighttarget-l')
       this.eightRightel = document.getElementById('eighttarget-r')
       this.eightPoly = document.getElementById('polyId8');
-
       this.id8Data1 = document.getElementById('eightId1');
       this.id8Data2 = document.getElementById('eightId2');
       this.id8Data3 = document.getElementById('eightId3');
-    },
-    queryScroll() {
-      var scroll = $(window).scrollTop();
-      console.log(this.secondBlockId.offsetTop + " " + scroll);
+
+      //////////////////////////////
+      const pixel1 = window.pageYOffset
       
-      if((this.secondBlockId.offsetTop) > scroll) {
-        // console.log(this.oldScroll + " < " + scroll);
-        if (scroll > this.oldScroll) {
-          if(this.temp2 == 0) {
-            console.log("scrolling downwards");
-
-            this.temp2 += 1;
-            this.downwardCount = 0
-            this.upwardCount = 1
-            
-            // this.viewPort2();
-            let sss = this.secondBlockId.offsetTop;
-            // console.log(sss)
-
-            $('html, body').animate({
-              scrollTop: sss
-              }, 1000, function() {
-            });
-            
-          }
-        } else if (scroll < this.oldScroll) {
-          // if(this.temp2 !== 0) {
-          //   console.log("scrolling upwards " + scroll + " > " + this.oldScroll);
-
-          //   this.temp2 = 0;
-          //   this.downwardCount = 1
-          //   this.upwardCount = 0
-          //   $('html, body').animate({
-          //     scrollTop: 0
-          //     }, 1000, function() {
-          //   });
-
-          // }
-        }
-      } else if(this.thirdBlockId.offsetTop > scroll && this.secondBlockId.offsetTop < scroll) {
-        if (scroll > this.oldScroll) {
-          if(this.temp3 == 0) {
-            console.log("scrolling downwards");
-            
-            this.temp3 += 1;
-            this.downwardCount = 0
-            this.upwardCount = 1
-
-            let sss = this.thirdBlockId.offsetTop;
-            $('html, body').animate({
-              scrollTop: sss
-            }, 1000, function() {
-            });
-          }
-        } else if (scroll < this.oldScroll) {
-          // if(this.temp3 !== 0) {
-          //   console.log("scrolling upwards");
-
-          //   this.temp3 = 0;
-          //   this.downwardCount = 1
-          //   this.upwardCount = 0
-
-          //   let sss = this.secondBlockId.offsetTop;
-          //   $('html, body').animate({
-          //     scrollTop: sss
-          //     }, 1000, function() {
-          //   });
-
-          // }
-        }
-      } else if(this.fourBlockId.offsetTop > scroll && this.thirdBlockId.offsetTop < scroll) {
-        if (scroll > this.oldScroll) {
-          if(this.temp4 == 0) {
-            // console.log("scrolling downwards");
-            
-            this.temp4 += 1;
-            this.downwardCount = 0
-            this.upwardCount = 1
-
-            let sss = this.fourBlockId.offsetTop;
-            $('html, body').animate({
-              scrollTop: sss
-            }, 1000, function() {
-            });
-          }
-        } else if (scroll < this.oldScroll) {
-          // if(this.temp4 !== 0) {
-          //   // console.log("scrolling upwards");
-
-          //   this.temp4 = 0;
-          //   this.downwardCount = 1
-          //   this.upwardCount = 0
-
-          //   let sss = this.thirdBlockId.offsetTop;
-          //   $('html, body').animate({
-          //     scrollTop: sss
-          //     }, 1000, function() {
-          //   });
-
-          // }
-        }
-      } else if(this.fiveBlockId.offsetTop > scroll && this.fourBlockId.offsetTop < scroll) {
-        if (scroll > this.oldScroll) {
-          if(this.temp5 == 0) {
-            // console.log("scrolling downwards");
-            
-            this.temp5 += 1;
-            this.downwardCount = 0
-            this.upwardCount = 1
-
-            let sss = this.fiveBlockId.offsetTop;
-            $('html, body').animate({
-              scrollTop: sss
-            }, 1000, function() {
-            });
-          }
-        } else if (scroll < this.oldScroll) {
-          // if(this.temp5 !== 0) {
-          //   // console.log("scrolling upwards");
-
-          //   this.temp5 = 0;
-          //   this.downwardCount = 1
-          //   this.upwardCount = 0
-
-          //   let sss = this.fourBlockId.offsetTop;
-          //   $('html, body').animate({
-          //     scrollTop: sss
-          //     }, 1000, function() {
-          //   });
-
-          // }
-        }
-      } else if(this.sixBlockId.offsetTop > scroll && this.fiveBlockId.offsetTop < scroll) {
-        if (scroll > this.oldScroll) {
-          if(this.temp6 == 0) {
-            // console.log("scrolling downwards");
-            
-            this.temp6 += 1;
-            this.downwardCount = 0
-            this.upwardCount = 1
-
-            let sss = this.sixBlockId.offsetTop;
-            $('html, body').animate({
-              scrollTop: sss
-            }, 1000, function() {
-            });
-          }
-        } else if (scroll < this.oldScroll) {
-          // if(this.temp6 !== 0) {
-          //   // console.log("scrolling upwards");
-
-          //   this.temp6 = 0;
-          //   this.downwardCount = 1
-          //   this.upwardCount = 0
-
-          //   let sss = this.fiveBlockId.offsetTop;
-          //   $('html, body').animate({
-          //     scrollTop: sss
-          //     }, 1000, function() {
-          //   });
-
-          // }
-        }
-      } else if(this.sevenBlockId.offsetTop > scroll && this.sixBlockId.offsetTop < scroll) {
-        if (scroll > this.oldScroll) {
-          if(this.temp7 == 0) {
-            // console.log("scrolling downwards");
-            
-            this.temp7 += 1;
-            this.downwardCount = 0
-            this.upwardCount = 1
-
-            let sss = this.sevenBlockId.offsetTop;
-            $('html, body').animate({
-              scrollTop: sss
-            }, 1000, function() {
-            });
-          }
-        } else if (scroll < this.oldScroll) {
-          // if(this.temp7 !== 0) {
-          //   // console.log("scrolling upwards");
-
-          //   this.temp7 = 0;
-          //   this.downwardCount = 1
-          //   this.upwardCount = 0
-
-          //   let sss = this.sixBlockId.offsetTop;
-          //   $('html, body').animate({
-          //     scrollTop: sss
-          //     }, 1000, function() {
-          //   });
-
-          // }
-        }
-      } else if(this.sevenBlockId.offsetTop < scroll) {
-        if (scroll > this.oldScroll) {
-          if(this.temp8 == 0) {
-            // console.log("scrolling downwards");
-            
-            this.temp8 += 1;
-            this.downwardCount = 0
-            this.upwardCount = 1
-
-            let sss = this.eightBlockId.offsetTop;
-            $('html, body').animate({
-              scrollTop: sss
-            }, 1000, function() {
-            });
-          }
-        } else if (scroll < this.oldScroll) {
-          // if(this.temp8 !== 0) {
-          //   // console.log("scrolling upwards");
-
-          //   this.temp8 = 0;
-          //   this.downwardCount = 1
-          //   this.upwardCount = 0
-
-          //   let sss = this.sevenBlockId.offsetTop;
-          //   $('html, body').animate({
-          //     scrollTop: sss
-          //     }, 1000, function() {
-          //   });
-
-          // }
-        }
+      if(this.oldScroll > pixel1){
+        // console.log('Scrolling up');
       }
-      // console.log(scroll)
-
-      if(this.downwardCount == 0) {
-        this.downwardCount = 1;
-        var self = this;
-        setTimeout(function() {
-          console.log('good luck to me')
-          // this.oldScroll = scroll;
-          self.oldScroll = $(window).scrollTop();
-        }, 1000);
-      } else if(this.upwardCount == 0) {
-        this.upwardCount = 1;
-        var self = this;
-        setTimeout(function() {
-          console.log('thank you so much')
-          self.oldScroll = $(window).scrollTop();
-        }, 1000);
+      else{
+        // console.log('Scrolling down');
       }
-      
-    },
-
-
-    handleScroll() {
-      let pixel1 = window.pageYOffset
-      
-      if((this.secondBlockId.offsetTop) > pixel1) {
+      if(this.secondBlockId.offsetTop > pixel1) {
         console.log('1')
-        if(this.oldScroll > pixel1){
-          console.log('Scrolling up ' + this.oldScroll + " " + pixel1);
-          if(pixel1 == 0) { 
-            this.temp2 = 0;
-          }
-        } else{
-          console.log('Scrolling down');
-          if(this.temp2 == 0) {
-            this.viewPort2();
-            this.temp2 += 1;
-          }
-        }
       } else if(this.thirdBlockId.offsetTop > pixel1 && this.secondBlockId.offsetTop < pixel1) {
         console.log('2')
-        if(this.oldScroll > pixel1){
-          console.log('Scrolling up ' + this.oldScroll + " " + pixel1);
-          const pixels = window.pageYOffset
-          if(pixels < this.thirdBlockId.offsetTop ) {
-            this.temp3 = 0;
-          }
-        }
-        else{
-          console.log('Scrolling down');
-          if(this.temp3 == 0) {
-            this.viewPort3();
-            this.temp3 += 1;
-          }
-        }
       } else if(this.fourBlockId.offsetTop > pixel1 && this.thirdBlockId.offsetTop < pixel1) {
         console.log('3')
-        if(this.oldScroll > pixel1){
-          console.log('Scrolling up ' + this.oldScroll + " " + pixel1);
-          const pixels = window.pageYOffset
-          if(pixels < this.fourBlockId.offsetTop ) {
-            this.temp4 = 0;
-          }
-        }
-        else{
-          console.log('Scrolling down');
-          if(this.temp4 == 0) {
-            this.viewPort4();
-            this.temp4 += 1;
-          }
-        }
-      } 
+      } else if(this.fiveBlockId.offsetTop > pixel1 && this.fourBlockId.offsetTop < pixel1) {
+        console.log('4')
+      } else if(this.sixBlockId.offsetTop > pixel1 && this.fiveBlockId.offsetTop < pixel1) {
+        console.log('5')
+      } else if(this.sevenBlockId.offsetTop > pixel1 && this.sixBlockId.offsetTop < pixel1) {
+        console.log('6')
+      } else if(this.eightBlockId.offsetTop > pixel1 && this.sevenBlockId.offsetTop < pixel1) {
+        console.log('7')
+      }
+      
       this.oldScroll = pixel1;
+      /////////////////////////////
 
+
+      const pixels = window.pageYOffset
+      if(pixels == 0) {
+        ////
+        this.sequ1 = 0;
+        this.sequ2 = 0;
+        this.sequ3 = 0;
+        this.secLeftel.classList.remove('lshowActive');
+        this.secRightel.classList.remove('rshowActive');
+        this.secPoly.classList.remove('polyActive');
+
+        this.lcaro.classList.remove('carolArrowAni');
+        this.rcaro.classList.remove('carorArrowAni');
+        this.carobg.classList.remove('caroAni');
+        for(let i=0; i< this.slides.length; i++) {
+          this.slickfirstArr[i].classList.remove('slickAni2');
+        }
+        // this.slickImg.classList.remove('slickAni2');
+
+        this.secondPagi.classList.remove('pagiAni2');
+
+        
+        this.thirdLeftel.classList.remove('lshowActive');
+        this.thirdRightel.classList.remove('rshowActive');
+        this.thirdPoly.classList.remove('polyActive');
+
+        var x = document.getElementsByClassName("mysequence");
+        for(var i = 0; i < x.length; i++) {
+          var $this = x[i];
+          var str = '有比地。隨早小個懷當是許被角就部人美人專；結禮不生斯，法起年不說面位動：題了得教人落情美病力信國覺，許動為部高地觀燈學層起人開意、者商之達期，情種處，自了面的於人何後畫還務只發沒施影三，整精來！死人告稱小現對報可怎十教男出時收音氣回魚取了中前變個；的太著進不。的我會華值職道陸，兒人新過，防土主素的野全道由式學象成力如。';
+          $this.innerHTML = str;
+        }
+
+        
+        this.fourLeftel.classList.remove('lshowActive');
+        this.fourRightel.classList.remove('rshowActive');
+        this.fourPoly.classList.remove('polyActive');
+        this.fourbgData.classList.remove('fourAni');
+
+        this.fourcardData.classList.remove('cardAni');
+        this.toplData.classList.remove('toplAni');
+        this.toprData.classList.remove('toprAni');
+        this.bottomlData.classList.remove('bottomlAni');
+        this.bottomrData.classList.remove('bottomrAni');
+        this.bottomPartData.classList.remove('childActAni');
+
+        
+        this.fiveLeftel.classList.remove('rshowActive');
+        this.fiveRightel.classList.remove('lshowActive');
+        this.fivePoly.classList.remove('polyActive');
+        this.videoData.classList.remove('videoBlock');
+        this.videoData1.classList.remove('videoBlock1');
+
+        var x = document.getElementsByClassName("sequence5");
+        for(var i = 0; i < x.length; i++) {
+          var $this = x[i];
+          var str = '死人告稱小現對報可怎十教男出時收音氣回魚取了中前變個；的太著進不。的我會華值職道陸，兒人新過，防土主素的野全道由式學象成力如。';
+          $this.innerHTML = str;
+        }
+
+        
+        this.sixLeftel.classList.remove('rshowActive');
+        this.sixRightel.classList.remove('lshowActive');
+        this.sixPoly.classList.remove('polyActive');
+        // this.slideData6.classList.remove('slickAni6');
+        for(let i=0; i< this.slidessec.length; i++) {
+          this.slicksecArr[i].classList.remove('slickAni6');
+        }
+        this.sixPagi.classList.remove('pagiAni6');
+
+        
+        this.sevenLeftel.classList.remove('rshowActive');
+        this.sevenRightel.classList.remove('lshowActive');
+        this.sevenPoly.classList.remove('polyActive');
+        this.inner7Data.classList.remove('inner7css');
+
+        
+        this.eightLeftel.classList.remove('rshowActive');
+        this.eightRightel.classList.remove('lshowActive');
+        this.eightPoly.classList.remove('polyActive');
+
+        this.id8Data1.classList.remove('Ani8');
+        this.id8Data2.classList.remove('Ani8');
+        this.id8Data3.classList.remove('Ani8');
+
+        var x = document.getElementsByClassName("sequence8");
+        for(var i = 0; i < x.length; i++) {
+          var $this = x[i];
+          var str = '防土主素的野全道由式學象成力如。';
+          $this.innerHTML = str;
+        }
+        ////
+
+        // this.secondBlockId.scrollIntoView();
+        // block: "start", 
+        // behavior: "smooth",
+        // inline: "start"
+        // this.secondBlockId.scrollIntoView({
+        //   behavior: "smooth"
+        // });
+        // setTimeout(this.gotoNextBlock, 10000)
+      } else {
+        this.gotoNextBlock();
+      }
+
+      /* if scrolled into view */
+      this.firstBlockId = document.getElementById('firstId')
+
+      // 2 //
+      // this.secondBlockId = document.getElementById('secondId')
+
+      // this.secLeftel = document.querySelector('.secondcss');
+
+      // this.screenTop = document.scrollingElement.scrollTop;
+      // this.screenBottom = this.screenTop + innerHeight;
+      // this.textTop = this.secLeftel.getBoundingClientRect().top
+      // if(this.isScrolledIntoView(this.secondBlockId)) {
+      //   if (this.textTop < this.screenBottom && this.textTop < this.screenTop)
+      //   {
+      //     this.secLeftel.classList.add("lshowActive");
+      //   } else {
+      //     this.secLeftel.classList.remove("lshowActive");
+      //   }
+      // } 
+
+      // if(this.isScrolledIntoView(this.secondBlockId)) {
+      //   this.secLeftel.classList.add('lshowActive');
+      //   this.secRightel.classList.add('rshowActive');
+      //   this.secPoly.classList.add('polyActive');
+        
+      //   this.lcaro.classList.add('carolArrowAni');
+      //   this.rcaro.classList.add('carorArrowAni');
+      //   this.carobg.classList.add('caroAni');
+      //   this.slickImg.classList.add('slickAni2');
+
+      //   this.secondPagi.classList.add('pagiAni2');
+      // } else {
+      //   this.secLeftel.classList.remove('lshowActive');
+      //   this.secRightel.classList.remove('rshowActive');
+      //   this.secPoly.classList.remove('polyActive');
+
+      //   this.lcaro.classList.remove('carolArrowAni');
+      //   this.rcaro.classList.remove('carorArrowAni');
+      //   this.carobg.classList.remove('caroAni');
+      //   this.slickImg.classList.remove('slickAni2');
+
+      //   this.secondPagi.classList.remove('pagiAni2');
+      // }
+
+      // 3 //
+      if(this.isScrolledIntoView(this.thirdBlockId)) {
+        this.thirdLeftel.classList.add('lshowActive');
+        this.thirdRightel.classList.add('rshowActive');
+        this.thirdPoly.classList.add('polyActive');
+
+        if(this.sequ1 == 0) {
+          this.sequ1++;
+          var x = document.getElementsByClassName("mysequence");
+          for(var i = 0; i < x.length; i++) {
+            var $this = x[i];
+            var str = '有比地。隨早小個懷當是許被角就部人美人專；結禮不生斯，法起年不說面位動：題了得教人落情美病力信國覺，許動為部高地觀燈學層起人開意、者商之達期，情種處，自了面的於人何後畫還務只發沒施影三，整精來！死人告稱小現對報可怎十教男出時收音氣回魚取了中前變個；的太著進不。的我會華值職道陸，兒人新過，防土主素的野全道由式學象成力如。';
+            $this.innerHTML = str;
+          }
+          this.animateSequence3();
+        }
+        
+      } else {
+        // this.thirdLeftel.classList.remove('lshowActive');
+        // this.thirdRightel.classList.remove('rshowActive');
+        // this.thirdPoly.classList.remove('polyActive');
+
+        // var x = document.getElementsByClassName("mysequence");
+        // for(var i = 0; i < x.length; i++) {
+        //   var $this = x[i];
+        //   var str = '有比地。隨早小個懷當是許被角就部人美人專；結禮不生斯，法起年不說面位動：題了得教人落情美病力信國覺，許動為部高地觀燈學層起人開意、者商之達期，情種處，自了面的於人何後畫還務只發沒施影三，整精來！死人告稱小現對報可怎十教男出時收音氣回魚取了中前變個；的太著進不。的我會華值職道陸，兒人新過，防土主素的野全道由式學象成力如。';
+        //   $this.innerHTML = str;
+        // }
+      }
+
+      // 4 //
+      if(this.isScrolledIntoView(this.fourBlockId)) {
+        this.fourLeftel.classList.add('lshowActive');
+        this.fourRightel.classList.add('rshowActive');
+        this.fourPoly.classList.add('polyActive');
+        this.fourbgData.classList.add('fourAni');
+
+        this.fourcardData.classList.add('cardAni');
+        this.toplData.classList.add('toplAni');
+        this.toprData.classList.add('toprAni');
+        this.bottomlData.classList.add('bottomlAni');
+        this.bottomrData.classList.add('bottomrAni');
+        this.bottomPartData.classList.add('childActAni');
+      } else {
+        // this.fourLeftel.classList.remove('lshowActive');
+        // this.fourRightel.classList.remove('rshowActive');
+        // this.fourPoly.classList.remove('polyActive');
+        // this.fourbgData.classList.remove('fourAni');
+
+        // this.fourcardData.classList.remove('cardAni');
+        // this.toplData.classList.remove('toplAni');
+        // this.toprData.classList.remove('toprAni');
+        // this.bottomlData.classList.remove('bottomlAni');
+        // this.bottomrData.classList.remove('bottomrAni');
+        // this.bottomPartData.classList.remove('childActAni');
+      }
+
+      // 5 //
+      if(this.isScrolledIntoView(this.fiveBlockId)) {
+        this.fiveLeftel.classList.add('rshowActive');
+        this.fiveRightel.classList.add('lshowActive');
+        this.fivePoly.classList.add('polyActive');
+        this.videoData.classList.add('videoBlock');
+        this.videoData1.classList.add('videoBlock1');
+
+        if(this.sequ2 == 0) {
+          this.sequ2++;
+          var x = document.getElementsByClassName("sequence5");
+          for(var i = 0; i < x.length; i++) {
+            var $this = x[i];
+            var str = '死人告稱小現對報可怎十教男出時收音氣回魚取了中前變個；的太著進不。的我會華值職道陸，兒人新過，防土主素的野全道由式學象成力如。';
+            $this.innerHTML = str;
+          }
+          this.animateSequence5();
+        }
+      } else {
+        // this.fiveLeftel.classList.remove('rshowActive');
+        // this.fiveRightel.classList.remove('lshowActive');
+        // this.fivePoly.classList.remove('polyActive');
+        // this.videoData.classList.remove('videoBlock');
+        // this.videoData1.classList.remove('videoBlock1');
+
+        // var x = document.getElementsByClassName("sequence5");
+        // for(var i = 0; i < x.length; i++) {
+        //   var $this = x[i];
+        //   var str = '有比地。隨早小個懷當是許被角就部人美人專；結禮不生斯，法起年不說面位動：題了得教人落情美病力信國覺，許動為部高地觀燈學層起人開意、者商之達期，情種處，自了面的於人何後畫還務只發沒施影三，整精來！死人告稱小現對報可怎十教男出時收音氣回魚取了中前變個；的太著進不。的我會華值職道陸，兒人新過，防土主素的野全道由式學象成力如。';
+        //   $this.innerHTML = str;
+        // }
+      }
+
+      // 6 //
+      if(this.isScrolledIntoView(this.sixBlockId)) {
+        this.sixLeftel.classList.add('rshowActive');
+        this.sixRightel.classList.add('lshowActive');
+        this.sixPoly.classList.add('polyActive');
+        this.sixPagi.classList.add('pagiAni6');
+        // this.slideData6.classList.add('slickAni6');
+        for(let i=0; i<this.slidessec.length; i++) {
+          this.slicksecArr[i].classList.add('slickAni6');
+        }
+      } else {
+        // this.sixLeftel.classList.remove('rshowActive');
+        // this.sixRightel.classList.remove('lshowActive');
+        // this.sixPoly.classList.remove('polyActive');
+        // this.slideData6.classList.remove('slickAni6');
+        // this.sixPagi.classList.remove('pagiAni6');
+      }
+
+
+      // 7 //
+      if(this.isScrolledIntoView(this.sevenBlockId)) {
+        this.sevenLeftel.classList.add('rshowActive');
+        this.sevenRightel.classList.add('lshowActive');
+        this.sevenPoly.classList.add('polyActive');
+        this.inner7Data.classList.add('inner7css');
+      } else {
+        // this.sevenLeftel.classList.remove('rshowActive');
+        // this.sevenRightel.classList.remove('lshowActive');
+        // this.sevenPoly.classList.remove('polyActive');
+        // this.inner7Data.classList.remove('inner7css');
+      }
+
+
+      // 8 //
+      if(this.isScrolledIntoView(this.eightBlockId)) {
+        this.eightLeftel.classList.add('rshowActive');
+        this.eightRightel.classList.add('lshowActive');
+        this.eightPoly.classList.add('polyActive');
+
+        this.id8Data1.classList.add('Ani8');
+        this.id8Data2.classList.add('Ani8');
+        this.id8Data3.classList.add('Ani8');
+
+        if(this.sequ3 == 0) {
+          this.sequ3++;
+          var x = document.getElementsByClassName("sequence8");
+          for(var i = 0; i < x.length; i++) {
+            var $this = x[i];
+            var str = '防土主素的野全道由式學象成力如。';
+            $this.innerHTML = str;
+          }
+          this.animateSequence8();
+        }
+      } else {
+        // this.eightLeftel.classList.remove('rshowActive');
+        // this.eightRightel.classList.remove('lshowActive');
+        // this.eightPoly.classList.remove('polyActive');
+
+        // this.id8Data1.classList.remove('Ani8');
+        // this.id8Data2.classList.remove('Ani8');
+        // this.id8Data3.classList.remove('Ani8');
+
+        // var x = document.getElementsByClassName("sequence8");
+        // for(var i = 0; i <script x.length; i++) {
+        //   var $this = x[i];
+        //   var str = '防土主素的野全道由式學象成力如。';
+        //   $this.innerHTML = str;
+        // }
+      }
+
+    },
+    gotoNextBlock() {
+      // this.secondBlockId.scrollIntoView({
+      //   block: "center", 
+      //   behavior: "smooth",
+      //   inline: "center"
+      // });
+      // const el = document.getElementById(targetId.value);
+      // if (this.secondBlockId) {
+      //   this.secondBlockId.scrollIntoView();
+      // }
+
+      if(this.isScrolledIntoView(this.secondBlockId)) {
+        this.secLeftel.classList.add('lshowActive');
+        this.secRightel.classList.add('rshowActive');
+        this.secPoly.classList.add('polyActive');
+        
+        this.lcaro.classList.add('carolArrowAni');
+        this.rcaro.classList.add('carorArrowAni');
+        this.carobg.classList.add('caroAni');
+        for(let i=0; i<this.slides.length; i++) {
+          this.slickfirstArr[i].classList.add('slickAni2');
+        }
+        // this.slickImg.classList.add('slickAni2');
+
+        this.secondPagi.classList.add('pagiAni2');
+        
+      } else {
+        // this.secLeftel.classList.remove('lshowActive');
+        // this.secRightel.classList.remove('rshowActive');
+        // this.secPoly.classList.remove('polyActive');
+
+        // this.lcaro.classList.remove('carolArrowAni');
+        // this.rcaro.classList.remove('carorArrowAni');
+        // this.carobg.classList.remove('caroAni');
+        // this.slickImg.classList.remove('slickAni2');
+
+        // this.secondPagi.classList.remove('pagiAni2');
+      }
     }
   },
   setup() {
@@ -1412,7 +1097,7 @@ export default defineComponent({
 }
 .first-block {
   position: relative;
-  max-height: 101vh;
+  max-height: 100vh;
   .firstbgimg-css {
     width: 100%;
     // margin-bottom: -7px;
@@ -1530,7 +1215,6 @@ export default defineComponent({
 }
 .second-block {
   position: relative;
-  min-height: 100vh;
   max-height: 100vh;
   padding: 0;
 
@@ -1556,29 +1240,26 @@ export default defineComponent({
     width: 100%;
     height: 100%;
   }
-  .caroAni1 {
+  .caroAni {
     width:70%;
     height: 70%;
     top:50%;
     left:50%;
     transform: translate(-50%, -50%);
-    animation-name: stuff1;
-    animation-duration: 1.5s;
+    animation-name: stuff;
+    animation-duration: 0.5s;
     animation-fill-mode: forwards; // hidden to visible
   }
 }
 .third-block {
   position: relative;
   max-height: 100vh;
-  min-height: 100vh;
   .overlap-info {
     top: 150px;
   }
   .thirdbg-css {
     width: 100%;
-    max-height: 100vh;
-    min-height: 100vh;
-    // margin-bottom: -7px;
+    margin-bottom: -7px;
   }
   .third-block-content {
     font-weight: 400;
@@ -1598,7 +1279,7 @@ export default defineComponent({
   .thirdbg-css {
     width: 100%;
     max-height: 100vh;
-    margin-bottom: -7px;
+    // margin-bottom: -7px;
   }
   .fourAni {
     max-height: 100vh;
@@ -1646,8 +1327,6 @@ export default defineComponent({
     width: 100%;
     // margin-bottom: -7px;
     
-  }
-  .fiveAni {
     animation-name: smallToOrigin; // same with bgzerotofull
     animation-duration: 0.75s;
     animation-fill-mode: forwards; 
@@ -2704,8 +2383,8 @@ export default defineComponent({
     padding-bottom: 6rem;
     padding-top: 166px;
   
-    padding-bottom: 2.5rem;
-    padding-top: 130px;
+    padding-bottom: 7rem;
+    padding-top: 150px;
   }
   @keyframes overstuff {
     0% {
@@ -2727,7 +2406,7 @@ export default defineComponent({
       height: 100%;
     }
   }
-  @keyframes stuff1 {
+  @keyframes stuff {
     0% {
       width: 70%;
       height: 70%;
