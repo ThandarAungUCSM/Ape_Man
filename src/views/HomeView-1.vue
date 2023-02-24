@@ -1,26 +1,4 @@
 <template>
-  <!-- <main>
-    <TheWelcome />
-  </main> -->
-  <!-- <div class="player-container">
-    <video-player class="firstbgimg-css"
-      src="../../videos/lostark_intro.mp4"
-      poster="@/assets/images/firstbg1.png"
-      controls
-      :loop="true"
-      :autoplay="true"
-      :muted="true"
-      :playsinline="true"
-    />
-    <video-player
-      src="https://landing.mangot5.com/template/lostark/event/landing/test99/media/lostark_intro.mp4"
-      poster="@/assets/images/firstbg1.png"
-      controls
-      :loop="true"
-      :autoplay="true"
-    />
-  </div> -->
-
 
   <div class="first-block" id="firstId">
     <!-- <img alt="" class="firstbgimg-css" src="@/assets/images/firstbg1.png" /> -->
@@ -374,26 +352,6 @@
       </div>
     </div>
   </div>
-  <!-- <Carousel >
-    <template #slides="{ slidesCount }" >
-      <Slide v-for="(image, index) in slides" :key="image.id">
-        <img :src="image.src" />
-      </Slide>
-    </template>
-
-    <template #addons>
-      <Navigation>
-        <template #next>
-          <img alt="" class="left-carocss" src="@/assets/images/carousel/caro-left.png" />
-        </template>
-        <template #prev>
-          <img alt="" class="right-carocss" src="@/assets/images/carousel/caro-left.png" />
-        </template>
-      </Navigation>
-      
-      <Pagination />
-    </template>
-  </Carousel> -->
 </template>
 
 <script>
@@ -751,7 +709,6 @@ export default defineComponent({
       });
       observer5.observe(document.querySelector('.five-block'));
 
-
       const observer6 = new IntersectionObserver(entries => {
         entries.forEach(entry => {
           const square2 = entry.target.querySelector('.larrowcss');
@@ -796,7 +753,6 @@ export default defineComponent({
       });
       observer6.observe(document.querySelector('.six-block'));
 
-
       const observer7 = new IntersectionObserver(entries => {
         entries.forEach(entry => {
           const square2 = entry.target.querySelector('.larrowcss');
@@ -826,7 +782,6 @@ export default defineComponent({
         });
       });
       observer7.observe(document.querySelector('.seven-block'));
-
 
       const observer8 = new IntersectionObserver(entries => {
         entries.forEach(entry => {
@@ -938,72 +893,6 @@ export default defineComponent({
         $this.innerHTML = str;
       }
     },
-    viewPort2() {
-      // let temp = this.secondBlockId.offsetTop;
-      // setTimeout(() => {
-      //   window.scrollBy(0, temp);
-      // }, 1000);
-
-      // this.secondBlockId.scrollIntoView();
-      // this.secondBlockId.scrollIntoView({behavior: "smooth", block: "end"});
-
-      // this.secondBlockId.scrollIntoView({
-        //   behavior: 'smooth',
-        //   block: 'start'
-      // });
-
-      let sss = (this.secondBlockId.offsetTop - 50);
-      $('html, body').animate({
-        scrollTop: sss
-      }, 1000, function() {
-      });
-    },
-    viewPort3() {
-      let sss = (this.thirdBlockId.offsetTop - 0);
-      $('html, body').animate({
-        scrollTop: sss
-      }, 1000, function() {
-      });
-    },
-    viewPort4() {
-      let sss = (this.fourBlockId.offsetTop - 50);
-      $('html, body').animate({
-        scrollTop: sss
-      }, 1000, function() {
-      });
-    },
-    viewPort5() {
-      let sss = (this.fiveBlockId.offsetTop - 50);
-      $('html, body').animate({
-        scrollTop: sss
-      }, 1000, function() {
-      });
-      // return;
-    },
-    viewPort6() {
-      let sss = (this.sixBlockId.offsetTop - 50);
-      $('html, body').animate({
-        scrollTop: sss
-      }, 1000, function() {
-      });
-      // return;
-    },
-    viewPort7() {
-      let sss = (this.sevenBlockId.offsetTop - 50);
-      $('html, body').animate({
-        scrollTop: sss
-      }, 1000, function() {
-      });
-      // return;
-    },
-    viewPort8() {
-      let sss = (this.eightBlockId.offsetTop);
-      $('html, body').animate({
-        scrollTop: sss
-      }, 1000, function() {
-      });
-      // return;
-    },
 
     dataCollect() {
       this.secondBlockId = document.getElementById('secondId')
@@ -1089,13 +978,19 @@ export default defineComponent({
     },
     queryScroll() {
       var scroll = $(window).scrollTop();
-      console.log(this.secondBlockId.offsetTop + " " + scroll);
+      // console.log(this.secondBlockId.offsetTop + " " + scroll);
+      // console.log(this.secondBlockId.offsetTop);
+      // console.log(this.thirdBlockId.offsetTop);
+      // console.log(this.fourBlockId.offsetTop);
+      // console.log(this.fiveBlockId.offsetTop);
+      // console.log(this.sixBlockId.offsetTop);
+      // console.log(this.sevenBlockId.offsetTop);
       
       if((this.secondBlockId.offsetTop) > scroll) {
         // console.log(this.oldScroll + " < " + scroll);
         if (scroll > this.oldScroll) {
           if(this.temp2 == 0) {
-            console.log("scrolling downwards");
+            // console.log("scrolling downwards");
 
             this.temp2 += 1;
             this.downwardCount = 0
@@ -1113,7 +1008,7 @@ export default defineComponent({
           }
         } else if (scroll < this.oldScroll) {
           if(this.temp2 !== 0) {
-            console.log("scrolling upwards " + scroll + " > " + this.oldScroll);
+            // console.log("scrolling upwards " + scroll + " > " + this.oldScroll);
 
             this.temp2 = 0;
             this.downwardCount = 1
@@ -1128,7 +1023,7 @@ export default defineComponent({
       } else if(this.thirdBlockId.offsetTop > scroll && this.secondBlockId.offsetTop < scroll) {
         if (scroll > this.oldScroll) {
           if(this.temp3 == 0) {
-            console.log("scrolling downwards");
+            // console.log("scrolling downwards");
             
             this.temp3 += 1;
             this.downwardCount = 0
@@ -1142,7 +1037,7 @@ export default defineComponent({
           }
         } else if (scroll < this.oldScroll) {
           if(this.temp3 !== 0) {
-            console.log("scrolling upwards");
+            // console.log("scrolling upwards");
 
             this.temp3 = 0;
             this.downwardCount = 1
@@ -1159,13 +1054,13 @@ export default defineComponent({
       } else if(this.fourBlockId.offsetTop > scroll && this.thirdBlockId.offsetTop < scroll) {
         if (scroll > this.oldScroll) {
           if(this.temp4 == 0) {
-            console.log("scrolling downwards");
+            // console.log("scrolling downwards");
             
             this.temp4 += 1;
             this.downwardCount = 0
             this.upwardCount = 1
 
-            let sss = this.fourBlockId.offsetTop-1;
+            let sss = this.fourBlockId.offsetTop;
             $('html, body').animate({
               scrollTop: sss
             }, 1000, function() {
@@ -1173,13 +1068,13 @@ export default defineComponent({
           }
         } else if (scroll < this.oldScroll) {
           if(this.temp4 !== 0) {
-            console.log("scrolling upwards");
+            // console.log("scrolling upwards");
 
             this.temp4 = 0;
             this.downwardCount = 1
             this.upwardCount = 0
 
-            let sss = this.thirdBlockId.offsetTop+1;
+            let sss = this.thirdBlockId.offsetTop;
             $('html, body').animate({
               scrollTop: sss
               }, 1000, function() {
@@ -1190,7 +1085,7 @@ export default defineComponent({
       } else if(this.fiveBlockId.offsetTop > scroll && this.fourBlockId.offsetTop < scroll) {
         if (scroll > this.oldScroll) {
           if(this.temp5 == 0) {
-            console.log("scrolling downwards");
+            // console.log("scrolling downwards");
             
             this.temp5 += 1;
             this.downwardCount = 0
@@ -1204,13 +1099,13 @@ export default defineComponent({
           }
         } else if (scroll < this.oldScroll) {
           if(this.temp5 !== 0) {
-            console.log("scrolling upwards");
+            // console.log("scrolling upwards");
 
             this.temp5 = 0;
             this.downwardCount = 1
             this.upwardCount = 0
 
-            let sss = this.fourBlockId.offsetTop+1;
+            let sss = this.fourBlockId.offsetTop;
             $('html, body').animate({
               scrollTop: sss
               }, 1000, function() {
@@ -1221,7 +1116,7 @@ export default defineComponent({
       } else if(this.sixBlockId.offsetTop > scroll && this.fiveBlockId.offsetTop < scroll) {
         if (scroll > this.oldScroll) {
           if(this.temp6 == 0) {
-            console.log("scrolling downwards");
+            // console.log("scrolling downwards");
             
             this.temp6 += 1;
             this.downwardCount = 0
@@ -1235,13 +1130,13 @@ export default defineComponent({
           }
         } else if (scroll < this.oldScroll) {
           if(this.temp6 !== 0) {
-            console.log("scrolling upwards");
+            // console.log("scrolling upwards");
 
             this.temp6 = 0;
             this.downwardCount = 1
             this.upwardCount = 0
 
-            let sss = this.fiveBlockId.offsetTop+1;
+            let sss = this.fiveBlockId.offsetTop;
             $('html, body').animate({
               scrollTop: sss
               }, 1000, function() {
@@ -1252,7 +1147,7 @@ export default defineComponent({
       } else if(this.sevenBlockId.offsetTop > scroll && this.sixBlockId.offsetTop < scroll) {
         if (scroll > this.oldScroll) {
           if(this.temp7 == 0) {
-            console.log("scrolling downwards");
+            // console.log("scrolling downwards");
             
             this.temp7 += 1;
             this.downwardCount = 0
@@ -1266,13 +1161,13 @@ export default defineComponent({
           }
         } else if (scroll < this.oldScroll) {
           if(this.temp7 !== 0) {
-            console.log("scrolling upwards");
+            // console.log("scrolling upwards");
 
             this.temp7 = 0;
             this.downwardCount = 1
             this.upwardCount = 0
 
-            let sss = this.sixBlockId.offsetTop+1;
+            let sss = this.sixBlockId.offsetTop;
             $('html, body').animate({
               scrollTop: sss
               }, 1000, function() {
@@ -1283,7 +1178,7 @@ export default defineComponent({
       } else if(this.sevenBlockId.offsetTop < scroll) {
         if (scroll > this.oldScroll) {
           if(this.temp8 == 0) {
-            console.log("scrolling downwards");
+            // console.log("scrolling downwards");
             
             this.temp8 += 1;
             this.downwardCount = 0
@@ -1297,13 +1192,13 @@ export default defineComponent({
           }
         } else if (scroll < this.oldScroll) {
           if(this.temp8 !== 0) {
-            console.log("scrolling upwards");
+            // console.log("scrolling upwards");
 
             this.temp8 = 0;
             this.downwardCount = 1
             this.upwardCount = 0
 
-            let sss = this.sevenBlockId.offsetTop +1;
+            let sss = this.sevenBlockId.offsetTop;
             $('html, body').animate({
               scrollTop: sss
               }, 1000, function() {
@@ -1412,7 +1307,10 @@ export default defineComponent({
 }
 .first-block {
   position: relative;
-  max-height: 101vh;
+  min-height: 100vh;
+  max-height: 100vh;
+  margin-bottom: 1px;
+  padding-bottom: 1px;
   .firstbgimg-css {
     width: 100%;
     // margin-bottom: -7px;
@@ -1569,15 +1467,15 @@ export default defineComponent({
 }
 .third-block {
   position: relative;
-  max-height: 100vh;
   min-height: 100vh;
+  max-height: 100vh;
   .overlap-info {
     top: 150px;
   }
   .thirdbg-css {
     width: 100%;
-    max-height: 100vh;
     min-height: 100vh;
+    max-height: 100vh;
     // margin-bottom: -7px;
   }
   .third-block-content {
@@ -1593,14 +1491,17 @@ export default defineComponent({
 
 .fourth-block {
   position: relative;
+  min-height: 100vh;
   max-height: 100vh;
   background: #000;
   .thirdbg-css {
     width: 100%;
+    min-height: 100vh;
     max-height: 100vh;
     margin-bottom: -7px;
   }
   .fourAni {
+    min-height: 100vh;
     max-height: 100vh;
     // width:0;
     // top:50%;
@@ -1755,6 +1656,7 @@ export default defineComponent({
 }
 .six-block {
   position: relative;
+  min-height: 100vh;
   max-height: 100vh;
   padding: 0;
 
@@ -1803,6 +1705,7 @@ export default defineComponent({
     width: 100%;
 
     width:0;
+    min-height: 100vh;
     max-height: 100vh;
     top:50%;
     left:50%;
@@ -1834,6 +1737,7 @@ export default defineComponent({
 }
 .seven-block {
   position: relative;
+  min-height: 100vh;
   max-height: 100vh;
   .seven-img-block {
     margin: 2rem auto 0;
@@ -1872,6 +1776,7 @@ export default defineComponent({
   }
   .thirdbg-css {
     width: 100%;
+    min-height: 100vh;
     max-height: 100vh;
     // margin-bottom: -7px;
   }
