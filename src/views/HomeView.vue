@@ -198,10 +198,22 @@
           <RouterLink to="/character-info" class="each-card activecard">
             <!-- <img alt="" class="card1-css" src="@/assets/images/fourth-active-img.png" /> -->
             <img alt="" class="card1-css activeinner" src="@/assets/images/not-active2.png" />
-            <img id="toplId" class="absoDiam topLdiamon" src="@/assets/images/tldiamond.png" />
+            <!-- <img id="toplId" class="absoDiam topLdiamon" src="@/assets/images/tldiamond.png" />
             <img id="toprId" class="absoDiam topRdiamon" src="@/assets/images/diamond.png" />
             <img id="bottomlId" class="absoDiam bottomLdiamon" src="@/assets/images/bldiamond.png" />
-            <img id="bottomrId" class="absoDiam bottomRdiamon" src="@/assets/images/brdiamond.png" />
+            <img id="bottomrId" class="absoDiam bottomRdiamon" src="@/assets/images/brdiamond.png" /> -->
+            <div class="shawdow-wrap absoDiam topLdiamon">
+              <div id="toplId" class="tlarrowcss"></div>
+            </div>
+            <div class="shawdow-wrap absoDiam topRdiamon">
+              <div id="toprId" class="trarrowcss"></div>
+            </div>
+            <div class="shawdow-wrap absoDiam bottomLdiamon">
+              <div id="bottomlId" class="blarrowcss"></div>
+            </div>
+            <div class="shawdow-wrap absoDiam bottomRdiamon">
+              <div id="bottomlId" class="brarrowcss"></div>
+            </div>
             <div id="childActId" class="child-act">
               <p class="txt1">職業名稱</p>
               <p class="txt2">-敘述敘述-</p>
@@ -561,10 +573,6 @@ export default defineComponent({
             this.slickfirstArr.push(document.getElementById('slideimgId'+i));
           }
 
-          // console.log(square1);
-          // console.log(square2);
-          // console.log(square3);
-          // console.log(square4);
           if (entry.isIntersecting) {
             square1.classList.add('caroAni1');
             square2.classList.add('rshowActive');
@@ -660,10 +668,6 @@ export default defineComponent({
 
           const square11 = entry.target.querySelector('.thirdbg-css');
           // const square8 = entry.target.querySelector("#secondId .carousel__pagination");
-            
-          // console.log(square2);
-          // console.log(square3);
-          // console.log(square4);
           if (entry.isIntersecting) {
             square2.classList.add('rshowActive');
             square3.classList.add('lshowActive');
@@ -1089,13 +1093,13 @@ export default defineComponent({
     },
     queryScroll() {
       var scroll = $(window).scrollTop();
-      console.log(this.secondBlockId.offsetTop + " " + scroll);
+      // console.log(this.secondBlockId.offsetTop + " " + scroll);
       
       if((this.secondBlockId.offsetTop) > scroll) {
         // console.log(this.oldScroll + " < " + scroll);
         if (scroll > this.oldScroll) {
           if(this.temp2 == 0) {
-            console.log("scrolling downwards");
+            // console.log("scrolling downwards");
 
             this.temp2 += 1;
             this.downwardCount = 0
@@ -1113,7 +1117,7 @@ export default defineComponent({
           }
         } else if (scroll < this.oldScroll) {
           if(this.temp2 !== 0) {
-            console.log("scrolling upwards " + scroll + " > " + this.oldScroll);
+            // console.log("scrolling upwards " + scroll + " > " + this.oldScroll);
 
             this.temp2 = 0;
             this.downwardCount = 1
@@ -1128,7 +1132,7 @@ export default defineComponent({
       } else if(this.thirdBlockId.offsetTop > scroll && this.secondBlockId.offsetTop < scroll) {
         if (scroll > this.oldScroll) {
           if(this.temp3 == 0) {
-            console.log("scrolling downwards");
+            // console.log("scrolling downwards");
             
             this.temp3 += 1;
             this.downwardCount = 0
@@ -1142,7 +1146,7 @@ export default defineComponent({
           }
         } else if (scroll < this.oldScroll) {
           if(this.temp3 !== 0) {
-            console.log("scrolling upwards");
+            // console.log("scrolling upwards");
 
             this.temp3 = 0;
             this.downwardCount = 1
@@ -1159,7 +1163,7 @@ export default defineComponent({
       } else if(this.fourBlockId.offsetTop > scroll && this.thirdBlockId.offsetTop < scroll) {
         if (scroll > this.oldScroll) {
           if(this.temp4 == 0) {
-            console.log("scrolling downwards");
+            // console.log("scrolling downwards");
             
             this.temp4 += 1;
             this.downwardCount = 0
@@ -1173,7 +1177,7 @@ export default defineComponent({
           }
         } else if (scroll < this.oldScroll) {
           if(this.temp4 !== 0) {
-            console.log("scrolling upwards");
+            // console.log("scrolling upwards");
 
             this.temp4 = 0;
             this.downwardCount = 1
@@ -1190,7 +1194,7 @@ export default defineComponent({
       } else if(this.fiveBlockId.offsetTop > scroll && this.fourBlockId.offsetTop < scroll) {
         if (scroll > this.oldScroll) {
           if(this.temp5 == 0) {
-            console.log("scrolling downwards");
+            // console.log("scrolling downwards");
             
             this.temp5 += 1;
             this.downwardCount = 0
@@ -1204,7 +1208,7 @@ export default defineComponent({
           }
         } else if (scroll < this.oldScroll) {
           if(this.temp5 !== 0) {
-            console.log("scrolling upwards");
+            // console.log("scrolling upwards");
 
             this.temp5 = 0;
             this.downwardCount = 1
@@ -1221,7 +1225,7 @@ export default defineComponent({
       } else if(this.sixBlockId.offsetTop > scroll && this.fiveBlockId.offsetTop < scroll) {
         if (scroll > this.oldScroll) {
           if(this.temp6 == 0) {
-            console.log("scrolling downwards");
+            // console.log("scrolling downwards");
             
             this.temp6 += 1;
             this.downwardCount = 0
@@ -1235,7 +1239,7 @@ export default defineComponent({
           }
         } else if (scroll < this.oldScroll) {
           if(this.temp6 !== 0) {
-            console.log("scrolling upwards");
+            // console.log("scrolling upwards");
 
             this.temp6 = 0;
             this.downwardCount = 1
@@ -1252,7 +1256,7 @@ export default defineComponent({
       } else if(this.sevenBlockId.offsetTop > scroll && this.sixBlockId.offsetTop < scroll) {
         if (scroll > this.oldScroll) {
           if(this.temp7 == 0) {
-            console.log("scrolling downwards");
+            // console.log("scrolling downwards");
             
             this.temp7 += 1;
             this.downwardCount = 0
@@ -1266,7 +1270,7 @@ export default defineComponent({
           }
         } else if (scroll < this.oldScroll) {
           if(this.temp7 !== 0) {
-            console.log("scrolling upwards");
+            // console.log("scrolling upwards");
 
             this.temp7 = 0;
             this.downwardCount = 1
@@ -1283,7 +1287,7 @@ export default defineComponent({
       } else if(this.sevenBlockId.offsetTop < scroll) {
         if (scroll > this.oldScroll) {
           if(this.temp8 == 0) {
-            console.log("scrolling downwards");
+            // console.log("scrolling downwards");
             
             this.temp8 += 1;
             this.downwardCount = 0
@@ -1297,7 +1301,7 @@ export default defineComponent({
           }
         } else if (scroll < this.oldScroll) {
           if(this.temp8 !== 0) {
-            console.log("scrolling upwards");
+            // console.log("scrolling upwards");
 
             this.temp8 = 0;
             this.downwardCount = 1
@@ -1318,7 +1322,7 @@ export default defineComponent({
         this.downwardCount = 1;
         var self = this;
         setTimeout(function() {
-          console.log('good luck to me')
+          // console.log('good luck to me')
           // this.oldScroll = scroll;
           self.oldScroll = $(window).scrollTop();
         }, 1000);
@@ -1326,7 +1330,7 @@ export default defineComponent({
         this.upwardCount = 1;
         var self = this;
         setTimeout(function() {
-          console.log('thank you so much')
+          // console.log('thank you so much')
           self.oldScroll = $(window).scrollTop();
         }, 1000);
       }
@@ -2096,6 +2100,41 @@ export default defineComponent({
       }
       .activecard {
         position: relative;
+        .shawdow-wrap {
+          filter: drop-shadow(0px 0px 10px rgb(235, 243, 235));
+          .tlarrowcss {
+            width: 52px;
+            height: 51px;
+            
+            -webkit-clip-path: polygon(100% 100%, 0 50%, 0 0, 50% 0);
+            clip-path: polygon(100% 100%, 0 50%, 0 0, 50% 0);
+            background: #FFF;
+          }
+          .trarrowcss {
+            width: 52px;
+            height: 51px;
+            
+            -webkit-clip-path: polygon(0 100%, 50% 0, 100% 0, 100% 50%);
+            clip-path: polygon(0 100%, 50% 0, 100% 0, 100% 50%);
+            background: #FFF;
+          }
+          .blarrowcss {
+            width: 52px;
+            height: 51px;
+            
+            -webkit-clip-path: polygon(100% 0, 49% 100%, 0 100%, 0 48%);
+            clip-path: polygon(100% 0, 49% 100%, 0 100%, 0 48%);
+            background: #FFF;
+          }
+          .brarrowcss {
+            width: 52px;
+            height: 51px;
+            
+            -webkit-clip-path: polygon(0 0, 100% 49%, 100% 100%, 50% 100%);
+            clip-path: polygon(0 0, 100% 49%, 100% 100%, 50% 100%);
+            background: #FFF;
+          }
+        }
       }
       .child-act {
         position: absolute;
