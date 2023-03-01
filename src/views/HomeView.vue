@@ -222,7 +222,7 @@
       <p class="third-block-content cssanimation mysequence3 leRotateYZoomIn" id="thirdContentId">有比地。隨早小個懷當是許被角就部人美人專；結禮不生斯，法起年不說面位動：題了得教人落情美病力信國覺，許動為部高地觀燈學層起人開意、者商之達期，情種處，自了面的於人何後畫還務只發沒施影三，整精來！死人告稱小現對報可怎十教男出時收音氣回魚取了中前變個；的太著進不。的我會華值職道陸，兒人新過，防土主素的野全道由式學象成力如。</p>
     </div>
   </div>
-  <div class="m-third" id="thirdId">
+  <div class="m-third" id="mthirdId">
     <img id="mcarobgId" class="mcaroselbg-css" src="@/assets/images/mobile/m-bg3.png" />
     <div class="overlap-info">
       <div class="title-info">
@@ -243,7 +243,7 @@
     <Carousel >
       <template #slides="{ slidesCount }" >
         <Slide v-for="(image, index) in mslidees" :key="image.id">
-          <img :src="image.src" class="caro-img" :id="'slideimgId'+index" />
+          <img :src="image.src" class="caro-img" :id="'mslideimgId'+index" />
         </Slide>
       </template>
 
@@ -568,39 +568,6 @@
 </template>
 
 <script>
-// var bounds = [
-//   {min:0,max:768,func:showMobile},
-//   {min:769,func:showPc}
-// ];
-
-// var resizeFn = function(){
-//   var lastBoundry; 
-//   return function(){
-//     var width = window.innerWidth;
-//     var boundry, min, max;
-//     for(var i=0; i<bounds.length; i++){
-//       boundry = bounds[i];
-//       min = boundry.min || Number.MIN_VALUE;
-//       max = boundry.max || Number.MAX_VALUE;
-//       if(width >= min && width <= max 
-//         && lastBoundry !== boundry){
-//           lastBoundry = boundry;
-//           return boundry.func.call(boundry);            
-//       }
-//     }
-//   }
-// };
-// $(window).resize(resizeFn());
-// $(document).ready(function(){
-//   $(window).trigger('resize');
-// });
-
-// function showMobile() {
-//   alert('mobile')
-// }
-// function showPc() {
-//   alert('pc')
-// }
 import { defineComponent, toRefs } from "vue";
 
 import bgsecd from '@/assets/images/firstbg1.png'
@@ -660,6 +627,7 @@ export default defineComponent({
       carobg: null,
       slickImg: null,
       slickfirstArr: [],
+      mslickArr: [],
       secondPagi: null,
 
       thirdBlockId: null,
@@ -727,10 +695,15 @@ export default defineComponent({
       temp7: 0,
       temp8: 0,
 
+      tempm2: 0,
+      tempm3: 0,
+      tempm8: 0,
+
       downwardCount: 0,
       upwardCount: 0,
 
-      showMenu: false
+      showMenu: false,
+      showMobile: false
     }
   },
   props: {
@@ -746,20 +719,38 @@ export default defineComponent({
     // window.addEventListener('scroll', this.handleScroll);
     window.addEventListener('scroll', this.queryScroll);
     // this.queryScroll();
+    if(this.isMobile()) {
+    } else {
+    }
   },
   mounted() {
     console.log('mounted');
     // this.animateSequence8();
     this.temphi();
     this.dataCollect();
+
+    window.addEventListener('resize', this.isMobile);
   },
   watch: {
     showMenu: function (newVal, oldVal) {
       console.log("watch showMenu newVal=", newVal, "oldVal=", oldVal);
       this.fixedmenu();
     },
+    showMobile: function(newVal, oldVal) {
+      console.log("watch showMenu newVal=", newVal, "oldVal=", oldVal);
+    }
   },
   methods: {
+    isMobile() {
+      if( screen.width <= 768) {
+        this.showMobile = true;
+        return true;
+      }
+      else {
+        this.showMobile = false
+        return false;
+      }
+    },
     routeTo(path) {
       this.$router.push(path)
     },
@@ -1106,6 +1097,51 @@ export default defineComponent({
       });
       observer8.observe(document.querySelector('.eight-block'));
 
+
+      // const observer9m = new IntersectionObserver(entries => {
+      //   entries.forEach(entry => {
+      //     const square1 = entry.target.querySelector('.mcaroselbg-css');
+      //     const square2 = entry.target.querySelector('.larrowcss');
+      //     const square3 = entry.target.querySelector('.rarrowcss');
+      //     const square4 = entry.target.querySelector('.polygonimgcss');
+
+      //     const square8 = entry.target.querySelector("#mthirdId .carousel__pagination");
+            
+      //     this.mslickArr = []
+      //     for(let i=0; i< this.slides.length; i++) {
+      //       this.mslickArr.push(document.getElementById('mslideimgId'+i));
+      //     }
+
+      //     if (entry.isIntersecting) {
+      //       square1.classList.add('caroAni1');
+      //       square2.classList.add('rshowActive');
+      //       square3.classList.add('lshowActive');
+      //       square4.classList.add('polyActive');
+
+      //       // square7.classList.add('slickAni2');
+      //       for(let i=0; i<this.slides.length; i++) {
+      //         this.mslickArr[i].classList.add('slickAni2');
+      //       }
+
+      //       square8.classList.add('pagiAni2');
+            
+      //       return; // if we added the class, exit the function
+      //     }
+
+      //     // We're not intersecting, so remove the class!
+      //     square1.classList.remove('caroAni1');
+      //     square2.classList.remove('rshowActive');
+      //     square3.classList.remove('lshowActive');
+      //     square4.classList.remove('polyActive');
+
+      //     // square7.classList.remove('slickAni2');
+      //     for(let i=0; i < this.slides.length; i++) {
+      //       this.mslickArr[i].classList.remove('slickAni2');
+      //     }
+      //     square8.classList.remove('pagiAni2');
+      //   });
+      // });
+      // observer9m.observe(document.querySelector('.m-third'));
     },
     animateSequence3() {
       var a = document.getElementsByClassName('mysequence3');
@@ -1244,8 +1280,11 @@ export default defineComponent({
       }
       // this.slickImg = document.getElementById('slideimgId');
 
-      this.secondPagi = document.querySelector("#secondId .carousel__pagination");
-
+      this.mthirdBlockId = document.getElementById('mthirdId')
+      this.mslickArr = []
+      for(let i=0; i< this.slides.length; i++) {
+        this.mslickArr.push(document.getElementById('mslideimgId'+i));
+      }
 
       this.thirdBlockId = document.getElementById('thirdId')
       this.thirdLeftel = document.getElementById('thirdtarget-l')
@@ -1313,246 +1352,344 @@ export default defineComponent({
     queryScroll() {
       var scroll = $(window).scrollTop();
       // console.log(this.secondBlockId.offsetTop + " " + scroll);
-      
-      if((this.secondBlockId.offsetTop) > scroll) {
-        // console.log(this.oldScroll + " < " + scroll);
-        if (scroll > this.oldScroll) {
-          if(this.temp2 == 0) {
-            // console.log("scrolling downwards");
-
-            this.temp2 += 1;
-            this.downwardCount = 0
-            this.upwardCount = 1
-            
-            // this.viewPort2();
-            let sss = this.secondBlockId.offsetTop;
-            // console.log(sss)
-
-            $('html, body').animate({
-              scrollTop: sss
-              }, 1000, function() {
-            });
-            
+      if(!this.showMobile) {
+        if((this.secondBlockId.offsetTop) > scroll) {
+          // console.log(this.oldScroll + " < " + scroll);
+          if (scroll > this.oldScroll) {
+            if(this.temp2 == 0) {
+              // console.log("scrolling downwards");
+  
+              this.temp2 += 1;
+              this.downwardCount = 0
+              this.upwardCount = 1
+              
+              // this.viewPort2();
+              let sss = this.secondBlockId.offsetTop;
+              // console.log(sss)
+  
+              $('html, body').animate({
+                scrollTop: sss
+                }, 1000, function() {
+              });
+              
+            }
+          } else if (scroll < this.oldScroll) {
+            if(this.temp2 !== 0) {
+              // console.log("scrolling upwards " + scroll + " > " + this.oldScroll);
+  
+              this.temp2 = 0;
+              this.downwardCount = 1
+              this.upwardCount = 0
+              $('html, body').animate({
+                scrollTop: 0
+                }, 1000, function() {
+              });
+  
+            }
           }
-        } else if (scroll < this.oldScroll) {
-          if(this.temp2 !== 0) {
-            // console.log("scrolling upwards " + scroll + " > " + this.oldScroll);
-
-            this.temp2 = 0;
-            this.downwardCount = 1
-            this.upwardCount = 0
-            $('html, body').animate({
-              scrollTop: 0
+        } else if(this.thirdBlockId.offsetTop > scroll && this.secondBlockId.offsetTop < scroll) {
+          if (scroll > this.oldScroll) {
+            if(this.temp3 == 0) {
+              // console.log("scrolling downwards");
+              
+              this.temp3 += 1;
+              this.downwardCount = 0
+              this.upwardCount = 1
+  
+              let sss = this.thirdBlockId.offsetTop;
+              $('html, body').animate({
+                scrollTop: sss
               }, 1000, function() {
-            });
-
+              });
+            }
+          } else if (scroll < this.oldScroll) {
+            if(this.temp3 !== 0) {
+              // console.log("scrolling upwards");
+  
+              this.temp3 = 0;
+              this.downwardCount = 1
+              this.upwardCount = 0
+  
+              let sss = this.secondBlockId.offsetTop;
+              $('html, body').animate({
+                scrollTop: sss
+                }, 1000, function() {
+              });
+  
+            }
+          }
+        } else if(this.fourBlockId.offsetTop > scroll && this.thirdBlockId.offsetTop < scroll) {
+          if (scroll > this.oldScroll) {
+            if(this.temp4 == 0) {
+              // console.log("scrolling downwards");
+              
+              this.temp4 += 1;
+              this.downwardCount = 0
+              this.upwardCount = 1
+  
+              let sss = this.fourBlockId.offsetTop-1;
+              $('html, body').animate({
+                scrollTop: sss
+              }, 1000, function() {
+              });
+            }
+          } else if (scroll < this.oldScroll) {
+            if(this.temp4 !== 0) {
+              // console.log("scrolling upwards");
+  
+              this.temp4 = 0;
+              this.downwardCount = 1
+              this.upwardCount = 0
+  
+              let sss = this.thirdBlockId.offsetTop+1;
+              $('html, body').animate({
+                scrollTop: sss
+                }, 1000, function() {
+              });
+  
+            }
+          }
+        } else if(this.fiveBlockId.offsetTop > scroll && this.fourBlockId.offsetTop < scroll) {
+          if (scroll > this.oldScroll) {
+            if(this.temp5 == 0) {
+              // console.log("scrolling downwards");
+              
+              this.temp5 += 1;
+              this.downwardCount = 0
+              this.upwardCount = 1
+  
+              let sss = this.fiveBlockId.offsetTop;
+              $('html, body').animate({
+                scrollTop: sss
+              }, 1000, function() {
+              });
+            }
+          } else if (scroll < this.oldScroll) {
+            if(this.temp5 !== 0) {
+              // console.log("scrolling upwards");
+  
+              this.temp5 = 0;
+              this.downwardCount = 1
+              this.upwardCount = 0
+  
+              let sss = this.fourBlockId.offsetTop+1;
+              $('html, body').animate({
+                scrollTop: sss
+                }, 1000, function() {
+              });
+  
+            }
+          }
+        } else if(this.sixBlockId.offsetTop > scroll && this.fiveBlockId.offsetTop < scroll) {
+          if (scroll > this.oldScroll) {
+            if(this.temp6 == 0) {
+              // console.log("scrolling downwards");
+              
+              this.temp6 += 1;
+              this.downwardCount = 0
+              this.upwardCount = 1
+  
+              let sss = this.sixBlockId.offsetTop;
+              $('html, body').animate({
+                scrollTop: sss
+              }, 1000, function() {
+              });
+            }
+          } else if (scroll < this.oldScroll) {
+            if(this.temp6 !== 0) {
+              // console.log("scrolling upwards");
+  
+              this.temp6 = 0;
+              this.downwardCount = 1
+              this.upwardCount = 0
+  
+              let sss = this.fiveBlockId.offsetTop+1;
+              $('html, body').animate({
+                scrollTop: sss
+                }, 1000, function() {
+              });
+  
+            }
+          }
+        } else if(this.sevenBlockId.offsetTop > scroll && this.sixBlockId.offsetTop < scroll) {
+          if (scroll > this.oldScroll) {
+            if(this.temp7 == 0) {
+              // console.log("scrolling downwards");
+              
+              this.temp7 += 1;
+              this.downwardCount = 0
+              this.upwardCount = 1
+  
+              let sss = this.sevenBlockId.offsetTop;
+              $('html, body').animate({
+                scrollTop: sss
+              }, 1000, function() {
+              });
+            }
+          } else if (scroll < this.oldScroll) {
+            if(this.temp7 !== 0) {
+              // console.log("scrolling upwards");
+  
+              this.temp7 = 0;
+              this.downwardCount = 1
+              this.upwardCount = 0
+  
+              let sss = this.sixBlockId.offsetTop+1;
+              $('html, body').animate({
+                scrollTop: sss
+                }, 1000, function() {
+              });
+  
+            }
+          }
+        } else if(this.sevenBlockId.offsetTop < scroll) {
+          if (scroll > this.oldScroll) {
+            if(this.temp8 == 0) {
+              // console.log("scrolling downwards");
+              
+              this.temp8 += 1;
+              this.downwardCount = 0
+              this.upwardCount = 1
+  
+              let sss = this.eightBlockId.offsetTop;
+              $('html, body').animate({
+                scrollTop: sss
+              }, 1000, function() {
+              });
+            }
+          } else if (scroll < this.oldScroll) {
+            if(this.temp8 !== 0) {
+              // console.log("scrolling upwards");
+  
+              this.temp8 = 0;
+              this.downwardCount = 1
+              this.upwardCount = 0
+  
+              let sss = this.sevenBlockId.offsetTop +1;
+              $('html, body').animate({
+                scrollTop: sss
+                }, 1000, function() {
+              });
+  
+            }
           }
         }
-      } else if(this.thirdBlockId.offsetTop > scroll && this.secondBlockId.offsetTop < scroll) {
-        if (scroll > this.oldScroll) {
-          if(this.temp3 == 0) {
-            // console.log("scrolling downwards");
-            
-            this.temp3 += 1;
-            this.downwardCount = 0
-            this.upwardCount = 1
+        // console.log(scroll)
 
-            let sss = this.thirdBlockId.offsetTop;
-            $('html, body').animate({
-              scrollTop: sss
-            }, 1000, function() {
-            });
-          }
-        } else if (scroll < this.oldScroll) {
-          if(this.temp3 !== 0) {
-            // console.log("scrolling upwards");
-
-            this.temp3 = 0;
-            this.downwardCount = 1
-            this.upwardCount = 0
-
-            let sss = this.secondBlockId.offsetTop;
-            $('html, body').animate({
-              scrollTop: sss
-              }, 1000, function() {
-            });
-
-          }
+        if(this.downwardCount == 0) {
+          this.downwardCount = 1;
+          var self = this;
+          setTimeout(function() {
+            // console.log('good luck to me')
+            // this.oldScroll = scroll;
+            self.oldScroll = $(window).scrollTop();
+          }, 1000);
+        } else if(this.upwardCount == 0) {
+          this.upwardCount = 1;
+          var self = this;
+          setTimeout(function() {
+            // console.log('thank you so much')
+            self.oldScroll = $(window).scrollTop();
+          }, 1000);
         }
-      } else if(this.fourBlockId.offsetTop > scroll && this.thirdBlockId.offsetTop < scroll) {
-        if (scroll > this.oldScroll) {
-          if(this.temp4 == 0) {
-            // console.log("scrolling downwards");
-            
-            this.temp4 += 1;
-            this.downwardCount = 0
-            this.upwardCount = 1
+      } 
+      // else {
+      //   if((this.thirdBlockId.offsetTop) > scroll) { // second
+      //     if (scroll > this.oldScroll) {
+      //       if(this.tempm2 == 0) {
+      //         this.tempm2 += 1;
+      //         this.downwardCount = 0
+      //         this.upwardCount = 1
+              
+      //         let sss = this.thirdBlockId.offsetTop;
+  
+      //         $('html, body').animate({
+      //           scrollTop: sss
+      //           }, 1000, function() {
+      //         });
+              
+      //       }
+      //     } else if (scroll < this.oldScroll) {
+      //       if(this.tempm2 !== 0) {
+      //         this.tempm2 = 0;
+      //         this.downwardCount = 1
+      //         this.upwardCount = 0
+      //         $('html, body').animate({
+      //           scrollTop: 0
+      //           }, 1000, function() {
+      //         });
+  
+      //       }
+      //     }
+      //   } else if(this.mthirdBlockId.offsetTop > scroll && this.thirdBlockId.offsetTop < scroll) { //third
+      //     if (scroll > this.oldScroll) {
+      //       if(this.tempm3 == 0) {
+      //         this.tempm3 += 1;
+      //         this.downwardCount = 0
+      //         this.upwardCount = 1
+  
+      //         let sss = this.mthirdBlockId.offsetTop;
+      //         $('html, body').animate({
+      //           scrollTop: sss
+      //         }, 1000, function() {
+      //         });
+      //       }
+      //     } else if (scroll < this.oldScroll) {
+      //       if(this.tempm3 !== 0) {
+      //         this.tempm3 = 0;
+      //         this.downwardCount = 1
+      //         this.upwardCount = 0
+  
+      //         let sss = this.thirdBlockId.offsetTop;
+      //         $('html, body').animate({
+      //           scrollTop: sss
+      //           }, 1000, function() {
+      //         });
+  
+      //       }
+      //     }
+      //   } else if(this.mthirdBlockId.offsetTop < scroll) {
+      //     if (scroll > this.oldScroll) {
+      //       if(this.tempm8 == 0) {
+      //         this.tempm8 += 1;
+      //         this.downwardCount = 0
+      //         this.upwardCount = 1
+  
+      //       }
+      //     } else if (scroll < this.oldScroll) {
+      //       if(this.tempm8 !== 0) {
+  
+      //         this.tempm8 = 0;
+      //         this.downwardCount = 1
+      //         this.upwardCount = 0
+  
+      //         let sss = this.mthirdBlockId.offsetTop +1;
+      //         $('html, body').animate({
+      //           scrollTop: sss
+      //           }, 1000, function() {
+      //         });
+  
+      //       }
+      //     }
+      //   }
+      // }
 
-            let sss = this.fourBlockId.offsetTop-1;
-            $('html, body').animate({
-              scrollTop: sss
-            }, 1000, function() {
-            });
-          }
-        } else if (scroll < this.oldScroll) {
-          if(this.temp4 !== 0) {
-            // console.log("scrolling upwards");
-
-            this.temp4 = 0;
-            this.downwardCount = 1
-            this.upwardCount = 0
-
-            let sss = this.thirdBlockId.offsetTop+1;
-            $('html, body').animate({
-              scrollTop: sss
-              }, 1000, function() {
-            });
-
-          }
-        }
-      } else if(this.fiveBlockId.offsetTop > scroll && this.fourBlockId.offsetTop < scroll) {
-        if (scroll > this.oldScroll) {
-          if(this.temp5 == 0) {
-            // console.log("scrolling downwards");
-            
-            this.temp5 += 1;
-            this.downwardCount = 0
-            this.upwardCount = 1
-
-            let sss = this.fiveBlockId.offsetTop;
-            $('html, body').animate({
-              scrollTop: sss
-            }, 1000, function() {
-            });
-          }
-        } else if (scroll < this.oldScroll) {
-          if(this.temp5 !== 0) {
-            // console.log("scrolling upwards");
-
-            this.temp5 = 0;
-            this.downwardCount = 1
-            this.upwardCount = 0
-
-            let sss = this.fourBlockId.offsetTop+1;
-            $('html, body').animate({
-              scrollTop: sss
-              }, 1000, function() {
-            });
-
-          }
-        }
-      } else if(this.sixBlockId.offsetTop > scroll && this.fiveBlockId.offsetTop < scroll) {
-        if (scroll > this.oldScroll) {
-          if(this.temp6 == 0) {
-            // console.log("scrolling downwards");
-            
-            this.temp6 += 1;
-            this.downwardCount = 0
-            this.upwardCount = 1
-
-            let sss = this.sixBlockId.offsetTop;
-            $('html, body').animate({
-              scrollTop: sss
-            }, 1000, function() {
-            });
-          }
-        } else if (scroll < this.oldScroll) {
-          if(this.temp6 !== 0) {
-            // console.log("scrolling upwards");
-
-            this.temp6 = 0;
-            this.downwardCount = 1
-            this.upwardCount = 0
-
-            let sss = this.fiveBlockId.offsetTop+1;
-            $('html, body').animate({
-              scrollTop: sss
-              }, 1000, function() {
-            });
-
-          }
-        }
-      } else if(this.sevenBlockId.offsetTop > scroll && this.sixBlockId.offsetTop < scroll) {
-        if (scroll > this.oldScroll) {
-          if(this.temp7 == 0) {
-            // console.log("scrolling downwards");
-            
-            this.temp7 += 1;
-            this.downwardCount = 0
-            this.upwardCount = 1
-
-            let sss = this.sevenBlockId.offsetTop;
-            $('html, body').animate({
-              scrollTop: sss
-            }, 1000, function() {
-            });
-          }
-        } else if (scroll < this.oldScroll) {
-          if(this.temp7 !== 0) {
-            // console.log("scrolling upwards");
-
-            this.temp7 = 0;
-            this.downwardCount = 1
-            this.upwardCount = 0
-
-            let sss = this.sixBlockId.offsetTop+1;
-            $('html, body').animate({
-              scrollTop: sss
-              }, 1000, function() {
-            });
-
-          }
-        }
-      } else if(this.sevenBlockId.offsetTop < scroll) {
-        if (scroll > this.oldScroll) {
-          if(this.temp8 == 0) {
-            // console.log("scrolling downwards");
-            
-            this.temp8 += 1;
-            this.downwardCount = 0
-            this.upwardCount = 1
-
-            let sss = this.eightBlockId.offsetTop;
-            $('html, body').animate({
-              scrollTop: sss
-            }, 1000, function() {
-            });
-          }
-        } else if (scroll < this.oldScroll) {
-          if(this.temp8 !== 0) {
-            // console.log("scrolling upwards");
-
-            this.temp8 = 0;
-            this.downwardCount = 1
-            this.upwardCount = 0
-
-            let sss = this.sevenBlockId.offsetTop +1;
-            $('html, body').animate({
-              scrollTop: sss
-              }, 1000, function() {
-            });
-
-          }
-        }
-      }
-      // console.log(scroll)
-
-      if(this.downwardCount == 0) {
-        this.downwardCount = 1;
-        var self = this;
-        setTimeout(function() {
-          // console.log('good luck to me')
-          // this.oldScroll = scroll;
-          self.oldScroll = $(window).scrollTop();
-        }, 1000);
-      } else if(this.upwardCount == 0) {
-        this.upwardCount = 1;
-        var self = this;
-        setTimeout(function() {
-          // console.log('thank you so much')
-          self.oldScroll = $(window).scrollTop();
-        }, 1000);
-      }
+      // if(this.downwardCount == 0) {
+      //   this.downwardCount = 1;
+      //   var self = this;
+      //   setTimeout(function() {
+      //     // console.log('good luck to me')
+      //     // this.oldScroll = scroll;
+      //     self.oldScroll = $(window).scrollTop();
+      //   }, 1000);
+      // } else if(this.upwardCount == 0) {
+      //   this.upwardCount = 1;
+      //   var self = this;
+      //   setTimeout(function() {
+      //     // console.log('thank you so much')
+      //     self.oldScroll = $(window).scrollTop();
+      //   }, 1000);
+      // }
       
     },
 
