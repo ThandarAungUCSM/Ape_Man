@@ -201,6 +201,7 @@
       </template>
     </Carousel>
   </div>
+  <hr class="hrcss" />
   <div class="third-block" id="thirdId">
     <img class="thirdbg-css" src="@/assets/images/third-bg.png" />
     <img class="m-bg3" src="@/assets/images/mobile/m-bg2.png" />
@@ -222,6 +223,7 @@
       <p class="third-block-content cssanimation mysequence3 leRotateYZoomIn" id="thirdContentId">有比地。隨早小個懷當是許被角就部人美人專；結禮不生斯，法起年不說面位動：題了得教人落情美病力信國覺，許動為部高地觀燈學層起人開意、者商之達期，情種處，自了面的於人何後畫還務只發沒施影三，整精來！死人告稱小現對報可怎十教男出時收音氣回魚取了中前變個；的太著進不。的我會華值職道陸，兒人新過，防土主素的野全道由式學象成力如。</p>
     </div>
   </div>
+  <hr class="hrcss" />
   <div class="m-third" id="mthirdId">
     <img id="mcarobgId" class="mcaroselbg-css" src="@/assets/images/mobile/m-bg3.png" />
     <div class="overlap-info">
@@ -252,6 +254,7 @@
       </template>
     </Carousel>
   </div>
+  <hr class="hrcss" />
   <div class="fourth-block" id="fourId">
     <img id="fourbgId" class="thirdbg-css" src="@/assets/images/fourth-bg.png" />
     <div class="overlap-info">
@@ -275,7 +278,7 @@
             <div class="shawdow-wrap">
               <img alt="" class="card1-css" src="@/assets/images/not-active1.png" />
             </div>
-            <div class="shawdow-wrap absoDiam topLdiamon">
+            <!-- <div class="shawdow-wrap absoDiam topLdiamon">
               <div id="toplId" class="tlarrowcss"></div>
             </div>
             <div class="shawdow-wrap absoDiam topRdiamon">
@@ -286,13 +289,13 @@
             </div>
             <div class="shawdow-wrap absoDiam bottomRdiamon">
               <div id="bottomlId" class="brarrowcss"></div>
-            </div>
+            </div> -->
           </div>
           <div class="each-card" @click="routeTo('/character-info')">
             <div class="shawdow-wrap">
               <img alt="" class="card1-css" src="@/assets/images/not-active2.png" />
             </div>
-            <div class="shawdow-wrap absoDiam topLdiamon">
+            <!-- <div class="shawdow-wrap absoDiam topLdiamon">
               <div id="toplId" class="tlarrowcss"></div>
             </div>
             <div class="shawdow-wrap absoDiam topRdiamon">
@@ -303,7 +306,7 @@
             </div>
             <div class="shawdow-wrap absoDiam bottomRdiamon">
               <div id="bottomlId" class="brarrowcss"></div>
-            </div>
+            </div> -->
           </div>
           <RouterLink to="/character-info" class="each-card activecard">
             <img alt="" class="card1-css activeinner" src="@/assets/images/not-active2.png" />
@@ -354,7 +357,7 @@
             <div class="shawdow-wrap">
               <img alt="" class="card1-css" src="@/assets/images/not-active3.png" />
             </div>
-            <div class="shawdow-wrap absoDiam topLdiamon">
+            <!-- <div class="shawdow-wrap absoDiam topLdiamon">
               <div id="toplId" class="tlarrowcss"></div>
             </div>
             <div class="shawdow-wrap absoDiam topRdiamon">
@@ -365,13 +368,13 @@
             </div>
             <div class="shawdow-wrap absoDiam bottomRdiamon">
               <div id="bottomlId" class="brarrowcss"></div>
-            </div>
+            </div> -->
           </div>
           <div class="each-card" @click="routeTo('/character-info')">
             <div class="shawdow-wrap">
               <img alt="" class="card1-css" src="@/assets/images/not-active4.png" />
             </div>
-            <div class="shawdow-wrap absoDiam topLdiamon">
+            <!-- <div class="shawdow-wrap absoDiam topLdiamon">
               <div id="toplId" class="tlarrowcss"></div>
             </div>
             <div class="shawdow-wrap absoDiam topRdiamon">
@@ -382,12 +385,13 @@
             </div>
             <div class="shawdow-wrap absoDiam bottomRdiamon">
               <div id="bottomlId" class="brarrowcss"></div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
     </div>
   </div>
+  <hr class="hrcss" />
   <div class="five-block" id="fiveId">
     <img class="thirdbg-css" src="@/assets/images/block5-bg1.png" />
     <div class="overlap-info">
@@ -424,6 +428,7 @@
       </div>
     </div>
   </div>
+  <hr class="hrcss" />
   <div class="six-block" id="sixId">
     <img alt="" class="carouselbg-css" src="@/assets/images/block6-bg1.png" />
     <div class="overlap-info">
@@ -456,6 +461,7 @@
       </template>
     </Carousel>
   </div>
+  <hr class="hrcss" />
   <div class="seven-block" id="sevenId">
     <img alt="" class="thirdbg-css" src="@/assets/images/block7-bg1.png" />
     <div class="overlap-info">
@@ -485,6 +491,7 @@
       </div>
     </div>
   </div>
+  <hr class="hrcss" />
   <div class="eight-block" id="eightId">
     <img alt="" class="thirdbg-css" src="@/assets/images/block8-bg.png" />
     <div class="overlap-info">
@@ -870,7 +877,6 @@ export default defineComponent({
 
           const square5 = entry.target.querySelector('.card-row');
           const square6 = entry.target.querySelector('.topLdiamon');
-
           const square7 = entry.target.querySelector('.topRdiamon');
           const square8 = entry.target.querySelector('.bottomLdiamon');
           const square9 = entry.target.querySelector('.bottomRdiamon');
@@ -1427,7 +1433,7 @@ export default defineComponent({
               this.downwardCount = 0
               this.upwardCount = 1
   
-              let sss = this.fourBlockId.offsetTop-1;
+              let sss = this.fourBlockId.offsetTop;
               $('html, body').animate({
                 scrollTop: sss
               }, 1000, function() {
@@ -1441,7 +1447,7 @@ export default defineComponent({
               this.downwardCount = 1
               this.upwardCount = 0
   
-              let sss = this.thirdBlockId.offsetTop+1;
+              let sss = this.thirdBlockId.offsetTop;
               $('html, body').animate({
                 scrollTop: sss
                 }, 1000, function() {
@@ -1472,7 +1478,7 @@ export default defineComponent({
               this.downwardCount = 1
               this.upwardCount = 0
   
-              let sss = this.fourBlockId.offsetTop+1;
+              let sss = this.fourBlockId.offsetTop;
               $('html, body').animate({
                 scrollTop: sss
                 }, 1000, function() {
@@ -1503,7 +1509,7 @@ export default defineComponent({
               this.downwardCount = 1
               this.upwardCount = 0
   
-              let sss = this.fiveBlockId.offsetTop+1;
+              let sss = this.fiveBlockId.offsetTop;
               $('html, body').animate({
                 scrollTop: sss
                 }, 1000, function() {
@@ -1534,7 +1540,7 @@ export default defineComponent({
               this.downwardCount = 1
               this.upwardCount = 0
   
-              let sss = this.sixBlockId.offsetTop+1;
+              let sss = this.sixBlockId.offsetTop;
               $('html, body').animate({
                 scrollTop: sss
                 }, 1000, function() {
@@ -1565,7 +1571,7 @@ export default defineComponent({
               this.downwardCount = 1
               this.upwardCount = 0
   
-              let sss = this.sevenBlockId.offsetTop +1;
+              let sss = this.sevenBlockId.offsetTop;
               $('html, body').animate({
                 scrollTop: sss
                 }, 1000, function() {
@@ -1843,8 +1849,12 @@ export default defineComponent({
   }
 }
 
+.hrcss {
+  border: 3px solid #000;
+}
 .first-block {
   position: relative;
+  min-height: 101vh;
   max-height: 101vh;
   @media screen and (max-width: 768px) {
     background-image: url("../assets/images/mobile/m-bg1.png");
@@ -1857,6 +1867,8 @@ export default defineComponent({
   .firstbgimg-css {
     width: 100%;
     // margin-bottom: -7px;
+    min-height: 100vh;
+    max-height: 100vh;
     @media screen and (max-width: 768px) {
       display: none;
     }
@@ -2103,6 +2115,7 @@ export default defineComponent({
   position: relative;
   max-height: 100vh;
   min-height: 100vh;
+  background: #000;
   .overlap-info {
     top: 150px;
     @media screen and (max-width: 768px) {
@@ -2144,10 +2157,12 @@ export default defineComponent({
 
 .fourth-block {
   position: relative;
+  min-height: 100vh;
   max-height: 100vh;
   background: #000;
   .thirdbg-css {
     width: 100%;
+    min-height: 100vh;
     max-height: 100vh;
     margin-bottom: -7px;
   }
@@ -2306,6 +2321,7 @@ export default defineComponent({
 }
 .six-block {
   position: relative;
+  min-height: 100vh;
   max-height: 100vh;
   padding: 0;
 
@@ -2354,6 +2370,7 @@ export default defineComponent({
     width: 100%;
 
     width:0;
+    min-height: 100vh;
     max-height: 100vh;
     top:50%;
     left:50%;
@@ -2385,7 +2402,9 @@ export default defineComponent({
 }
 .seven-block {
   position: relative;
+  min-height: 100vh;
   max-height: 100vh;
+  background: #000;
   .seven-img-block {
     margin: 2rem auto 0;
     width: 50%;
@@ -2423,13 +2442,15 @@ export default defineComponent({
   }
   .thirdbg-css {
     width: 100%;
+    min-height: 100vh;
     max-height: 100vh;
+    display: block;
     // margin-bottom: -7px;
   }
 }
 .eight-block {
   position: relative;
-  max-height: 55vh;
+  max-height: 70vh;
   .eight-block-content {
     font-weight: 400;
     font-size: 24px;
@@ -2546,6 +2567,7 @@ export default defineComponent({
   }
   .thirdbg-css {
     width: 100%;
+    height: 70vh;
     // margin-bottom: -7px;
     display: block;
   }
