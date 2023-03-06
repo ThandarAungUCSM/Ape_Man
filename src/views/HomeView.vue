@@ -89,7 +89,7 @@
           </div>
         </div>
         <div class="each-sec-div fade-in-text5">
-          <img alt="Project logo" class="message-css" src="@/assets/images/message-icon (2).png" @click="gotoPage('new-page')" />
+          <img alt="Project logo" class="message-css" src="@/assets/images/message-icon2.png" @click="gotoPage('new-page')" />
           <span class="each-sec-text">前往論壇</span>
           <div class="shawdow-wrap">
             <div id="sectarget-l" class="rarrowcss"></div>
