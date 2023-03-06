@@ -25,6 +25,21 @@ const router = createRouter({
       component: () => import('../views/NewsView.vue')
     },
     {
+      path: '/game-point',
+      name: 'gamePoint',
+      component: () => import('../views/GamePointView.vue')
+    },
+    {
+      path: '/discord',
+      name: 'discord',
+      component: () => import('../views/DiscordView.vue')
+    },
+    {
+      path: '/new-page',
+      name: 'newPage',
+      component: () => import('../views/NewPageView.vue')
+    },
+    {
       path: '/about',
       name: 'about',
       // route level code-splitting

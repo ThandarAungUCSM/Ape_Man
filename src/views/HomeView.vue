@@ -60,7 +60,10 @@
           <RouterLink to="/news">
             <span class="menu-text">新聞</span>
           </RouterLink>
-          <span class="menu-text">儲值購點</span>
+          <!-- <RouterLink to="/game-point">
+            <span class="menu-text">儲值購點</span>
+          </RouterLink> -->
+          <span class="menu-text" @click="gotoNewPage('gamePoint')">儲值購點</span>
         </div>
         <div class="m-header">
           <div class="logo-block">
@@ -71,23 +74,27 @@
       </div>
       <div class="header-secchild">
         <div class="row-head-block">
-          <div class="each-div fade-in-text4">
+          <!-- onclick="window.open('https://www.youtube.com/','_blank')" -->
+          <div class="each-div fade-in-text4" @click="gotoNewPage('youtube')">
             <img alt="Project logo" class="youtube-css" src="@/assets/images/youtube-icon.png" />
             <span class="youtube-text">Youtube</span>
           </div>
-          <div class="each-div fade-in-text3">
+          <div class="each-div fade-in-text3" @click="gotoNewPage('discord')">
             <img alt="Project logo" class="discord-css" src="@/assets/images/discord-icon1.png" />
             <span class="youtube-text">Discord</span>
           </div>
-          <div class="each-div fade-in-text2">
+          <div class="each-div fade-in-text2" @click="gotoNewPage('facebook')">
             <img alt="Project logo" class="facebook-css" src="@/assets/images/facebook-icon.png" />
             <span class="youtube-text">Facebook</span>
           </div>
         </div>
         <div class="each-sec-div fade-in-text5">
-          <img alt="Project logo" class="message-css" src="@/assets/images/message-icon.png" />
+          <img alt="Project logo" class="message-css" src="@/assets/images/message-icon (2).png" @click="gotoPage('new-page')" />
           <span class="each-sec-text">前往論壇</span>
-          <img alt="Project logo" class="rectangle-css" src="@/assets/images/rectangle-icon.png" />
+          <div class="shawdow-wrap">
+            <div id="sectarget-l" class="rarrowcss"></div>
+          </div>
+          <!-- <img alt="Project logo" class="rectangle-css" src="@/assets/images/rectangle-icon.png" /> -->
         </div>
       </div>
     </div>
@@ -103,8 +110,8 @@
         </p>
       </div>
       <div class="overlap2">
-        <img class="playstore-css" src="@/assets/images/playstore.png" />
-        <img class="appstore-css" src="@/assets/images/appstore.png" />
+        <img @click="linktoPlaystore()" class="playstore-css" src="@/assets/images/playstore.png" />
+        <img @click="linktoApplestore()" class="appstore-css" src="@/assets/images/appstore.png" />
       </div>
       <div class="overlap3">
         <img class="messenger-css" src="@/assets/images/messenger.png" />
@@ -748,6 +755,29 @@ export default defineComponent({
     }
   },
   methods: {
+    linktoPlaystore() {
+      window.open('https://play.google.com/store/apps', '_blank');
+    },
+    // 121809391821266
+    linktoApplestore() {
+      // window.open('https://www.apple.com/app-store/', '_blank');
+      window.open('https://apps.apple.com/', '_blank');
+    },
+    gotoPage(val) {
+      this.$router.push(val);
+    },
+    gotoNewPage(val) {
+      if(val == 'facebook') {
+        window.open('https://www.facebook.com/', '_blank');
+        // window.open('https://www.facebook.com/strongerthangood/', '_blank');
+      } else if(val == 'youtube') {
+        window.open('https://www.youtube.com/', '_blank');
+      } else {
+        // const routeData = this.$router.resolve({name: val, query: {data: "someData"}});
+        const routeData = this.$router.resolve({name: val});
+        window.open(routeData.href, '_blank');
+      } 
+    },
     isMobile() {
       if( screen.width <= 768) {
         this.showMobile = true;
@@ -1944,14 +1974,17 @@ export default defineComponent({
       animation-timing-function: linear;
       animation-delay: 2s;
       animation-fill-mode: forwards; // hidden to visible
+      z-index: 10;
       .playstore-css {
         width: 293.9px;
         height: 85.27px;
         margin-right: 1rem;
+        cursor: pointer;
       }
       .appstore-css {
         width: 293.9px;
         height: 85.27px;
+        cursor: pointer;
       }
     }
     .overlap3 {
@@ -3077,6 +3110,7 @@ export default defineComponent({
       color: #FFF;
       text-shadow: 0px 0px 18px #FFEDC9;
       margin: 0 1rem;
+      cursor: pointer;
     }
     .logo-block {
       display: flex;
@@ -3161,6 +3195,7 @@ export default defineComponent({
       padding: 10px 1rem;
       position: relative;
       width: 87px;
+      cursor: pointer;
       .youtube-css {
         width: 33px;
         height: 23px;
@@ -3240,6 +3275,7 @@ export default defineComponent({
     justify-content: space-between;
     align-items: center;
     padding: 10px 1.5rem;
+    padding: 10px 1.5rem 10px 10px;
     position: relative;
     width: 283px;
     margin-top: 5px;
@@ -3255,10 +3291,26 @@ export default defineComponent({
     .message-css {
       width: 31px;
       height: 31px;
+      width: 62px;
+      height: 62px;
+      cursor: pointer;
     }
     .rectangle-css {
       width: 35px;
       height: 25px;
+    }
+    .shawdow-wrap {
+      filter: drop-shadow(0px 0px 10px rgb(235, 243, 235));
+      .rarrowcss {
+        width: 35px;
+        height: 20px;
+        clip-path: polygon(0 50%, 22% 0, 100% 50%, 22% 99%);
+        background: #FFF;
+        @media screen and (max-width: 768px) {
+          width: 45px;
+          height: 25px;
+        }
+      }
     }
     .each-sec-text {
       font-weight: 600;
