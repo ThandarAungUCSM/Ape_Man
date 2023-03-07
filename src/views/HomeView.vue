@@ -421,16 +421,42 @@
       </p>
       <div class="five-videoblock" id="video5Id">
         <p class="b5-txt">防土主素的野全道由式學象成力如。</p>
-        <div class="video-overlap">
+        <!-- <div class="video-overlap">
           <img alt="" class="block5Video" src="@/assets/images/block5-video1.png" />
           <img alt="" class="play-css" src="@/assets/images/play-video.png" />
+        </div> -->
+        <div class="viideo-block">
+          <video-player
+            :src="bgvideo"
+            :poster="v1Plaay"
+            :muted="true"
+            :playsinline="true"
+            :loop="true"
+            :fluid="true"
+            class="video-player vjs-big-play-centered"
+            playsinline
+            controls
+          />
         </div>
       </div>
       <div class="five-videoblock1" id="video5Id1">
         <p class="b5-txt">的太著進不。的我會值職道陸，兒人新過。</p>
-        <div class="video-overlap">
+        <!-- <div class="video-overlap">
           <img alt="" class="block5Video" src="@/assets/images/block5-video2.png" />
           <img alt="" class="play-css" src="@/assets/images/play-video.png" />
+        </div> -->
+        <div class="viideo-block">
+          <video-player
+            :src="bgvideo"
+            :poster="v2Plaay"
+            :muted="true"
+            :playsinline="true"
+            :loop="true"
+            :fluid="true"
+            class="video-player vjs-big-play-centered"
+            playsinline
+            controls
+          />
         </div>
       </div>
     </div>
@@ -585,6 +611,8 @@
 import { defineComponent, toRefs } from "vue";
 
 import bgsecd from '@/assets/images/firstbg1.png'
+import v1play from '@/assets/images/block5-video1.png'
+import v2play from '@/assets/images/block5-video2.png'
 import bgvideotemp from "@/assets/videos/lostark_intro.mp4"
 
 import fsix1 from '@/assets/images/carousel/c1.png'
@@ -628,6 +656,8 @@ export default defineComponent({
         { id: 6, title: '.', content: 'Know the components' , src: ssix6}
       ],
       bgsecn: bgsecd,
+      v1Plaay: v1play,
+      v2Plaay: v2play,
       bgvideo: bgvideotemp,
 
       firstBlockId: null,
@@ -759,6 +789,7 @@ export default defineComponent({
       window.open('https://play.google.com/store/apps', '_blank');
     },
     // 121809391821266
+    // https://www.facebook.com/help/372393340104085/?helpref=uf_share
     linktoApplestore() {
       // window.open('https://www.apple.com/app-store/', '_blank');
       window.open('https://apps.apple.com/', '_blank');
@@ -1525,11 +1556,11 @@ export default defineComponent({
               this.downwardCount = 0
               this.upwardCount = 1
   
-              let sss = this.sixBlockId.offsetTop;
-              $('html, body').animate({
-                scrollTop: sss
-              }, 1000, function() {
-              });
+              // let sss = this.sixBlockId.offsetTop;
+              // $('html, body').animate({
+              //   scrollTop: sss
+              // }, 1000, function() {
+              // });
             }
           } else if (scroll < this.oldScroll) {
             if(this.temp6 !== 0) {
@@ -2239,7 +2270,7 @@ export default defineComponent({
 }
 .five-block {
   position: relative;
-  max-height: 175vh;
+  max-height: 200vh;
   background: #000;
   .thirdbg-css {
     width: 100%;
@@ -2340,6 +2371,11 @@ export default defineComponent({
       left: 50%;
       transform: translate(-50%, -50%);
     }
+  }
+  .viideo-block {
+    width: 55%;
+    height: 100%;
+    margin: 0 auto;
   }
 }
 .five-block:after {
@@ -2742,9 +2778,11 @@ export default defineComponent({
 
       .each-card {
         width: 19%;
+        opacity: 0.5;
       }
       .each-card:hover {
         position: relative;
+        opacity: 1;
         cursor: pointer;
         .shawdow-wrap {
           filter: drop-shadow(0px 0px 10px rgb(235, 243, 235));
@@ -2784,6 +2822,7 @@ export default defineComponent({
       }
       .activecard {
         position: relative;
+        opacity: 1;
         .shawdow-wrap {
           filter: drop-shadow(0px 0px 10px rgb(235, 243, 235));
           .tlarrowcss {
@@ -3828,5 +3867,11 @@ export default defineComponent({
 }
 .fixed-position {
   position: fixed;
+}
+
+.vjs-icon-placeholder:before {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 </style>
