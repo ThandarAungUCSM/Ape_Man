@@ -1,7 +1,7 @@
 <template>
   <!-- :wrap-around="true" :breakpoints="breakpoints" :autoplay="3000" -->
   <!-- :autoplay="2000" :wrap-around="true" -->
-  <Carousel class="carosel-css">
+  <Carousel class="carosel-css" v-model="activeItem">
     <template #slides="{ slidesCount }" >
       <Slide v-for="(image, index) in images" :key="image.id">
         <div class="left-div">
@@ -65,14 +65,23 @@ import "vue3-carousel/dist/carousel.css";
 
 export default defineComponent({
   name: "Basic",
+  data() {
+    return {
+      activeItem: 0
+    }
+  },
   props: {
     images: Array,
+    currentSlide: Number
   },
   components: {
     Carousel,
     Slide,
     Pagination,
     Navigation,
+  },
+  created() {
+    this.activeItem = this.currentSlide
   },
   mounted() {
     this.animateSequence();

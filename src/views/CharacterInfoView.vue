@@ -4,34 +4,48 @@
       <div class="back-div">
         <img alt="" class="back-css" @click="routetoFront()" src="@/assets/images/characterinfo/goBack.png" />
       </div>
-      <Carousel :images="slides" @deleteImage="handelDeleteImage" />
+      <Carousel :images="characterInfo" @deleteImage="handelDeleteImage" :currentSlide="currentSlide" />
     <div>
     </div>
   </div>
 </template>
 
+<script setup>
+  import { useSlideStore } from "../stores/slide";
+</script>
 <script>
 import { defineComponent, ref } from "vue";
 import Carousel from "../components/Carousel.vue";
+
+import { mapState, mapActions } from 'pinia'
 
 export default defineComponent({
   components: {
     Carousel,
   },
+  created() {
+    this.currentSlide = this.$route.params.id;
+    this.fetchCharacterInfo();
+  },
+  computed: {
+    ...mapState(useSlideStore, {characterInfo: 'getCharaInfo'})
+  },
   methods: {
+    ...mapActions(useSlideStore, ['fetchCharacterInfo']),
     routetoFront() {
       this.$router.push('/');
-    }
+    },
   },
   data() {
     return {
-      slides: [
-        { id: 1, title: 'My', content: 'VueJS is a library' , src: '/src/assets/images/characterinfo/info-caro.png'},
-        { id: 2, title: 'Current', content: 'Know the components' , src: '/src/assets/images/carousel/c1.png'},
-        { id: 3, title: 'Project', content: 'Know the components' , src: '/src/assets/images/carousel/c1.png'},
-        { id: 4, title: 'is', content: 'Know the components' , src: '/src/assets/images/carousel/c1.png'},
-        { id: 5, title: 'Vue 3', content: 'Know the components' , src: '/src/assets/images/carousel/c1.png'}
-      ]
+      currentSlide: 0,
+      // slides: [
+      //   { id: 1, title: 'My', content: 'VueJS is a library' , src: '/src/assets/images/characterinfo/info-caro.png'},
+      //   { id: 2, title: 'Current', content: 'Know the components' , src: '/src/assets/images/carousel/c1.png'},
+      //   { id: 3, title: 'Project', content: 'Know the components' , src: '/src/assets/images/carousel/c1.png'},
+      //   { id: 4, title: 'is', content: 'Know the components' , src: '/src/assets/images/carousel/c1.png'},
+      //   { id: 5, title: 'Vue 3', content: 'Know the components' , src: '/src/assets/images/carousel/c1.png'}
+      // ]
     }
   },
   setup() {

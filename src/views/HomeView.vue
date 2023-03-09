@@ -181,7 +181,7 @@
         <div id="polyId2" class="polygonimgcss"></div>
       </div>
     </div>
-    
+
     <!-- :wrap-around="true" :breakpoints="breakpoints" :autoplay="3000" -->
     <!-- :autoplay="2000" :wrap-around="true" -->
     <Carousel >
@@ -281,39 +281,15 @@
       </div>
       <div class="card-row">
         <div class="ani-cardrow" id="cardId">
-          <div class="each-card" @click="routeTo('/character-info')">
+          <!-- <div class="each-card" @click="routeTo('/character-info')">
             <div class="shawdow-wrap">
               <img alt="" class="card1-css" src="@/assets/images/not-active1.png" />
             </div>
-            <!-- <div class="shawdow-wrap absoDiam topLdiamon">
-              <div id="toplId" class="tlarrowcss"></div>
-            </div>
-            <div class="shawdow-wrap absoDiam topRdiamon">
-              <div id="toprId" class="trarrowcss"></div>
-            </div>
-            <div class="shawdow-wrap absoDiam bottomLdiamon">
-              <div id="bottomlId" class="blarrowcss"></div>
-            </div>
-            <div class="shawdow-wrap absoDiam bottomRdiamon">
-              <div id="bottomlId" class="brarrowcss"></div>
-            </div> -->
           </div>
           <div class="each-card" @click="routeTo('/character-info')">
             <div class="shawdow-wrap">
               <img alt="" class="card1-css" src="@/assets/images/not-active2.png" />
             </div>
-            <!-- <div class="shawdow-wrap absoDiam topLdiamon">
-              <div id="toplId" class="tlarrowcss"></div>
-            </div>
-            <div class="shawdow-wrap absoDiam topRdiamon">
-              <div id="toprId" class="trarrowcss"></div>
-            </div>
-            <div class="shawdow-wrap absoDiam bottomLdiamon">
-              <div id="bottomlId" class="blarrowcss"></div>
-            </div>
-            <div class="shawdow-wrap absoDiam bottomRdiamon">
-              <div id="bottomlId" class="brarrowcss"></div>
-            </div> -->
           </div>
           <RouterLink to="/character-info" class="each-card activecard">
             <img alt="" class="card1-css activeinner" src="@/assets/images/not-active2.png" />
@@ -334,65 +310,157 @@
               <p class="txt2">-敘述敘述-</p>
             </div>
           </RouterLink>
-          <!-- <div class="each-card" @click="routeTo('/character-info')">
-            <div class="shawdow-wrap">
-              <img alt="" class="card1-css activeinner" src="@/assets/images/not-active2.png" /> -->
-              <!-- <img alt="" class="card1-css" src="@/assets/images/fourth-active-img.png" />
-              <img id="toplId" class="absoDiam topLdiamon" src="@/assets/images/tldiamond.png" />
-              <img id="toprId" class="absoDiam topRdiamon" src="@/assets/images/diamond.png" />
-              <img id="bottomlId" class="absoDiam bottomLdiamon" src="@/assets/images/bldiamond.png" />
-              <img id="bottomrId" class="absoDiam bottomRdiamon" src="@/assets/images/brdiamond.png" /> -->
-            <!-- </div>
-            <div class="shawdow-wrap absoDiam topLdiamon">
-              <div id="toplId" class="tlarrowcss"></div>
-            </div>
-            <div class="shawdow-wrap absoDiam topRdiamon">
-              <div id="toprId" class="trarrowcss"></div>
-            </div>
-            <div class="shawdow-wrap absoDiam bottomLdiamon">
-              <div id="bottomlId" class="blarrowcss"></div>
-            </div>
-            <div class="shawdow-wrap absoDiam bottomRdiamon">
-              <div id="bottomlId" class="brarrowcss"></div>
-            </div>
-            <div id="childActId" class="child-act">
-              <p class="txt1">職業名稱</p>
-              <p class="txt2">-敘述敘述-</p>
-            </div>
-          </div> -->
           <div class="each-card" @click="routeTo('/character-info')">
             <div class="shawdow-wrap">
               <img alt="" class="card1-css" src="@/assets/images/not-active3.png" />
             </div>
-            <!-- <div class="shawdow-wrap absoDiam topLdiamon">
-              <div id="toplId" class="tlarrowcss"></div>
-            </div>
-            <div class="shawdow-wrap absoDiam topRdiamon">
-              <div id="toprId" class="trarrowcss"></div>
-            </div>
-            <div class="shawdow-wrap absoDiam bottomLdiamon">
-              <div id="bottomlId" class="blarrowcss"></div>
-            </div>
-            <div class="shawdow-wrap absoDiam bottomRdiamon">
-              <div id="bottomlId" class="brarrowcss"></div>
-            </div> -->
           </div>
           <div class="each-card" @click="routeTo('/character-info')">
             <div class="shawdow-wrap">
               <img alt="" class="card1-css" src="@/assets/images/not-active4.png" />
             </div>
-            <!-- <div class="shawdow-wrap absoDiam topLdiamon">
+          </div> -->
+
+
+          <!-- <div class="card-row">
+            <div class="ani-cardrow" id="cardId">
+              <div class="each-card" @click="routeTo('/character-info')">
+                <div class="shawdow-wrap">
+                  <img alt="" class="card1-css" src="@/assets/images/not-active1.png" />
+                </div> -->
+                <!-- <div class="shawdow-wrap absoDiam topLdiamon">
+                  <div id="toplId" class="tlarrowcss"></div>
+                </div>
+                <div class="shawdow-wrap absoDiam topRdiamon">
+                  <div id="toprId" class="trarrowcss"></div>
+                </div>
+                <div class="shawdow-wrap absoDiam bottomLdiamon">
+                  <div id="bottomlId" class="blarrowcss"></div>
+                </div>
+                <div class="shawdow-wrap absoDiam bottomRdiamon">
+                  <div id="bottomlId" class="brarrowcss"></div>
+                </div> -->
+              <!-- </div>
+              <div class="each-card" @click="routeTo('/character-info')">
+                <div class="shawdow-wrap">
+                  <img alt="" class="card1-css" src="@/assets/images/not-active2.png" />
+                </div> -->
+                <!-- <div class="shawdow-wrap absoDiam topLdiamon">
+                  <div id="toplId" class="tlarrowcss"></div>
+                </div>
+                <div class="shawdow-wrap absoDiam topRdiamon">
+                  <div id="toprId" class="trarrowcss"></div>
+                </div>
+                <div class="shawdow-wrap absoDiam bottomLdiamon">
+                  <div id="bottomlId" class="blarrowcss"></div>
+                </div>
+                <div class="shawdow-wrap absoDiam bottomRdiamon">
+                  <div id="bottomlId" class="brarrowcss"></div>
+                </div> -->
+              <!-- </div>
+              <RouterLink to="/character-info" class="each-card activecard">
+                <img alt="" class="card1-css activeinner" src="@/assets/images/not-active2.png" />
+                <div class="shawdow-wrap absoDiam topLdiamon">
+                  <div id="toplId" class="tlarrowcss"></div>
+                </div>
+                <div class="shawdow-wrap absoDiam topRdiamon">
+                  <div id="toprId" class="trarrowcss"></div>
+                </div>
+                <div class="shawdow-wrap absoDiam bottomLdiamon">
+                  <div id="bottomlId" class="blarrowcss"></div>
+                </div>
+                <div class="shawdow-wrap absoDiam bottomRdiamon">
+                  <div id="bottomlId" class="brarrowcss"></div>
+                </div>
+                <div id="childActId" class="child-act">
+                  <p class="txt1">職業名稱</p>
+                  <p class="txt2">-敘述敘述-</p>
+                </div>
+              </RouterLink> -->
+              <!-- <div class="each-card" @click="routeTo('/character-info')">
+                <div class="shawdow-wrap">
+                  <img alt="" class="card1-css activeinner" src="@/assets/images/not-active2.png" /> -->
+                  <!-- <img alt="" class="card1-css" src="@/assets/images/fourth-active-img.png" />
+                  <img id="toplId" class="absoDiam topLdiamon" src="@/assets/images/tldiamond.png" />
+                  <img id="toprId" class="absoDiam topRdiamon" src="@/assets/images/diamond.png" />
+                  <img id="bottomlId" class="absoDiam bottomLdiamon" src="@/assets/images/bldiamond.png" />
+                  <img id="bottomrId" class="absoDiam bottomRdiamon" src="@/assets/images/brdiamond.png" /> -->
+                <!-- </div>
+                <div class="shawdow-wrap absoDiam topLdiamon">
+                  <div id="toplId" class="tlarrowcss"></div>
+                </div>
+                <div class="shawdow-wrap absoDiam topRdiamon">
+                  <div id="toprId" class="trarrowcss"></div>
+                </div>
+                <div class="shawdow-wrap absoDiam bottomLdiamon">
+                  <div id="bottomlId" class="blarrowcss"></div>
+                </div>
+                <div class="shawdow-wrap absoDiam bottomRdiamon">
+                  <div id="bottomlId" class="brarrowcss"></div>
+                </div>
+                <div id="childActId" class="child-act">
+                  <p class="txt1">職業名稱</p>
+                  <p class="txt2">-敘述敘述-</p>
+                </div>
+              </div> -->
+              <!-- <div class="each-card" @click="routeTo('/character-info')">
+                <div class="shawdow-wrap">
+                  <img alt="" class="card1-css" src="@/assets/images/not-active3.png" />
+                </div> -->
+                <!-- <div class="shawdow-wrap absoDiam topLdiamon">
+                  <div id="toplId" class="tlarrowcss"></div>
+                </div>
+                <div class="shawdow-wrap absoDiam topRdiamon">
+                  <div id="toprId" class="trarrowcss"></div>
+                </div>
+                <div class="shawdow-wrap absoDiam bottomLdiamon">
+                  <div id="bottomlId" class="blarrowcss"></div>
+                </div>
+                <div class="shawdow-wrap absoDiam bottomRdiamon">
+                  <div id="bottomlId" class="brarrowcss"></div>
+                </div> -->
+              <!-- </div>
+              <div class="each-card" @click="routeTo('/character-info')">
+                <div class="shawdow-wrap">
+                  <img alt="" class="card1-css" src="@/assets/images/not-active4.png" />
+                </div> -->
+                <!-- <div class="shawdow-wrap absoDiam topLdiamon">
+                  <div id="toplId" class="tlarrowcss"></div>
+                </div>
+                <div class="shawdow-wrap absoDiam topRdiamon">
+                  <div id="toprId" class="trarrowcss"></div>
+                </div>
+                <div class="shawdow-wrap absoDiam bottomLdiamon">
+                  <div id="bottomlId" class="blarrowcss"></div>
+                </div>
+                <div class="shawdow-wrap absoDiam bottomRdiamon">
+                  <div id="bottomlId" class="brarrowcss"></div>
+                </div> -->
+              <!-- </div>
+            </div>
+          </div> -->
+          
+          <div :class="current == i.id ? 'activecard' : ''" class="each-card" v-for="i in characterInfo" :key="i.id"  @click="routeTo('characterInfo', i.id)">
+            <div v-if="current !== i.id" class="shawdow-wrap">
+              <img :src="i.src" alt="" class="card1-css" src="@/assets/images/not-active1.png" />
+            </div>
+            <img v-if="current == i.id" class="card1-css activeinner" :src="i.src" />
+            <div v-if="current == i.id" class="shawdow-wrap absoDiam topLdiamon">
               <div id="toplId" class="tlarrowcss"></div>
             </div>
-            <div class="shawdow-wrap absoDiam topRdiamon">
+            <div v-if="current == i.id" class="shawdow-wrap absoDiam topRdiamon">
               <div id="toprId" class="trarrowcss"></div>
             </div>
-            <div class="shawdow-wrap absoDiam bottomLdiamon">
+            <div v-if="current == i.id" class="shawdow-wrap absoDiam bottomLdiamon">
               <div id="bottomlId" class="blarrowcss"></div>
             </div>
-            <div class="shawdow-wrap absoDiam bottomRdiamon">
+            <div v-if="current == i.id" class="shawdow-wrap absoDiam bottomRdiamon">
               <div id="bottomlId" class="brarrowcss"></div>
-            </div> -->
+            </div>
+            <div v-if="current == i.id" id="childActId" class="child-act">
+              <p class="txt1">職業名稱</p>
+              <p class="txt2">-敘述敘述-</p>
+            </div>
           </div>
         </div>
       </div>
@@ -607,6 +675,24 @@
   </Carousel> -->
 </template>
 
+<script setup>
+  import { ref, onMounted, computed } from "vue";
+  import { useSlideStore } from "../stores/slide";
+  const store = useSlideStore();
+
+  const slides = computed(() => {
+    return store.getSlides;
+  });
+  const ssss = computed(() => {
+    return store.slides;
+  });
+  onMounted(() => {
+    console.log('heeeee')
+    store.fetchSlides();
+    // this.temphi();
+  });
+
+</script>
 <script>
 import { defineComponent, toRefs } from "vue";
 
@@ -629,17 +715,22 @@ import ssix6 from '@/assets/images/carousel/caro-sec.png'
 
 import { Carousel, Pagination, Navigation, Slide } from "vue3-carousel";
 
+import { mapState, mapActions } from 'pinia'
+
 import "vue3-carousel/dist/carousel.css";
 export default defineComponent({
   name: 'Home',
   data() {
     return {
-      slides: [
-        { id: 1, title: 'Current', content: 'VueJS is a library' , src: fsix1},
-        { id: 2, title: 'Project', content: 'Know the components' , src: fsix2},
-        { id: 3, title: 'is', content: 'Know the components' , src: fsix3},
-        { id: 4, title: 'Vue 3', content: 'Know the components' , src: fsix4}
-      ],
+      // slides: [
+      //   { id: 1, title: 'Current', content: 'VueJS is a library' , src: fsix1},
+      //   { id: 2, title: 'Project', content: 'Know the components' , src: fsix2},
+      //   { id: 3, title: 'is', content: 'Know the components' , src: fsix3},
+      //   { id: 4, title: 'Vue 3', content: 'Know the components' , src: fsix4}
+      // ],
+      // slides: null,
+      // ssss: null,
+      current: 3,
       mslidees: [
         { id: 1, title: 'Current', content: 'VueJS is a library' , src: fsix1},
         { id: 2, title: 'Project', content: 'Know the components' , src: fsix2},
@@ -766,6 +857,12 @@ export default defineComponent({
     if(this.isMobile()) {
     } else {
     }
+
+    this.fetchSlides();
+    this.fetchCharacterInfo();
+  },
+  computed: {
+    ...mapState(useSlideStore, {slides: 'getSlides', characterInfo: 'getCharaInfo'})
   },
   mounted() {
     console.log('mounted');
@@ -785,6 +882,7 @@ export default defineComponent({
     }
   },
   methods: {
+    ...mapActions(useSlideStore, ['fetchSlides', 'fetchCharacterInfo']),
     linktoPlaystore() {
       window.open('https://play.google.com/store/apps', '_blank');
     },
@@ -819,8 +917,8 @@ export default defineComponent({
         return false;
       }
     },
-    routeTo(path) {
-      this.$router.push(path)
+    routeTo(path, i) {
+      this.$router.push({name: path, params: {id: i}})
     },
     fixedmenu() {
       if(this.showMenu) {
@@ -2902,18 +3000,18 @@ export default defineComponent({
         }
       }
     }
-    .cardAni {
-      animation-name: bigToSmall;
-      animation-duration: 1.7s;
-      -webkit-font-smoothing: antialiased;
+  }
+  .cardAni {
+    animation-name: bigToSmall;
+    animation-duration: 1.7s;
+    -webkit-font-smoothing: antialiased;
+  }
+  @keyframes bigToSmall {
+    0% {
+      transform: scale(1.2,1.2);
     }
-    @keyframes bigToSmall {
-      0% {
-        transform: scale(1.2,1.2);
-      }
-      100%{
-        transform: scal(1,1);
-      }
+    100%{
+      transform: scal(1,1);
     }
   }
   .card1-css {
