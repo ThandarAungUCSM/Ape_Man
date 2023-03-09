@@ -442,7 +442,7 @@
           
           <div :class="current == i.id ? 'activecard' : ''" class="each-card" v-for="i in characterInfo" :key="i.id"  @click="routeTo('characterInfo', i.id)">
             <div v-if="current !== i.id" class="shawdow-wrap">
-              <img :src="i.src" alt="" class="card1-css" src="@/assets/images/not-active1.png" />
+              <img :src="i.src" alt="" class="card1-css" />
             </div>
             <img v-if="current == i.id" class="card1-css activeinner" :src="i.src" />
             <div v-if="current == i.id" class="shawdow-wrap absoDiam topLdiamon">
@@ -860,9 +860,10 @@ export default defineComponent({
 
     this.fetchSlides();
     this.fetchCharacterInfo();
+    this.fetchCarousel();
   },
   computed: {
-    ...mapState(useSlideStore, {slides: 'getSlides', characterInfo: 'getCharaInfo'})
+    ...mapState(useSlideStore, {slides: 'getSlides', characterInfo: 'getCharaInfo', carouselInfo: 'getCarouselInfo'})
   },
   mounted() {
     console.log('mounted');
@@ -882,7 +883,7 @@ export default defineComponent({
     }
   },
   methods: {
-    ...mapActions(useSlideStore, ['fetchSlides', 'fetchCharacterInfo']),
+    ...mapActions(useSlideStore, ['fetchSlides', 'fetchCharacterInfo', 'fetchCarousel']),
     linktoPlaystore() {
       window.open('https://play.google.com/store/apps', '_blank');
     },

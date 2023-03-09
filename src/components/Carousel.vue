@@ -81,7 +81,10 @@ export default defineComponent({
     Navigation,
   },
   created() {
-    this.activeItem = this.currentSlide
+    // console.log('carousel created')
+    if(this.currentSlide) {
+      this.activeItem = (this.currentSlide-1);
+    }
   },
   mounted() {
     this.animateSequence();

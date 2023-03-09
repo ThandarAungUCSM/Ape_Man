@@ -4,7 +4,8 @@
       <div class="back-div">
         <img alt="" class="back-css" @click="routetoFront()" src="@/assets/images/characterinfo/goBack.png" />
       </div>
-      <Carousel :images="characterInfo" @deleteImage="handelDeleteImage" :currentSlide="currentSlide" />
+      <!-- <Carousel :images="characterInfo" @deleteImage="handelDeleteImage" :currentSlide="currentSlide" /> -->
+      <Carousel :images="carouselInfo" @deleteImage="handelDeleteImage" :currentSlide="currentSlide" />
     <div>
     </div>
   </div>
@@ -25,13 +26,16 @@ export default defineComponent({
   },
   created() {
     this.currentSlide = this.$route.params.id;
-    this.fetchCharacterInfo();
+    // this.fetchCharacterInfo();
+    this.fetchCarousel();
   },
   computed: {
-    ...mapState(useSlideStore, {characterInfo: 'getCharaInfo'})
+    // ...mapState(useSlideStore, {characterInfo: 'getCharaInfo'})
+    ...mapState(useSlideStore, {carouselInfo: 'getCarouselInfo'})
   },
   methods: {
-    ...mapActions(useSlideStore, ['fetchCharacterInfo']),
+    // ...mapActions(useSlideStore, ['fetchCharacterInfo']),
+    ...mapActions(useSlideStore, ['fetchCarousel']),
     routetoFront() {
       this.$router.push('/');
     },
