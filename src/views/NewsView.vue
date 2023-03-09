@@ -61,7 +61,20 @@
           <img class="crystal-css" src="@/assets/images/news/crystalel.png" />
         </div>
         <div class="middel-div">
-          <div class="active-seceach">
+          <div v-for="i in 5" :key="i" class="secoeach" @click="selectItem(i)" :class="selectedActive == i ? 'active-act' : 'noactive-act'">
+            <div class="shawdow-wrap">
+              <div class="larrowcss"></div>
+            </div>
+            <span class="title-text" v-if="i == 1">綜合</span>
+            <span class="title-text" v-if="i == 2">新聞</span>
+            <span class="title-text" v-if="i == 3">公告</span>
+            <span class="title-text" v-if="i == 4">活動</span>
+            <span class="title-text" v-if="i == 5">資料</span>
+            <div class="shawdow-wrap">
+              <div class="rarrowcss"></div>
+            </div>
+          </div>
+          <!-- <div class="secoeach noactive-act">
             <div class="shawdow-wrap">
               <div class="larrowcss"></div>
             </div>
@@ -70,7 +83,7 @@
               <div class="rarrowcss"></div>
             </div>
           </div>
-          <div class="secoeach">
+          <div class="secoeach noactive-act">
             <div class="shawdow-wrap">
               <div class="larrowcss"></div>
             </div>
@@ -79,7 +92,7 @@
               <div class="rarrowcss"></div>
             </div>
           </div>
-          <div class="secoeach">
+          <div class="secoeach noactive-act">
             <div class="shawdow-wrap">
               <div class="larrowcss"></div>
             </div>
@@ -88,7 +101,7 @@
               <div class="rarrowcss"></div>
             </div>
           </div>
-          <div class="secoeach">
+          <div class="secoeach noactive-act">
             <div class="shawdow-wrap">
               <div class="larrowcss"></div>
             </div>
@@ -96,16 +109,7 @@
             <div class="shawdow-wrap">
               <div class="rarrowcss"></div>
             </div>
-          </div>
-          <div class="secoeach">
-            <div class="shawdow-wrap">
-              <div class="larrowcss"></div>
-            </div>
-            <span class="title-text">事前預約</span>
-            <div class="shawdow-wrap">
-              <div class="rarrowcss"></div>
-            </div>
-          </div>
+          </div> -->
         </div>
         <div class="right-flower">
           <img class="crystal-css" src="@/assets/images/news/crystaler.png" />
@@ -115,22 +119,22 @@
         <hr class="hrcss">
       </div>
       <div class="block3">
-        <div class="row1">
+        <div class="row1" v-if="selectedActive == 1 || selectedActive == 3">
           <p class="commontitle1 titlecolor1">【公告】</p>
           <p class="text-title2">主題內容主題內容主題內容主題內容主題內容主題內容</p>
           <p class="text-title3">1-18</p>
         </div>
-        <div class="row1">
+        <div class="row1" v-if="selectedActive == 1 || selectedActive == 2">
           <p class="commontitle1 titlecolor2">【新聞】</p>
           <p class="text-title2">主題內容主題內容主題內容主題內容主題內容主題內容</p>
           <p class="text-title3">1-18</p>
         </div>
-        <div class="row1">
+        <div class="row1" v-if="selectedActive == 1 || selectedActive == 4">
           <p class="commontitle1 titlecolor3">【活動】</p>
           <p class="text-title2">主題內容主題內容主題內容主題內容主題內容主題內容</p>
           <p class="text-title3">1-17</p>
         </div>
-        <div class="row1">
+        <div class="row1" v-if="selectedActive == 1 || selectedActive == 5">
           <p class="commontitle1 titlecolor4">【資料】</p>
           <p class="text-title2">主題內容主題內容主題內容主題內容主題內容主題內容</p>
           <p class="text-title3">12-30</p>
@@ -166,12 +170,22 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent, ref } from "vue";
 
 export default defineComponent({
+  data() {
+    return {
+      selectedActive: 1
+    }
+  },
   components: {
     
+  },
+  methods: {
+    selectItem(val) {
+      this.selectedActive = val
+    }
   },
   setup() {
     
@@ -479,22 +493,15 @@ export default defineComponent({
           display: flex;
           justify-content: space-between;
           width: 75%;
-          .active-seceach {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            
-            background: rgba(23, 47, 172, 0.65);
+          .active-act {
             border: 4px solid #5BEBFF;
-            border-radius: 12px; 
-            padding: 10px 1rem;
             margin-right: 4px;
             .shawdow-wrap {
               filter: drop-shadow(0px 0px 10px rgb(235, 243, 235));
               .larrowcss {
                 clip-path: polygon(0 50%, 78% 0, 100% 50%, 78% 99%);
-                height: 20px;
                 width: 35px;
+                height: 20px;
                 background: #5BEBFF;
                 box-shadow: 0px 0px 20px rgba(91, 235, 255, 0.85);
               }
@@ -511,18 +518,11 @@ export default defineComponent({
               font-size: 1.6vw;
               color: #5BEBFF;
               text-shadow: 0px 0px 12px rgba(91, 235, 255, 0.8);
-              margin: 0 10px;
+              margin: 0 20px;
             }
           }
-          .secoeach {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            
-            background: #172792;
-            border-radius: 12px; 
+          .noactive-act {
             border: 4px solid #181b61;
-            padding: 10px 1rem;
             .shawdow-wrap {
               filter: drop-shadow(0px 0px 10px rgb(235, 243, 235));
               .larrowcss {
@@ -543,8 +543,22 @@ export default defineComponent({
               font-size: 1.6vw;
               color: #FFFFFF;
               text-shadow: 0px 0px 12px rgba(255, 255, 255, 0.8);
-              margin: 0 10px;
+              margin: 0 20px;
             }
+          }
+          .secoeach {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            
+            background: rgba(23, 47, 172, 0.65);
+            background: #172792;
+            border-radius: 12px; 
+            padding: 10px 2rem;
+            // margin-right: 4px;
+
+            cursor: pointer; 
+            width: 19%;
           }
         }
       }
@@ -625,6 +639,7 @@ export default defineComponent({
           width: 210px;
           height: 45px;
           line-height: 45px;
+          cursor: pointer;
         }
       }
     }

@@ -79,6 +79,8 @@ export default defineComponent({
   .preorder-div {
     .first-block {
       position: relative;
+      min-height: 100vh;
+      max-height: 100vh;
       .bg-css {
         width: 100%;
         margin-bottom: -7px;
@@ -159,6 +161,7 @@ export default defineComponent({
             position: relative;
             .leftbg {
               width: 499px;
+              width: 450px;
               margin-bottom: -7px;
             }
             .leftover {
