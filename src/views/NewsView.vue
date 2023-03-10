@@ -2,6 +2,7 @@
   <div class="news-div">
     <div class="first-block">
       <img alt="" class="firstbgimg-css" src="@/assets/images/news/bg.png" />
+      <img alt="" class="firstmbgimg-css" src="@/assets/images/news/bgnews.png" />
       <div class="overonbg-block ">
         <div class="header-firblock">
           <div class="menu-child-block">
@@ -18,7 +19,13 @@
             <RouterLink to="/news">
               <span class="menu-text">新聞</span>
             </RouterLink>
-            <span class="menu-text">儲值購點</span>
+            <span class="menu-text" @click="gotoNewPage('gamePoint')">儲值購點</span>
+          </div>
+          <div class="m-header">
+            <div class="logo-block">
+              <img class="logo-css" src="@/assets/images/mainlogo.png" width="125" height="125" />
+              <p class="logo-text">米茲塔爾</p>
+            </div>
           </div>
         </div>
         <div class="header-secchild">
@@ -43,6 +50,9 @@
           </div>
         </div>
       </div>
+      <div class="menu-block" @click="gotoFrontPage()">
+        <img class="menu-css" src="@/assets/images/mobile/btn_menu.png" />
+      </div>
       <div class="overonbg-block1">
         <div class="overlap1">
         </div>
@@ -52,6 +62,14 @@
         </div>
         <div class="overlap3">
           <img alt="" class="messenger-css" src="@/assets/images/messenger.png" />
+        </div>
+      </div>
+      <div class="m-overblock">
+        <div class="m-innerover">
+          <div class="overlap2">
+            <img class="playstore-css" src="@/assets/images/playstore.png" />
+            <img class="appstore-css" src="@/assets/images/appstore.png" />
+          </div>
         </div>
       </div>
     </div>
@@ -176,16 +194,62 @@ import { defineComponent, ref } from "vue";
 export default defineComponent({
   data() {
     return {
-      selectedActive: 1
+      selectedActive: 1,
+      showMenu: false,
+      showMobile: false
     }
   },
   components: {
     
   },
+  created() {
+    if(this.isMobile()) {
+    } else {
+    }
+  },
+  mounted() {
+    window.addEventListener('resize', this.isMobile);
+  },
+  watch: {
+    showMenu: function (newVal, oldVal) {
+      console.log("watch newVal=", newVal, "oldVal=", oldVal);
+      this.fixedmenu();
+    },
+    showMobile: function(newVal, oldVal) {
+      console.log("watch newVal=", newVal, "oldVal=", oldVal);
+    }
+  },
   methods: {
+    gotoFrontPage() {
+      this.$router.push('/');
+    },
+    gotoNewPage(val) {
+      const routeData = this.$router.resolve({name: val});
+      window.open(routeData.href, '_blank');
+    },
+    fixedmenu() {
+      if(this.showMenu) {
+        $('body').addClass("fixed-position");
+      } else {
+        $('body').removeClass("fixed-position");
+      }
+    },
     selectItem(val) {
       this.selectedActive = val
-    }
+    },
+    openMenu() {
+      this.showMenu = !this.showMenu
+    },
+    isMobile() {
+      if( screen.width <= 768) {
+        this.showMobile = true;
+        return true;
+      }
+      else {
+        this.showMobile = false
+        return false;
+      }
+    },
   },
   setup() {
     
@@ -194,13 +258,24 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
-@media (min-width: 1024px) {
+// @media (min-width: 1024px) {
   .news-div {
     .first-block {
       position: relative;
       .firstbgimg-css {
         width: 100%;
         margin-bottom: -7px;
+        display: block;
+        @media screen and (max-width: 768px) {
+          display: none;
+        }
+      }
+      .firstmbgimg-css {
+        display: none;
+        @media screen and (max-width: 768px) {
+          width: 100%;
+          display: block;
+        }
       }
       .overonbg-block {
         position: absolute;
@@ -209,6 +284,20 @@ export default defineComponent({
 
         position: fixed;
         z-index: 10;
+      }
+      .menu-block {
+        display: none;
+        @media screen and (max-width: 768px) {
+          display: block;
+          position: fixed;
+          top: 2rem;
+          right: 1.3rem;
+          z-index: 11;
+          .menu-css {
+            width: 64px;
+            display: block;
+          }
+        }
       }
       
       .overonbg-block1 {
@@ -220,6 +309,9 @@ export default defineComponent({
         justify-content: space-between;
         padding: 0 2rem;
         
+        @media screen and (max-width: 768px) {
+          display: none;
+        }
         .overlap1 {
           width: 32%;
           visibility: hidden;
@@ -259,11 +351,64 @@ export default defineComponent({
           visibility: hidden;
         }
       }
+      .m-overblock {
+        display: none;
+        @media screen and (max-width: 768px) {
+          display: block;
+          position: absolute;
+          bottom: 2.5rem;
+          width: 100%;
+          .overlap1 {
+            visibility: hidden;
+            animation-name: mleftToRight;
+            animation-duration: 1s;
+            animation-timing-function: linear;
+            animation-delay: 2s;
+            animation-fill-mode: forwards; // hidden to visible
 
+            padding: 0 10% 9% 9%;
+          }
+          @keyframes mleftToRight {
+            0% {
+              visibility: hidden;
+              transform: translateX(-50px);
+            }
+            100% {
+              visibility: visible;
+              transform: translateX(0px);
+            }
+          }
+          .m-innerover {
+            display: flex;
+            .overlap2 {
+              display: flex;
+              justify-content: space-evenly;
+
+              visibility: hidden;
+              animation-name: bottomToTop;
+              animation-duration: 1s;
+              animation-timing-function: linear;
+              animation-delay: 2s;
+              animation-fill-mode: forwards; // hidden to visible
+              .playstore-css {
+                width: 37%;
+              }
+              .appstore-css {
+                width: 37%;
+              }
+            }
+          }
+        }
+      }
       .header-firblock {
         background: rgba(23, 30, 44, 0.55);
         backdrop-filter: blur(8.5px);
         -webkit-animation: top 2s;
+        @media screen and (max-width: 768px) {
+          background: none;
+          backdrop-filter: none;
+          -webkit-animation: none;
+        }
         .menu-child-block {
           display: flex;
           width: 80%;
@@ -272,6 +417,9 @@ export default defineComponent({
           line-height: 79px;
           margin: 0 auto;
           justify-content: center;
+          @media screen and (max-width: 768px) {
+            display: none;
+          }
           .menu-text {
             font-weight: 900;
             font-size: 24px;
@@ -300,12 +448,45 @@ export default defineComponent({
             }
           }
         }
+        .m-header {
+          display: none;
+          @media screen and (max-width: 768px) {
+            display: block;
+            position: relative;
+            width: 100%;
+            .logo-block {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+
+              padding-top: 2rem;
+              .logo-css {
+                width: 185px;
+                height: 83px;
+                filter: drop-shadow(0px 6px 16px rgba(0, 0, 0, 0.25));
+                margin: 0 1rem;
+              }
+              .logo-text {
+                letter-spacing: 1.5em;
+                margin-left: 1.5em;
+                color: #F9DB84;
+                text-shadow: 0px 4px 4px rgba(23, 31, 47, 0.1);
+                line-height: 1;
+                margin-top: -10px;
+              }
+            }
+          }
+        }
       }
       .header-secchild {
         display: flex;
         flex-direction: column;
         align-items: end;
-        
+
+        @media screen and (max-width: 768px) {
+          display: none;
+        }
         .row-head-block {
           display: flex;
           justify-content: space-between;
@@ -474,28 +655,55 @@ export default defineComponent({
       .inner-block {
         display: flex;
         justify-content: center;
+        @media screen and (max-width: 768px) {
+          overflow: auto;
+          justify-content: flex-start;
+
+          -ms-overflow-style: none;  /* IE and Edge */
+          scrollbar-width: none;  /* Firefox */
+        }
         .left-flower {
           display: flex;
           align-items: center;
           margin-right: 2rem;
+          @media screen and (max-width: 768px) {
+            margin-right: unset;
+            padding: 0 1rem;
+          }
         }
         .right-flower {
           display: flex;
           align-items: center;
           margin-left: 2rem;
+          @media screen and (max-width: 768px) {
+            margin-left: unset;
+            padding: 0 1rem;
+          }
         }
         .crystal-css {
           width: 52px;
           height: 62px;
           filter: drop-shadow(0px 0px 12px #5BEBFF);
+          @media screen and (max-width: 768px) {
+            width: 27px;
+            height: 32px;
+          }
         }
         .middel-div {
           display: flex;
           justify-content: space-between;
           width: 75%;
+          @media screen and (max-width: 768px) {
+            width: unset;
+          }
           .active-act {
             border: 4px solid #5BEBFF;
             margin-right: 4px;
+            @media screen and (max-width: 768px) {
+              background: rgba(23, 47, 172, 0.65);
+              border: 2px solid #5BEBFF;
+              border-radius: 12px;
+            }
             .shawdow-wrap {
               filter: drop-shadow(0px 0px 10px rgb(235, 243, 235));
               .larrowcss {
@@ -504,6 +712,10 @@ export default defineComponent({
                 height: 20px;
                 background: #5BEBFF;
                 box-shadow: 0px 0px 20px rgba(91, 235, 255, 0.85);
+                @media screen and (max-width: 768px) {
+                  width: 15px;
+                  height: 12px;
+                }
               }
               .rarrowcss {
                 clip-path: polygon(0 50%, 22% 0, 100% 50%, 22% 99%);
@@ -511,6 +723,10 @@ export default defineComponent({
                 width: 35px;
                 background: #5BEBFF;
                 box-shadow: 0px 0px 20px rgba(91, 235, 255, 0.85);
+                @media screen and (max-width: 768px) {
+                  width: 15px;
+                  height: 12px;
+                }
               }
             }
             .title-text {
@@ -519,6 +735,10 @@ export default defineComponent({
               color: #5BEBFF;
               text-shadow: 0px 0px 12px rgba(91, 235, 255, 0.8);
               margin: 0 20px;
+              @media screen and (max-width: 768px) {
+                margin: 0 10px;
+                font-size: 1rem;
+              }
             }
           }
           .noactive-act {
@@ -530,12 +750,20 @@ export default defineComponent({
                 height: 20px;
                 clip-path: polygon(0 50%, 78% 0, 100% 50%, 78% 99%);
                 background: #FFF;
+                @media screen and (max-width: 768px) {
+                  width: 15px;
+                  height: 12px;
+                }
               }
               .rarrowcss {
                 width: 35px;
                 height: 20px;
                 clip-path: polygon(0 50%, 22% 0, 100% 50%, 22% 99%);
                 background: #FFF;
+                @media screen and (max-width: 768px) {
+                  width: 15px;
+                  height: 12px;
+                }
               }
             }
             .title-text {
@@ -544,6 +772,10 @@ export default defineComponent({
               color: #FFFFFF;
               text-shadow: 0px 0px 12px rgba(255, 255, 255, 0.8);
               margin: 0 20px;
+              @media screen and (max-width: 768px) {
+                margin: 0 10px;
+                font-size: 1rem;
+              }
             }
           }
           .secoeach {
@@ -559,7 +791,16 @@ export default defineComponent({
 
             cursor: pointer; 
             width: 19%;
+            @media screen and (max-width: 768px) {
+              padding: 5px 10px;
+              width: 125px;
+            }
           }
+        }
+      }
+      @media screen and (max-width: 768px) {
+        .inner-block::-webkit-scrollbar {
+          display: none;
         }
       }
       .block2 {
@@ -569,6 +810,10 @@ export default defineComponent({
         height: 42px;
         width: 75%;
         margin: 3rem auto 0;
+        @media screen and (max-width: 768px) {
+          height: 54.2px;
+          width: 100%;
+        }
         .hrcss {
           height: 3px;
           background: #FFF;
@@ -583,18 +828,32 @@ export default defineComponent({
         height: 42px;
         background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%);
         // transform: rotate(-180deg);
+        @media screen and (max-width: 768px) {
+          height: 54.2px;
+        }
       }
       .block3 {
         width: 75%;
         margin: auto;
+        @media screen and (max-width: 768px) {
+          width: 100%;
+        }
         .row1 {
           display: flex;
           padding: 1.5rem 0;
           border-bottom: 3px dashed #2D31A3;
+          @media screen and (max-width: 768px) {
+            padding: 0 10px 2.4rem 0;
+            border-bottom: none;
+          }
           .commontitle1 {
             font-weight: 500;
             font-size: 24px;
             width: 15%;
+            @media screen and (max-width: 768px) {
+              font-size: 14px;
+              width: 20%;
+            }
           }
           .titlecolor1 {
             color: #44F4FF;
@@ -612,9 +871,23 @@ export default defineComponent({
             font-weight: 500;
             font-size: 24px;
             color: #FFF;
+            @media screen and (max-width: 768px) {
+              font-size: 14px;
+            }
+          }
+          .text-title3 {
+            @media screen and (max-width: 768px) {
+              color: #686A9E;
+            }
           }
           .text-title2 {
             width: 75%;
+            @media screen and (max-width: 768px) {
+              width: 70%;
+              white-space: nowrap; 
+              overflow: hidden;
+              text-overflow: ellipsis; 
+            }
           }
           .text-title3 {
             width: 10%;
@@ -628,6 +901,9 @@ export default defineComponent({
         padding: 5rem 0;
         display: flex;
         justify-content: center;
+        @media screen and (max-width: 768px) {
+          display: none;
+        }
         .btn-text {
           font-weight: 500;
           font-size: 24px;
@@ -650,14 +926,26 @@ export default defineComponent({
       padding: 2rem 2rem 2rem 3rem;
       // position: fixed;
       // bottom: 0;
+      @media screen and (max-width: 768px) {
+        flex-direction: column;
+        padding: 1rem;
+        background: #171C25;
+        border-top: 2px solid #444444;
+      }
       .foot-left {
         width: 30%;
         text-align: center;
+        @media screen and (max-width: 768px) {
+          width: 100%;
+        }
         .foot-left-row1 {
           display: flex;
           align-items: center;
           justify-content: center;
           margin-bottom: 1rem;
+          @media screen and (max-width: 768px) {
+            flex-direction: column;
+          }
         }
         .left-content {
           font-weight: 400;
@@ -668,17 +956,30 @@ export default defineComponent({
       .studioimg {
         width: 110px;
         height: 115.79px;
+        @media screen and (max-width: 768px) {
+          width: 74px;
+          height: 78px;
+        }
       }
       .studio-text {
         font-weight: 900;
         font-size: 40px;
         color: #FFF;
         margin-left: 2rem;
+        @media screen and (max-width: 768px) {
+          font-size: 24px;
+          margin-left: 0;
+          margin-top: 1rem;
+        }
       }
       .foot-right {
         width: 60%;
         display: flex;
         align-items: flex-end;
+        @media screen and (max-width: 768px) {
+          width: 100%;
+          padding: 2rem;
+        }
         .right-inner {
           display: flex;
           align-items: flex-start;
@@ -686,6 +987,10 @@ export default defineComponent({
           .dateimg {
             width: 72.39px;
             height: 76.84px;
+            @media screen and (max-width: 768px) {
+              width: 43px;
+              height: 46px;
+            }
           }
           .right-content {
             font-weight: 400;
@@ -693,6 +998,10 @@ export default defineComponent({
             color: #FFF;
             margin-left: 1rem;
             line-height: 25px;
+            @media screen and (max-width: 768px) {
+              font-size: 12px;
+              line-height: 18px;
+            }
           }
           p.right-content:before {
             content: '';
@@ -703,5 +1012,5 @@ export default defineComponent({
       }
     }
   }
-}
+// }
 </style>
