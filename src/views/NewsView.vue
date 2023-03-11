@@ -248,8 +248,8 @@ export default defineComponent({
   },
   methods: {
     gotoFrontPage() {
-      this.showMenu = !this.showMenu
-      // this.$router.push('/');
+      // this.showMenu = !this.showMenu
+      this.$router.push('/');
     },
     openMenu() {
       this.showMenu = !this.showMenu
