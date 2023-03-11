@@ -72,6 +72,33 @@
           </div>
         </div>
       </div>
+      <div class="open-menu" v-if="showMenu">
+        <div class="each-item">
+          <p class="menu-item">MYSTAL官網</p>
+          <p class="menu-item">事前預約</p>
+          <p class="menu-item" @click="gotoPage('news')">新聞</p>
+          <p class="menu-item">儲值購點</p>
+        </div>
+        <div class="each-media">
+          <div class="left-media">
+            <div class="m-fac-div">
+              <img class="m-facebook" src="@/assets/images/facebook-icon.png" />
+            </div>
+            <div class="m-fac-div">
+              <img class="m-youtube" src="@/assets/images/youtube-icon.png" />
+            </div>
+            <div class="m-fac-div">
+              <img class="m-discord" src="@/assets/images/discord-icon1.png" />
+            </div>
+          </div>
+          <div class="right-media">
+            <div class="m-rig-div">
+              <img class="m-msg" src="@/assets/images/message-icon.png" />
+              <p class="msg-text">官方論壇</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="second-block">
       <div class="inner-block">
@@ -221,7 +248,11 @@ export default defineComponent({
   },
   methods: {
     gotoFrontPage() {
-      this.$router.push('/');
+      this.showMenu = !this.showMenu
+      // this.$router.push('/');
+    },
+    openMenu() {
+      this.showMenu = !this.showMenu
     },
     gotoNewPage(val) {
       const routeData = this.$router.resolve({name: val});
@@ -236,9 +267,6 @@ export default defineComponent({
     },
     selectItem(val) {
       this.selectedActive = val
-    },
-    openMenu() {
-      this.showMenu = !this.showMenu
     },
     isMobile() {
       if( screen.width <= 768) {
@@ -260,6 +288,76 @@ export default defineComponent({
 <style lang="scss" scoped>
 // @media (min-width: 1024px) {
   .news-div {
+    .open-menu {
+      display: none;
+      @media screen and (max-width: 768px) {
+        display: block;
+        z-index: 10;
+        max-height: 100vh;
+        min-height: 100vh;
+        position: absolute;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        background: rgba(15, 23, 29, 0.75);
+        backdrop-filter: blur(5px);
+        .each-item {
+          text-align: center;
+          top: 100px;
+          .menu-item {
+            font-weight: 900;
+            font-size: 24px;
+            text-shadow: 0px 0px 18px #FFEDC9;
+            padding-bottom: 2rem;
+            color: #FFF;
+          }
+        }
+        .each-media {
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-end;
+          margin: 10rem 2rem 0;
+          .left-media {
+            text-align: center;
+            .m-fac-div {
+              margin-top: 1.5rem;
+              .m-facebook {
+                width: 33px;
+                height: 33px;
+              }
+              .m-youtube {
+                width: 36px;
+                height: 25px;
+              }
+              .m-discord {
+                width: 41px;
+                height: 31px;
+                display: block;
+              }
+            }
+          }
+          .right-media {
+            text-align: center;
+            .m-rig-div {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              .m-msg {
+                width: 46px;
+                height: 46px;
+                display: block;
+              }
+              .msg-text {
+                font-weight: 900;
+                font-size: 16px;
+                text-shadow: 0px 0px 18px #FFEDC9;
+              }
+            }
+          }
+        }
+      }
+    }
     .first-block {
       position: relative;
       .firstbgimg-css {
