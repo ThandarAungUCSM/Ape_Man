@@ -49,7 +49,7 @@ export const useSlideStore = defineStore("slide",{
           { id: 4, title: 'Vue 3', content: 'Know the components' , src: fsix4}
         ];
       } catch (error) {
-        alert(error);
+        // alert(error);
         console.log(error);
       }
     },
@@ -64,7 +64,6 @@ export const useSlideStore = defineStore("slide",{
           { id: 5, src: chaInfo5}
         ];
       } catch (error) {
-        alert(error);
         console.log(error);
       }
     },
@@ -79,7 +78,6 @@ export const useSlideStore = defineStore("slide",{
           { id: 5, src: chaInfo10}
         ];
       } catch (error) {
-        alert(error);
         console.log(error);
       }
     }

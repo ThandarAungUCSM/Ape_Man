@@ -136,7 +136,7 @@
       <div class="each-item">
         <p class="menu-item">MYSTAL官網</p>
         <p class="menu-item">事前預約</p>
-        <p class="menu-item">新聞</p>
+        <p class="menu-item" @click="gotoPage('news')">新聞</p>
         <p class="menu-item">儲值購點</p>
       </div>
       <div class="each-media">
@@ -894,6 +894,9 @@ export default defineComponent({
       window.open('https://apps.apple.com/', '_blank');
     },
     gotoPage(val) {
+      if(val == 'news') {
+        this.showMenu = !this.showMenu
+      }
       this.$router.push(val);
     },
     gotoNewPage(val) {
